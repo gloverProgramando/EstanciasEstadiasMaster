@@ -244,7 +244,12 @@ class PdfController extends Controller
       $spanish = array('es_utf8', 'es', 'es-ES', 'Spanish_Modern_Sort', 'es_utf8', 'es_ES@euro', 'esp_esp', 'esp_spain', 'spanish_esp', 'spanish_spain', 'es_ES.utf8', 'es-es','es_MX.utf8');
       $pdf = PDF::loadView('usuario.f05_cd_estancia', ['usuario' => $users,'datos' => $definicionP,'vinculacion'=>$uni,'fecha'=>$spanish,'proceso'=>$var]);
  
-      return $pdf->download('F-05_Carta_de_liberacion_Estancia.pdf');
+      if($proces == 5){
+        $path=public_path('archivos/CARTA LIBERACIÓN DE SERVICIO SOCIAL.docx');
+        return response()->download($path);
+      }else{
+        return $pdf->download('F-05_Carta_de_liberacion_Estancia.pdf');
+      }
     }
     
 
