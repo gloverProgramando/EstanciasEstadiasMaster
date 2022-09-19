@@ -863,6 +863,7 @@
 						</div>
 					</li>
 					<!--f04-->
+					@if ($proceso[0]!=5) <!-- Para ocultar el doc a Servicio Social-->
 					<li class="list-group-item d-flex justify-content-between align-items-start" style="border: 1px solid rgb(210, 210, 210);">
 						<div class="row lista">	
 						<div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2">
@@ -1074,6 +1075,7 @@
 							@enderror			
 						</div>
 					</li>
+					@endif
 					<!--F05-->
 					<li class="list-group-item d-flex justify-content-between align-items-start" style="border: 1px solid rgb(210, 210, 210);">
 						<div class="row lista">
