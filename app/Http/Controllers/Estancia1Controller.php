@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Auth;
 use Exception;
 use Illuminate\Support\Arr;
 use phpDocumentor\Reflection\Location;
+use Carbon\Carbon;
+
 class Estancia1Controller extends Controller
 {
     //
@@ -300,12 +302,14 @@ class Estancia1Controller extends Controller
             'id_c_aceptacion','id_c_registro','id_d_proyecto','id_c_liberacion','id_c_compromiso','id_r_mensual'];
         
             //controlador de estatus
-            if ($date='01' | $date='02' | $date='03' | $date='04' ){
-                    $estatus3 = 'enero-abril';
-            } elseif ( $date='05' | $date='06' | $date='07' | $date='08' ) {
-                    $estatus3 = 'mayo-abril';
-            } elseif ($date='09' | $date='10' | $date='11' | $date='12'){
-                    $estatus3 = 'septiembre-diciembre';
+            $date = Carbon::now();
+            $date = $date ->format('m');
+            if ($date=1 || $date=2 || $date=3 || $date=4 ){
+                    $estatus3 = 1;
+            } elseif ( $date=5 || $date=6 || $date=7 || $date=8 ) {
+                    $estatus3 = 2;
+            } elseif ($date=9 || $date=10 || $date=11 || $date=12){
+                    $estatus3 = 3;
             }
             $data6 = array(
                 $NcolBD[$idDoc-1]     =>  $response['id'],

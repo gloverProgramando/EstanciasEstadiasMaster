@@ -36,8 +36,8 @@
 			  <h2 class="text-titles">Busqueda<small>({{$proceso[1]}})</small></h2>
 			</div>
 		</div>
+        @include('notificaciones/notificaciones')  
         <div class="container">
-
                 <div class="row">
                     <div class=" col-12 col-sm-12 col-md-5">
                         <form action="{{ route('Buscar_estancia1.index',[$proceso[0],$proceso[1]]) }}" method="GET">
@@ -657,14 +657,14 @@
                                                         <!--pendiente-->
                                                         @case(1)
                                                             <div class="col-6 p-1">
-                                                                <form method="post" action="{{ route('aceptar_documento.index',[$respuestaC->id_usuario,$respuestaC->id_c_aceptacion,$proceso[0],5]) }}">
+                                                                <form method="post" action="{{ route('aceptar_documento.index',[$respuestaC->id_usuario,$respuestaC->id_c_aceptacion,$proceso[0],5]) }}" >
                                                                     @csrf
                                                                     <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar</button>
                                                                     <input type="hidden" class="form-control" name="texto1" value="{{$texto}}">
                                                                 </form>	
                                                             </div>
                                                             <div class="col-12 p-1">
-                                                                <form method="post" action="{{ route('observaciones_documento.index',[$respuestaC->id_usuario,$proceso[0],5]) }}">
+                                                                <form method="post" action="{{ route('observaciones_documento.index',[$respuestaC->id_usuario,$proceso[0],5]) }}" >
                                                                     @csrf
                                                                     <input type="text" name="id_c" id="id_c" value="{{$respuestaC->id_c_aceptacion}}" class="id_d">
                                                                     <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Obsevaciones</button>
