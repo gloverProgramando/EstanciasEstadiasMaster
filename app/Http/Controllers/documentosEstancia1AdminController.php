@@ -224,7 +224,7 @@ class documentosEstancia1AdminController extends Controller
         }
         $carta->save();
         $resp=$name[$doc-1].' Aceptada y '.CorreoController::store($idU, $name[$doc-1],1);
-         return redirect('Buscar/'.$proces.'/'.$texto)->with('aceptado',$resp);
+         return back()->withInput()->with('aceptado',$resp);
     }
     //documento pendiente->no manda correo
     public function pendiente_documento(request $request,$idU,$id,$proces,$doc) {//*funcion optimizada
@@ -271,7 +271,7 @@ class documentosEstancia1AdminController extends Controller
                 break;
         }
         $carta->save();
-         return redirect('Buscar/'.$proces.'/'.$texto)->with('pendiente',$name[$doc-1].' Pendiente');
+         return back()->withInput()->with('pendiente',$name[$doc-1].' Pendiente');
     }
     //vista observaciones carga horaria
     public function observaciones_documento(Request $request, $idU,$proces,$doc) {//*funcion optimizada
