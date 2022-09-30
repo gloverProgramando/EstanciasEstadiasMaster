@@ -45,6 +45,7 @@
 									<button type="submit" value="Agregar usuario" class="btn btn-info" > <i class="zmdi zmdi-account-add"> Agregar usuario</i></button>
 								</form>
 								<button onclick="armarExcel();" class="btn btn-secondary btn-sm mt-2"> Generar excel</button>
+								{{-- <a href="{{ route('usuarios/table.index') }}" class="btn btn-secondary btn-sm mt-2"> Prueba DataTable</a> --}}
 							</div>
 							
 						</div>
@@ -214,6 +215,10 @@
         XLSX.utils.book_append_sheet(wb, ws, "People");
         XLSX.writeFile(wb,filename);
 		}
+	</script>
+	<script>
+		var user = {!! json_encode($alumnos) !!};
+		console.log(user);
 	</script>
 </body>
 </html>

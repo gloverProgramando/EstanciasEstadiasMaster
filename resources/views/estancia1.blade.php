@@ -125,15 +125,19 @@
 										</div>
 									@empty
 									<!-- enviar carga horaria con datos-->
-										@forelse ($documentos['documentos'] as $dato)														
+										@forelse ($documentos['documentos'] as $dato)		
+																						
 											<form action="{{ route('actualizar_docs.index',[auth()->user()->name,$proceso[0],1]) }}" method="post" enctype="multipart/form-data" >
 												@csrf
+												@if ($botones[0]->periodo1 == true || $noActivar == 5)
 													<input type="text" class="id_d" value="{{$datoD->id_documentos}}" name="id_docs">
 													<span class="btn  fileinput-button">
 														<i class="zmdi zmdi-file"></i>
 														<input type="file" class="archivo" name="carga_horaria">
 													</span>
-													<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+													
+														<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+														@endif	
 											</form>
 											
 										@empty
@@ -144,11 +148,14 @@
 									<!-- enviar carga horaria vacio-->
 									<form action="{{ route('subir_doc.index',[auth()->user()->name,$proceso[0],1]) }}" method="post" enctype="multipart/form-data" >
 										@csrf
+										@if ($botones[0]->periodo1 == true || $noActivar == 5)
 										<span class="btn  fileinput-button">
 											<i class="zmdi zmdi-file"></i>
 											<input type="file" class="archivo" name="carga_horaria">
 										</span>
+										
 										<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+										@endif
 									</form>
 								@endforelse			
 							</div>
@@ -249,12 +256,15 @@
 										@forelse ($documentos['documentos'] as $dato)														
 											<form action="{{ route('actualizar_docs.index',[auth()->user()->name,$proceso[0],2]) }}" method="post" enctype="multipart/form-data" >
 												@csrf
+												@if ($botones[0]->periodo1 == true || $noActivar == 5)
 													<input type="text" class="id_d" value="{{$datoD->id_documentos}}" name="id_docs">
 													<span class="btn  fileinput-button">
 														<i class="zmdi zmdi-file"></i>
 														<input type="file" class="archivo" name="constancia_derecho">
 													</span>
+													
 													<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+													@endif
 											</form>
 											
 										@empty
@@ -265,11 +275,14 @@
 									<!-- enviar constancia derecho vacio-->
 									<form action="{{ route('subir_doc.index',[auth()->user()->name,$proceso[0],2]) }}" method="post" enctype="multipart/form-data" >
 										@csrf
+										@if ($botones[0]->periodo1 == true || $noActivar == 5)
 										<span class="btn  fileinput-button">
 											<i class="zmdi zmdi-file"></i>
 											<input type="file" class="archivo" name="constancia_derecho">
 										</span>
+										
 										<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+										@endif
 									</form>
 								@endforelse			
 							</div>
@@ -377,12 +390,15 @@
 										@forelse ($documentos['documentos'] as $dato)														
 											<form action="{{ route('actualizar_docs.index',[auth()->user()->name,$proceso[0],3]) }}" method="post" enctype="multipart/form-data" >
 												@csrf
+												@if ($botones[0]->periodo1 == true || $noActivar == 5)
 													<input type="text" class="id_d" value="{{$datoD->id_documentos}}" name="id_docs">
 													<span class="btn  fileinput-button">
 														<i class="zmdi zmdi-file"></i>
 														<input type="file" class="archivo" name="carta_responsiva">
 													</span>
+													
 													<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+													@endif
 											</form>
 											
 										@empty
@@ -393,11 +409,14 @@
 									<!-- enviar carta responsiva vacio-->
 									<form action="{{ route('subir_doc.index',[auth()->user()->name,$proceso[0],3]) }}" method="post" enctype="multipart/form-data" >
 										@csrf
+										@if ($botones[0]->periodo1 == true || $noActivar == 5)
 										<span class="btn  fileinput-button">
 											<i class="zmdi zmdi-file"></i>
 											<input type="file" class="archivo" name="carta_responsiva">
 										</span>
+									
 										<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+										@endif
 									</form>
 								@endforelse			
 							</div>
@@ -504,12 +523,15 @@
 										@forelse ($documentos['documentos'] as $dato)														
 											<form action="{{ route('actualizar_docs.index',[auth()->user()->name,$proceso[0],4]) }}" method="post" enctype="multipart/form-data" >
 												@csrf
+												@if ($botones[0]->periodo1 == true || $noActivar == 5)
 													<input type="text" class="id_d" value="{{$datoD->id_documentos}}" name="id_docs">
 													<span class="btn  fileinput-button">
 														<i class="zmdi zmdi-file"></i>
 														<input type="file" class="archivo" name="f01">
 													</span>
+													
 													<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+													@endif
 											</form>
 											
 										@empty
@@ -520,11 +542,14 @@
 								<!-- enviar cedula registro vacio-->
 									<form action="{{ route('subir_doc.index',[auth()->user()->name,$proceso[0],4]) }}" method="post" enctype="multipart/form-data" >
 										@csrf
+										@if ($botones[0]->periodo1 == true || $noActivar == 5)
 										<span class="btn  fileinput-button">
 											<i class="zmdi zmdi-file"></i>
 											<input type="file" class="archivo" name="f01">
 										</span>
+										
 										<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+										@endif
 									</form>
 								@endforelse			
 							</div>
@@ -629,12 +654,15 @@
 															@forelse ($documentos['documentos'] as $dato)														
 																<form action="{{ route('actualizar_docs.index',[auth()->user()->name,$proceso[0],5]) }}" method="post" enctype="multipart/form-data" >
 																	@csrf
+																	@if ($botones[0]->periodo2 == true || $noActivar == 5)
 																		<input type="text" class="id_d" value="{{$datoD->id_documentos}}" name="id_docs">
 																		<span class="btn  fileinput-button">
 																			<i class="zmdi zmdi-file"></i>
 																			<input type="file" class="archivo" name="f02">
 																		</span>
+																		
 																		<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+																		@endif
 																</form>
 																
 															@empty
@@ -645,11 +673,14 @@
 												<!-- enviar cedula registro vacio-->
 													<form action="{{ route('subir_doc.index',[auth()->user()->name,$proceso[0],5]) }}" method="post" enctype="multipart/form-data" >
 														@csrf
+														@if ($botones[0]->periodo2 == true || $noActivar == 5)
 														<span class="btn  fileinput-button">
 															<i class="zmdi zmdi-file"></i>
 															<input type="file" class="archivo" name="f02">
 														</span>
+														
 														<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+														@endif
 													</form>
 												@endforelse			
 							</div>
@@ -801,12 +832,15 @@
 														@forelse ($documentos['documentos'] as $dato)														
 															<form action="{{ route('actualizar_docs.index',[auth()->user()->name,$proceso[0],6]) }}" method="post" enctype="multipart/form-data" >
 																@csrf
+																@if ($botones[0]->periodo2 == true || $noActivar == 5)
 																	<input type="text" class="id_d" value="{{$datoD->id_documentos}}" name="id_docs">
 																	<span class="btn  fileinput-button">
 																		<i class="zmdi zmdi-file"></i>
 																		<input type="file" class="archivo" name="f03">
 																	</span>
+																	
 																	<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+																	@endif
 															</form>
 														@empty
 														Error
@@ -834,11 +868,13 @@
 												<!-- enviar cedula registro vacio-->
 												<form action="{{ route('subir_doc.index',[auth()->user()->name,$proceso[0],6]) }}" method="post" enctype="multipart/form-data" >
 													@csrf
+													@if ($botones[0]->periodo1 == true || $noActivar == 5)
 													<span class="btn  fileinput-button">
 														<i class="zmdi zmdi-file"></i>
 														<input type="file" class="archivo" name="f03">
 													</span>
 													<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+													@endif
 												</form>
 											</div>
 										</div>					
@@ -1018,7 +1054,9 @@
 																		<i class="zmdi zmdi-file"></i>
 																		<input type="file" class="archivo" name="f04">
 																	</span>
+																	@if ($botones[0]->periodo2 == true)
 																	<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+																	@endif
 															</form>
 														@empty
 														Error
@@ -1173,12 +1211,15 @@
 											@forelse ($documentos['documentos'] as $dato)														
 												<form action="{{ route('actualizar_docs.index',[auth()->user()->name,$proceso[0],8]) }}" method="post" enctype="multipart/form-data" >
 													@csrf
+													@if ($botones[0]->periodo3 == true || $noActivar == 5)
 														<input type="text" class="id_d" value="{{$datoD->id_documentos}}" name="id_docs">
 														<span class="btn  fileinput-button">
 															<i class="zmdi zmdi-file"></i>
 															<input type="file" class="archivo" name="f05">
 														</span>
+														
 														<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+														@endif
 												</form>
 												
 											@empty
@@ -1189,11 +1230,14 @@
 								<!-- enviar cedula registro vacio-->
 									<form action="{{ route('subir_doc.index',[auth()->user()->name,$proceso[0],8]) }}" method="post" enctype="multipart/form-data" >
 										@csrf
+										@if ($botones[0]->periodo3 == true || $noActivar == 5)
 										<span class="btn  fileinput-button">
 											<i class="zmdi zmdi-file"></i>
 											<input type="file" class="archivo" name="f05">
 										</span>
+										
 										<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+										@endif
 									</form>
 								@endforelse			
 							</div>	
@@ -1459,6 +1503,7 @@
 										
 						</div>
 					</li>
+
 					@endif
 					<!--Formato reporte de evaluacion-->
 					<li class="list-group-item d-flex justify-content-between align-items-start" style="border: 1px solid rgb(210, 210, 210);">

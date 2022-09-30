@@ -14,6 +14,7 @@ use App\Models\carta_compromiso;
 use App\Models\reporte_mensual;
 use App\Models\documentos;
 use App\Models\respuesta_doc;
+use App\Models\Activar_botones;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,6 +26,7 @@ class Estancia1Controller extends Controller
     //
     public function ver($proces){//*funcional
         $userID=Auth::user()->id; 
+        $noActivar = $proces;
         $name=['Estancia I','Estancias II','Estadía','Estadías Nacionales','Servicio Social'];
         //!cambiar este numero si se quiere agregar un nuevo proceso y tambien agregar el nombre en $name
         if($proces>0 && $proces<=5){//comprueba si el numero es de algun proceso del 1...5
@@ -206,13 +208,17 @@ class Estancia1Controller extends Controller
         ->where('id_proceso',$proces) //cambio 1 para arreglar error de duplicacion de datos en estancia y estadia
         ->get();
 
+        $botones = DB::table('activar_botones')
+        ->get();
+        
+
         $carta_co =['carta_compromiso'=> $carta_compromiso];
         $reporte_m =['reporte_mensual'=> $reporte_mensual];
         $datos14 = Arr::collapse([$carta_co,$reporte_m]);
 
         return view('estancia1',['datos'=>$datos,'definicionP'=>$datos1,
         'documentos'=>$datos2,'etapas'=>$datos3,'carta_aceptacion'=>$datos4,
-        'carta'=>$datos5,'carta1'=>$datos6,'proceso'=>$var,'documentos2'=>$datos14]);
+        'carta'=>$datos5,'carta1'=>$datos6,'proceso'=>$var,'noActivar'=>$noActivar,'documentos2'=>$datos14,'botones'=>$botones]);
     }
     //subir documento sin datos carga horaria
     public function subir_carga_horaria_estancia1(Request $request, $name,$proces,$idDoc){//*funcional
