@@ -205,6 +205,17 @@ class Estancia1Controller extends Controller
         ->join('reporte_mensual','reporte_mensual.id','=','documentos.id_r_mensual')
         ->select('documentos.id_r_mensual as id','reporte_mensual.nombre_r_m','reporte_mensual.estado_r_m','reporte_mensual.observaciones_r_m','respuesta_doc.id_documentos','users.name')
         ->where('users.id',$userID)
+        ->where('reporte_mensual.mes',1)
+        ->where('id_proceso',$proces) //cambio 1 para arreglar error de duplicacion de datos en estancia y estadia
+        ->get();
+
+        $reporte_mensual2 =DB::table('users')
+        ->join('respuesta_doc','users.id','=','respuesta_doc.id_usuario')
+        ->join('documentos','documentos.id','=','respuesta_doc.id_documentos')
+        ->join('reporte_mensual','reporte_mensual.id','=','documentos.id_r_mensual')
+        ->select('documentos.id_r_mensual as id','reporte_mensual.nombre_r_m','reporte_mensual.estado_r_m','reporte_mensual.observaciones_r_m','respuesta_doc.id_documentos','users.name')
+        ->where('users.id',$userID)
+        ->where('reporte_mensual.mes',2)
         ->where('id_proceso',$proces) //cambio 1 para arreglar error de duplicacion de datos en estancia y estadia
         ->get();
 
@@ -214,16 +225,17 @@ class Estancia1Controller extends Controller
 
         $carta_co =['carta_compromiso'=> $carta_compromiso];
         $reporte_m =['reporte_mensual'=> $reporte_mensual];
+        $reporte_m2 =['reporte_mensual2'=> $reporte_mensual2];
         $datos14 = Arr::collapse([$carta_co,$reporte_m]);
 
         return view('estancia1',['datos'=>$datos,'definicionP'=>$datos1,
         'documentos'=>$datos2,'etapas'=>$datos3,'carta_aceptacion'=>$datos4,
-        'carta'=>$datos5,'carta1'=>$datos6,'proceso'=>$var,'noActivar'=>$noActivar,'documentos2'=>$datos14,'botones'=>$botones]);
+        'carta'=>$datos5,'carta1'=>$datos6,'proceso'=>$var,'noActivar'=>$noActivar,'documentos2'=>$datos14,'botones'=>$botones,'reporte_mensual2'=>$reporte_m2]);
     }
     //subir documento sin datos carga horaria
     public function subir_carga_horaria_estancia1(Request $request, $name,$proces,$idDoc){//*funcional
     //!al subir el primer documento se crea el registro de la tabla documeentos
-        $Ndoc=['carga_horaria','constancia_derecho','carta_responsiva','f01','f02','f03','f04','f05','carta_compromiso','reporte_mensual'];
+        $Ndoc=['carga_horaria','constancia_derecho','carta_responsiva','f01','f02','f03','f04','f05','carta_compromiso','reporte_mensual','reporte_mensual2'];
         $request->validate([
             $Ndoc[$idDoc-1]=> "required|mimetypes:application/pdf|max:30000"
         ]);
@@ -278,6 +290,10 @@ class Estancia1Controller extends Controller
                 case '10':
                     $data5 = array('nombre_r_m' => $nombreAF,'estado_r_p'=> 1);
                     $response = reporte_mensual::requestInsertcartarp($data5);
+                    break; 
+                case '11':
+                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
+                    $response = reporte_mensual::requestInsertcargarp($data5);
                     break;    
                 default:
                     # code...
@@ -374,7 +390,7 @@ class Estancia1Controller extends Controller
     //actualizar documento carga horaria
     public function actualizar_carga_horaria_estancia1(Request $request, $name,$proces,$idDoc){//*funcional
         //!Al subir un documento se actualiza el registro de la tabla documentos
-        $Ndoc=['carga_horaria','constancia_derecho','carta_responsiva','f01','f02','f03','f04','f05','carta_compromiso','reporte_mensual'];
+        $Ndoc=['carga_horaria','constancia_derecho','carta_responsiva','f01','f02','f03','f04','f05','carta_compromiso','reporte_mensual','reporte_mensual'];
         $request->validate([
             $Ndoc[$idDoc-1]=> "required|mimetypes:application/pdf|max:30000"
         ]);
@@ -425,9 +441,13 @@ class Estancia1Controller extends Controller
                     $response = carta_compromiso::requestInsertcargaC($data5);
                     break;
                 case '10':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
+                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1, 'mes' => 1);
                     $response = reporte_mensual::requestInsertcargarp($data5);
                     break;   
+                case '11':
+                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1,'mes' => 2);
+                    $response = reporte_mensual::requestInsertcargarp($data5);
+                    break; 
                 default:
                     # code...
                 break;
@@ -474,6 +494,8 @@ class Estancia1Controller extends Controller
                 case 9:$carta->id_c_compromiso=$response['id'];
                     break;
                 case 10:$carta->id_r_mensual=$response['id'];
+                    break;
+                case 11:$carta->id_r_mensual=$response['id'];
                     break;
                 default:
                     # code...

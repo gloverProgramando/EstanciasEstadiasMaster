@@ -136,6 +136,9 @@ class documentosEstancia1AdminController extends Controller
         ->where('documentos.id_proceso',$proces)
         ->get();
 
+
+        // Aqui se agregara una neuva funcion para los 12 docs
+
         //array 5
         $r_m   = ['reporte_mensual' => $doc_reporte_mensual];
         $c_com   = ['carta_compromiso' => $doc_carta_compromiso];

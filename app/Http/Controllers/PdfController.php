@@ -316,7 +316,7 @@ class PdfController extends Controller
     //cancelar documentos
     public function cancelar_carga_horaria_Estancia(Request $req,$proces,$id_docs,$id_d,$idDoc){//*funcional
       $Ntab=['carga_horaria','constancia_derecho','carta_responsiva','carta_presentacion','carta_aceptacion',
-        'cedula_registro','definicion_proyecto','carta_liberacion'];
+        'cedula_registro','definicion_proyecto','carta_liberacion','carta_compromiso','reporte_mensual','reporte_mensual'];
       $nombreA=$req->get('ubiD');
       $carta=documentos::find($id_docs);//*quita el id del doc para no eliminar todos (no se porque ocurra eso)
       switch ($idDoc) {//*define la columna que modificara
@@ -337,6 +337,11 @@ class PdfController extends Controller
         case 8:$carta->id_c_liberacion=NULL;
           break;
         case 9:$carta->id_c_compromiso=Null;
+        break;
+        case 10:$carta->id_r_mensual=NULL;
+        break;
+        case 11:$carta->id_r_mensual=NULL;
+        break;
         default:
           break;
       }
