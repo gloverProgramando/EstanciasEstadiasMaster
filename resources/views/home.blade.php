@@ -48,7 +48,7 @@
                 <img src="https://2.bp.blogspot.com/-lloP7I7aXg8/Waty2XI6eBI/AAAAAAAACPw/XnXPjhNNTM4kPA4fVhV9_U-DRtpgvCnzwCLcBGAs/s1600/upqroo2.png" height="70" alt="upqroo logo">
             </a>
             <ul class="nav navbar-nav mx-auto">
-                    <h3 class="text-center">Universidad Politécnica de Quintana Roo</h3>
+                    <h3 class="text-center">Universidad Politécnica de Quintana Roo </h3>
                     <h3 class="text-center">Dirección de Vinculación, Difusión y Extensión Universitaria</h3>
                     <h4 class="text-center">CÉDULA DE REGISTRO DE ESTANCIAS Y ESTADIAS</h4>
             </ul>
@@ -302,6 +302,7 @@
                         <option value="7">C.P.T</option>
                         <option value="8">Profr.</option>
                         <option value="9">Profra.</option>
+                        <option value="9">C.</option>
                     </select>
                 </div>
                 <div class="form-group col-md-1">
@@ -367,6 +368,7 @@
                         <option value="7">C.P.T</option>
                         <option value="8">Profr.</option>
                         <option value="9">Profra.</option>
+                        <option value="10">C.</option>
                     </select>
                 </div>
                 <div class="form-group col-md-1">
