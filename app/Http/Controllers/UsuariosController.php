@@ -19,7 +19,6 @@ class UsuariosController extends Controller
     public function create() {;
 
         try {
-            $alumnos = DB::table('alumno')->get();
             $alm_prueba = DB::table('alumno')
             ->join('formulario', 'alumno.id', '=', 'formulario.id_alumno')
             ->join('asesor_academico','formulario.id_asesor_aca', '=', 'asesor_academico.id')
@@ -43,7 +42,7 @@ class UsuariosController extends Controller
             $r   = ['respuestas' => $respuestas];
             $datos = Arr::collapse([$u,$r]);
     
-            return view('admin.usuarios', ['datos'=>$datos,'alumnos'=>$alumnos,'alm_prueba'=>$alm_prueba]);
+            return view('admin.usuarios', ['datos'=>$datos,'alm_prueba'=>$alm_prueba]);
         } catch(\Illuminate\Database\QueryException $ex ) {
             dd("Error");
         } catch(Exception $ex ) {

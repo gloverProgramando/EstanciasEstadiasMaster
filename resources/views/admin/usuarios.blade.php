@@ -205,7 +205,7 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.1/xlsx.full.min.js"></script> 
 	<script>
 		function armarExcel(){
-			var user = {!! json_encode($alumnos) !!};
+
 			var pru = {!! json_encode($alm_prueba) !!};
 			// console.log(pru);
 
@@ -216,10 +216,7 @@
         XLSX.writeFile(wb,filename);
 		}
 	</script>
-	<script>
-		var user = {!! json_encode($alumnos) !!};
-		console.log(user);
-	</script>
+
 </body>
 </html>
 <style>

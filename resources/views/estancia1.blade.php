@@ -1503,7 +1503,7 @@
 										
 						</div>
 					</li>
-
+					<!-- Reporte mensual 2-->
 					<li class="list-group-item d-flex justify-content-between align-items-start" style="border: 1px solid rgb(210, 210, 210);">
 						<div class="row lista">
 							<div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2">
@@ -1522,23 +1522,23 @@
 							</div>
 							<!--enviar doc-->
 							<div class="col-12 col-sm-12 col-md-12 col-lg-7 p-1 colArchivo">
-								@forelse ($documentos['documentos'] as $datoD)
-										@forelse ($reporte_mensual2['reporte_mensual2'] as $datoRP)
+								@forelse ($documentos['documentos'] as $datoD2)
+										@forelse ($reporte_mensual2['reporte_mensual2'] as $datoRP2)
 														<div class="row">
 															<div class="col-12 col-sm-12 py-1">
-																@switch($datoRP->estado_r_m)
+																@switch($datoRP2->estado_r_m)
 																	@case(0)
 																		<!--Observaciones-->
 																		<div class="row">
 																			<div class="col-12 col-sm-9">
-																				<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP->id_documentos,$datoRP->id,11]) }}" method="POST" enctype="multipart/form-data">
+																				<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,11]) }}" method="POST" enctype="multipart/form-data">
 																					@csrf
 																					<div class="row">
 																						<div class="col-12 col-sm-9 id_d" >
-																							<input type="text" name="ubiD" id="" value="{{$datoRP->nombre_r_m}}" class="nombreDoc"style=''>
+																							<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
 																						</div>
 																						<div class="col-12 col-sm-9 py-1" >
-																							<input type="text" value="{{$datoRP->nombre_r_m}}" class="nombreDoc" disabled>
+																							<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
 																						</div>
 																						<div class="col-12 col-sm-3 py-1">
 																							<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
@@ -1548,7 +1548,7 @@
 																				</form>
 																			</div>
 																			<div class="col-12 col-sm-3">
-																				<a href="{{ route('observaciones_doc.index',[$proceso[0],11,$datoRP->id]) }}">
+																				<a href="{{ route('observaciones_doc.index',[$proceso[0],11,$datoRP2->id]) }}">
 																					<button type="submit" class="btn btn-outline-danger divObservacionf02" ><i class="zmdi zmdi-folder-person">  Observaciones</i> </button>
 																				</a>	
 																			</div>
@@ -1560,14 +1560,14 @@
 																	<!--pendiente-->
 																	<div class="row">
 																		<div class="col-12 col-sm-9">
-																			<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP->id_documentos,$datoRP->id,11]) }}" method="POST" enctype="multipart/form-data">
+																			<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,11]) }}" method="POST" enctype="multipart/form-data">
 																				@csrf
 																				<div class="row">
 																					<div class="col-12 col-sm-9 px-3 py-1 id_d" >
-																						<input type="text" name="ubiD" id="" value="{{$datoRP->nombre_r_m}}" class="nombreDoc"style=''>
+																						<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
 																					</div>
 																					<div class="col-12 col-sm-9 px-3 py-1" >
-																						<input type="text" value="{{$datoRP->nombre_r_m}}" class="nombreDoc" disabled>
+																						<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
 																					</div>
 																					<div class="col-12 col-sm-3 px-3 py-1">
 																						<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
@@ -1582,7 +1582,7 @@
 																	<!--aceptado-->
 																			<div class="row">
 																				<div class="col-12 col-sm-9 px-3 py-1" >
-																					<input type="text" value="{{$datoRP->nombre_r_m}}" class="nombreDoc" disabled>
+																					<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
 																				</div>
 																				<div class="col-12 col-sm-3 px-3 py-1" >
 																					<div class="divAceptadof02"><i class="zmdi zmdi-check-circle-u">  Aceptado</i> </div>
@@ -1599,7 +1599,7 @@
 											@forelse ($documentos['documentos'] as $dato)														
 												<form action="{{ route('actualizar_docs.index',[auth()->user()->name,$proceso[0],11]) }}" method="post" enctype="multipart/form-data" >
 													@csrf
-														<input type="text" class="id_d" value="{{$datoD->id_documentos}}" name="id_docs">
+														<input type="text" class="id_d" value="{{$datoD2->id_documentos}}" name="id_docs">
 														<span class="btn  fileinput-button">
 															<i class="zmdi zmdi-file"></i>
 															<input type="file" class="archivo" name="reporte_mensual">
@@ -1630,6 +1630,1287 @@
 										
 						</div>
 					</li>
+
+					<!-- Reporte mensual 3-->	
+					<li class="list-group-item d-flex justify-content-between align-items-start" style="border: 1px solid rgb(210, 210, 210);">
+						<div class="row lista">
+							<div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+								<div class="ms-2 me-auto">
+									10.-Reporte mensual 3
+								</div>
+							</div>
+							<!--Descargar-->
+							<div class="col-6 col-sm-12 col-md-3 col-lg-2 col-xl-2 p-1 colDescargar text-left">
+								<a href="{{ route('descargar_reporte_mensual.index') }}">
+									<button type="button" class="btn btn-outline-info btnDescargar"><i class="zmdi zmdi-download"> Descargar</i></button>
+								</a>
+							</div>
+							<div class="col-6 col-sm-6 col-md-5 col-lg-3 col-xl-1 p-1 colLlenar  ">
+												
+							</div>
+							<!--enviar doc-->
+							<div class="col-12 col-sm-12 col-md-12 col-lg-7 p-1 colArchivo">
+								@forelse ($documentos['documentos'] as $datoD2)
+										@forelse ($reporte_mensual3['reporte_mensual3'] as $datoRP2)
+														<div class="row">
+															<div class="col-12 col-sm-12 py-1">
+																@switch($datoRP2->estado_r_m)
+																	@case(0)
+																		<!--Observaciones-->
+																		<div class="row">
+																			<div class="col-12 col-sm-9">
+																				<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,12]) }}" method="POST" enctype="multipart/form-data">
+																					@csrf
+																					<div class="row">
+																						<div class="col-12 col-sm-9 id_d" >
+																							<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
+																						</div>
+																						<div class="col-12 col-sm-9 py-1" >
+																							<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																						</div>
+																						<div class="col-12 col-sm-3 py-1">
+																							<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
+																						</div>
+																					</div>
+																					
+																				</form>
+																			</div>
+																			<div class="col-12 col-sm-3">
+																				<a href="{{ route('observaciones_doc.index',[$proceso[0],12,$datoRP2->id]) }}">
+																					<button type="submit" class="btn btn-outline-danger divObservacionf02" ><i class="zmdi zmdi-folder-person">  Observaciones</i> </button>
+																				</a>	
+																			</div>
+																							
+																		</div>																																					
+																	@break
+																
+																	@case(1)
+																	<!--pendiente-->
+																	<div class="row">
+																		<div class="col-12 col-sm-9">
+																			<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,12]) }}" method="POST" enctype="multipart/form-data">
+																				@csrf
+																				<div class="row">
+																					<div class="col-12 col-sm-9 px-3 py-1 id_d" >
+																						<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
+																					</div>
+																					<div class="col-12 col-sm-9 px-3 py-1" >
+																						<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																					</div>
+																					<div class="col-12 col-sm-3 px-3 py-1">
+																						<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
+																					</div>
+																				</div>																			
+																			</form>
+																		</div>
+																		<div class="col-12 col-sm-3">
+																			<div class="divPendientef02"><i class="zmdi zmdi-folder-person">  Pendiente</i>  </div>
+																	@break
+																	@case(2)
+																	<!--aceptado-->
+																			<div class="row">
+																				<div class="col-12 col-sm-9 px-3 py-1" >
+																					<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																				</div>
+																				<div class="col-12 col-sm-3 px-3 py-1" >
+																					<div class="divAceptadof02"><i class="zmdi zmdi-check-circle-u">  Aceptado</i> </div>
+																				</div>
+																			</div>																			
+																	@break
+																	@default
+																			<p>Error</p>
+																@endswitch
+															</div>
+														</div>
+										@empty
+										<!-- enviar cedula registro con datos-->
+											@forelse ($documentos['documentos'] as $dato)														
+												<form action="{{ route('actualizar_docs.index',[auth()->user()->name,$proceso[0],12]) }}" method="post" enctype="multipart/form-data" >
+													@csrf
+														<input type="text" class="id_d" value="{{$datoD2->id_documentos}}" name="id_docs">
+														<span class="btn  fileinput-button">
+															<i class="zmdi zmdi-file"></i>
+															<input type="file" class="archivo" name="reporte_mensual">
+														</span>
+														<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+												</form>
+												
+											@empty
+												Error
+											@endforelse	
+										@endforelse	
+								@empty
+								<!-- enviar cedula registro vacio-->
+									<form action="{{ route('subir_doc.index',[auth()->user()->name,$proceso[0],12]) }}" method="post" enctype="multipart/form-data" >
+										@csrf
+										<span class="btn  fileinput-button">
+											<i class="zmdi zmdi-file"></i>
+											<input type="file" class="archivo" name="reporte_mensual">
+										</span>
+										<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+									</form>
+								@endforelse			
+							</div>	
+							<!--error f05-->			
+							@error('reporte_mensual')
+								<p class="border border-danger rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+							@enderror													
+										
+						</div>
+					</li>
+
+					<!-- Reporte mensual 4-->
+					<li class="list-group-item d-flex justify-content-between align-items-start" style="border: 1px solid rgb(210, 210, 210);">
+						<div class="row lista">
+							<div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+								<div class="ms-2 me-auto">
+									10.-Reporte mensual 4
+								</div>
+							</div>
+							<!--Descargar-->
+							<div class="col-6 col-sm-12 col-md-3 col-lg-2 col-xl-2 p-1 colDescargar text-left">
+								<a href="{{ route('descargar_reporte_mensual.index') }}">
+									<button type="button" class="btn btn-outline-info btnDescargar"><i class="zmdi zmdi-download"> Descargar</i></button>
+								</a>
+							</div>
+							<div class="col-6 col-sm-6 col-md-5 col-lg-3 col-xl-1 p-1 colLlenar  ">
+												
+							</div>
+							<!--enviar doc-->
+							<div class="col-12 col-sm-12 col-md-12 col-lg-7 p-1 colArchivo">
+								@forelse ($documentos['documentos'] as $datoD2)
+										@forelse ($reporte_mensual4['reporte_mensual4'] as $datoRP2)
+														<div class="row">
+															<div class="col-12 col-sm-12 py-1">
+																@switch($datoRP2->estado_r_m)
+																	@case(0)
+																		<!--Observaciones-->
+																		<div class="row">
+																			<div class="col-12 col-sm-9">
+																				<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,13]) }}" method="POST" enctype="multipart/form-data">
+																					@csrf
+																					<div class="row">
+																						<div class="col-12 col-sm-9 id_d" >
+																							<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
+																						</div>
+																						<div class="col-12 col-sm-9 py-1" >
+																							<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																						</div>
+																						<div class="col-12 col-sm-3 py-1">
+																							<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
+																						</div>
+																					</div>
+																					
+																				</form>
+																			</div>
+																			<div class="col-12 col-sm-3">
+																				<a href="{{ route('observaciones_doc.index',[$proceso[0],13,$datoRP2->id]) }}">
+																					<button type="submit" class="btn btn-outline-danger divObservacionf02" ><i class="zmdi zmdi-folder-person">  Observaciones</i> </button>
+																				</a>	
+																			</div>
+																							
+																		</div>																																					
+																	@break
+																
+																	@case(1)
+																	<!--pendiente-->
+																	<div class="row">
+																		<div class="col-12 col-sm-9">
+																			<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,13]) }}" method="POST" enctype="multipart/form-data">
+																				@csrf
+																				<div class="row">
+																					<div class="col-12 col-sm-9 px-3 py-1 id_d" >
+																						<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
+																					</div>
+																					<div class="col-12 col-sm-9 px-3 py-1" >
+																						<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																					</div>
+																					<div class="col-12 col-sm-3 px-3 py-1">
+																						<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
+																					</div>
+																				</div>																			
+																			</form>
+																		</div>
+																		<div class="col-12 col-sm-3">
+																			<div class="divPendientef02"><i class="zmdi zmdi-folder-person">  Pendiente</i>  </div>
+																	@break
+																	@case(2)
+																	<!--aceptado-->
+																			<div class="row">
+																				<div class="col-12 col-sm-9 px-3 py-1" >
+																					<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																				</div>
+																				<div class="col-12 col-sm-3 px-3 py-1" >
+																					<div class="divAceptadof02"><i class="zmdi zmdi-check-circle-u">  Aceptado</i> </div>
+																				</div>
+																			</div>																			
+																	@break
+																	@default
+																			<p>Error</p>
+																@endswitch
+															</div>
+														</div>
+										@empty
+										<!-- enviar cedula registro con datos-->
+											@forelse ($documentos['documentos'] as $dato)														
+												<form action="{{ route('actualizar_docs.index',[auth()->user()->name,$proceso[0],13]) }}" method="post" enctype="multipart/form-data" >
+													@csrf
+														<input type="text" class="id_d" value="{{$datoD2->id_documentos}}" name="id_docs">
+														<span class="btn  fileinput-button">
+															<i class="zmdi zmdi-file"></i>
+															<input type="file" class="archivo" name="reporte_mensual">
+														</span>
+														<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+												</form>
+												
+											@empty
+												Error
+											@endforelse	
+										@endforelse	
+								@empty
+								<!-- enviar cedula registro vacio-->
+									<form action="{{ route('subir_doc.index',[auth()->user()->name,$proceso[0],13]) }}" method="post" enctype="multipart/form-data" >
+										@csrf
+										<span class="btn  fileinput-button">
+											<i class="zmdi zmdi-file"></i>
+											<input type="file" class="archivo" name="reporte_mensual">
+										</span>
+										<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+									</form>
+								@endforelse			
+							</div>	
+							<!--error f05-->			
+							@error('reporte_mensual')
+								<p class="border border-danger rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+							@enderror													
+										
+						</div>
+					</li>
+
+					<!-- Reporte mensual 5-->
+					<li class="list-group-item d-flex justify-content-between align-items-start" style="border: 1px solid rgb(210, 210, 210);">
+						<div class="row lista">
+							<div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+								<div class="ms-2 me-auto">
+									10.-Reporte mensual 5
+								</div>
+							</div>
+							<!--Descargar-->
+							<div class="col-6 col-sm-12 col-md-3 col-lg-2 col-xl-2 p-1 colDescargar text-left">
+								<a href="{{ route('descargar_reporte_mensual.index') }}">
+									<button type="button" class="btn btn-outline-info btnDescargar"><i class="zmdi zmdi-download"> Descargar</i></button>
+								</a>
+							</div>
+							<div class="col-6 col-sm-6 col-md-5 col-lg-3 col-xl-1 p-1 colLlenar  ">
+												
+							</div>
+							<!--enviar doc-->
+							<div class="col-12 col-sm-12 col-md-12 col-lg-7 p-1 colArchivo">
+								@forelse ($documentos['documentos'] as $datoD2)
+										@forelse ($reporte_mensual5['reporte_mensual5'] as $datoRP2)
+														<div class="row">
+															<div class="col-12 col-sm-12 py-1">
+																@switch($datoRP2->estado_r_m)
+																	@case(0)
+																		<!--Observaciones-->
+																		<div class="row">
+																			<div class="col-12 col-sm-9">
+																				<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,14]) }}" method="POST" enctype="multipart/form-data">
+																					@csrf
+																					<div class="row">
+																						<div class="col-12 col-sm-9 id_d" >
+																							<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
+																						</div>
+																						<div class="col-12 col-sm-9 py-1" >
+																							<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																						</div>
+																						<div class="col-12 col-sm-3 py-1">
+																							<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
+																						</div>
+																					</div>
+																					
+																				</form>
+																			</div>
+																			<div class="col-12 col-sm-3">
+																				<a href="{{ route('observaciones_doc.index',[$proceso[0],14,$datoRP2->id]) }}">
+																					<button type="submit" class="btn btn-outline-danger divObservacionf02" ><i class="zmdi zmdi-folder-person">  Observaciones</i> </button>
+																				</a>	
+																			</div>
+																							
+																		</div>																																					
+																	@break
+																
+																	@case(1)
+																	<!--pendiente-->
+																	<div class="row">
+																		<div class="col-12 col-sm-9">
+																			<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,14]) }}" method="POST" enctype="multipart/form-data">
+																				@csrf
+																				<div class="row">
+																					<div class="col-12 col-sm-9 px-3 py-1 id_d" >
+																						<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
+																					</div>
+																					<div class="col-12 col-sm-9 px-3 py-1" >
+																						<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																					</div>
+																					<div class="col-12 col-sm-3 px-3 py-1">
+																						<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
+																					</div>
+																				</div>																			
+																			</form>
+																		</div>
+																		<div class="col-12 col-sm-3">
+																			<div class="divPendientef02"><i class="zmdi zmdi-folder-person">  Pendiente</i>  </div>
+																	@break
+																	@case(2)
+																	<!--aceptado-->
+																			<div class="row">
+																				<div class="col-12 col-sm-9 px-3 py-1" >
+																					<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																				</div>
+																				<div class="col-12 col-sm-3 px-3 py-1" >
+																					<div class="divAceptadof02"><i class="zmdi zmdi-check-circle-u">  Aceptado</i> </div>
+																				</div>
+																			</div>																			
+																	@break
+																	@default
+																			<p>Error</p>
+																@endswitch
+															</div>
+														</div>
+										@empty
+										<!-- enviar cedula registro con datos-->
+											@forelse ($documentos['documentos'] as $dato)														
+												<form action="{{ route('actualizar_docs.index',[auth()->user()->name,$proceso[0],14]) }}" method="post" enctype="multipart/form-data" >
+													@csrf
+														<input type="text" class="id_d" value="{{$datoD2->id_documentos}}" name="id_docs">
+														<span class="btn  fileinput-button">
+															<i class="zmdi zmdi-file"></i>
+															<input type="file" class="archivo" name="reporte_mensual">
+														</span>
+														<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+												</form>
+												
+											@empty
+												Error
+											@endforelse	
+										@endforelse	
+								@empty
+								<!-- enviar cedula registro vacio-->
+									<form action="{{ route('subir_doc.index',[auth()->user()->name,$proceso[0],14]) }}" method="post" enctype="multipart/form-data" >
+										@csrf
+										<span class="btn  fileinput-button">
+											<i class="zmdi zmdi-file"></i>
+											<input type="file" class="archivo" name="reporte_mensual">
+										</span>
+										<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+									</form>
+								@endforelse			
+							</div>	
+							<!--error f05-->			
+							@error('reporte_mensual')
+								<p class="border border-danger rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+							@enderror													
+										
+						</div>
+					</li>
+
+					<!-- Reporte mensual 6-->
+					<li class="list-group-item d-flex justify-content-between align-items-start" style="border: 1px solid rgb(210, 210, 210);">
+						<div class="row lista">
+							<div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+								<div class="ms-2 me-auto">
+									10.-Reporte mensual 6
+								</div>
+							</div>
+							<!--Descargar-->
+							<div class="col-6 col-sm-12 col-md-3 col-lg-2 col-xl-2 p-1 colDescargar text-left">
+								<a href="{{ route('descargar_reporte_mensual.index') }}">
+									<button type="button" class="btn btn-outline-info btnDescargar"><i class="zmdi zmdi-download"> Descargar</i></button>
+								</a>
+							</div>
+							<div class="col-6 col-sm-6 col-md-5 col-lg-3 col-xl-1 p-1 colLlenar  ">
+												
+							</div>
+							<!--enviar doc-->
+							<div class="col-12 col-sm-12 col-md-12 col-lg-7 p-1 colArchivo">
+								@forelse ($documentos['documentos'] as $datoD2)
+										@forelse ($reporte_mensual6['reporte_mensual6'] as $datoRP2)
+														<div class="row">
+															<div class="col-12 col-sm-12 py-1">
+																@switch($datoRP2->estado_r_m)
+																	@case(0)
+																		<!--Observaciones-->
+																		<div class="row">
+																			<div class="col-12 col-sm-9">
+																				<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,15]) }}" method="POST" enctype="multipart/form-data">
+																					@csrf
+																					<div class="row">
+																						<div class="col-12 col-sm-9 id_d" >
+																							<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
+																						</div>
+																						<div class="col-12 col-sm-9 py-1" >
+																							<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																						</div>
+																						<div class="col-12 col-sm-3 py-1">
+																							<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
+																						</div>
+																					</div>
+																					
+																				</form>
+																			</div>
+																			<div class="col-12 col-sm-3">
+																				<a href="{{ route('observaciones_doc.index',[$proceso[0],15,$datoRP2->id]) }}">
+																					<button type="submit" class="btn btn-outline-danger divObservacionf02" ><i class="zmdi zmdi-folder-person">  Observaciones</i> </button>
+																				</a>	
+																			</div>
+																							
+																		</div>																																					
+																	@break
+																
+																	@case(1)
+																	<!--pendiente-->
+																	<div class="row">
+																		<div class="col-12 col-sm-9">
+																			<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,15]) }}" method="POST" enctype="multipart/form-data">
+																				@csrf
+																				<div class="row">
+																					<div class="col-12 col-sm-9 px-3 py-1 id_d" >
+																						<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
+																					</div>
+																					<div class="col-12 col-sm-9 px-3 py-1" >
+																						<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																					</div>
+																					<div class="col-12 col-sm-3 px-3 py-1">
+																						<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
+																					</div>
+																				</div>																			
+																			</form>
+																		</div>
+																		<div class="col-12 col-sm-3">
+																			<div class="divPendientef02"><i class="zmdi zmdi-folder-person">  Pendiente</i>  </div>
+																	@break
+																	@case(2)
+																	<!--aceptado-->
+																			<div class="row">
+																				<div class="col-12 col-sm-9 px-3 py-1" >
+																					<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																				</div>
+																				<div class="col-12 col-sm-3 px-3 py-1" >
+																					<div class="divAceptadof02"><i class="zmdi zmdi-check-circle-u">  Aceptado</i> </div>
+																				</div>
+																			</div>																			
+																	@break
+																	@default
+																			<p>Error</p>
+																@endswitch
+															</div>
+														</div>
+										@empty
+										<!-- enviar cedula registro con datos-->
+											@forelse ($documentos['documentos'] as $dato)														
+												<form action="{{ route('actualizar_docs.index',[auth()->user()->name,$proceso[0],15]) }}" method="post" enctype="multipart/form-data" >
+													@csrf
+														<input type="text" class="id_d" value="{{$datoD2->id_documentos}}" name="id_docs">
+														<span class="btn  fileinput-button">
+															<i class="zmdi zmdi-file"></i>
+															<input type="file" class="archivo" name="reporte_mensual">
+														</span>
+														<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+												</form>
+												
+											@empty
+												Error
+											@endforelse	
+										@endforelse	
+								@empty
+								<!-- enviar cedula registro vacio-->
+									<form action="{{ route('subir_doc.index',[auth()->user()->name,$proceso[0],15]) }}" method="post" enctype="multipart/form-data" >
+										@csrf
+										<span class="btn  fileinput-button">
+											<i class="zmdi zmdi-file"></i>
+											<input type="file" class="archivo" name="reporte_mensual">
+										</span>
+										<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+									</form>
+								@endforelse			
+							</div>	
+							<!--error f05-->			
+							@error('reporte_mensual')
+								<p class="border border-danger rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+							@enderror													
+										
+						</div>
+					</li>
+
+					<!-- Reporte mensual 7-->
+					<li class="list-group-item d-flex justify-content-between align-items-start" style="border: 1px solid rgb(210, 210, 210);">
+						<div class="row lista">
+							<div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+								<div class="ms-2 me-auto">
+									10.-Reporte mensual 7
+								</div>
+							</div>
+							<!--Descargar-->
+							<div class="col-6 col-sm-12 col-md-3 col-lg-2 col-xl-2 p-1 colDescargar text-left">
+								<a href="{{ route('descargar_reporte_mensual.index') }}">
+									<button type="button" class="btn btn-outline-info btnDescargar"><i class="zmdi zmdi-download"> Descargar</i></button>
+								</a>
+							</div>
+							<div class="col-6 col-sm-6 col-md-5 col-lg-3 col-xl-1 p-1 colLlenar  ">
+												
+							</div>
+							<!--enviar doc-->
+							<div class="col-12 col-sm-12 col-md-12 col-lg-7 p-1 colArchivo">
+								@forelse ($documentos['documentos'] as $datoD2)
+										@forelse ($reporte_mensual7['reporte_mensual7'] as $datoRP2)
+														<div class="row">
+															<div class="col-12 col-sm-12 py-1">
+																@switch($datoRP2->estado_r_m)
+																	@case(0)
+																		<!--Observaciones-->
+																		<div class="row">
+																			<div class="col-12 col-sm-9">
+																				<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,16]) }}" method="POST" enctype="multipart/form-data">
+																					@csrf
+																					<div class="row">
+																						<div class="col-12 col-sm-9 id_d" >
+																							<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
+																						</div>
+																						<div class="col-12 col-sm-9 py-1" >
+																							<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																						</div>
+																						<div class="col-12 col-sm-3 py-1">
+																							<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
+																						</div>
+																					</div>
+																					
+																				</form>
+																			</div>
+																			<div class="col-12 col-sm-3">
+																				<a href="{{ route('observaciones_doc.index',[$proceso[0],16,$datoRP2->id]) }}">
+																					<button type="submit" class="btn btn-outline-danger divObservacionf02" ><i class="zmdi zmdi-folder-person">  Observaciones</i> </button>
+																				</a>	
+																			</div>
+																							
+																		</div>																																					
+																	@break
+																
+																	@case(1)
+																	<!--pendiente-->
+																	<div class="row">
+																		<div class="col-12 col-sm-9">
+																			<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,16]) }}" method="POST" enctype="multipart/form-data">
+																				@csrf
+																				<div class="row">
+																					<div class="col-12 col-sm-9 px-3 py-1 id_d" >
+																						<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
+																					</div>
+																					<div class="col-12 col-sm-9 px-3 py-1" >
+																						<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																					</div>
+																					<div class="col-12 col-sm-3 px-3 py-1">
+																						<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
+																					</div>
+																				</div>																			
+																			</form>
+																		</div>
+																		<div class="col-12 col-sm-3">
+																			<div class="divPendientef02"><i class="zmdi zmdi-folder-person">  Pendiente</i>  </div>
+																	@break
+																	@case(2)
+																	<!--aceptado-->
+																			<div class="row">
+																				<div class="col-12 col-sm-9 px-3 py-1" >
+																					<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																				</div>
+																				<div class="col-12 col-sm-3 px-3 py-1" >
+																					<div class="divAceptadof02"><i class="zmdi zmdi-check-circle-u">  Aceptado</i> </div>
+																				</div>
+																			</div>																			
+																	@break
+																	@default
+																			<p>Error</p>
+																@endswitch
+															</div>
+														</div>
+										@empty
+										<!-- enviar cedula registro con datos-->
+											@forelse ($documentos['documentos'] as $dato)														
+												<form action="{{ route('actualizar_docs.index',[auth()->user()->name,$proceso[0],16]) }}" method="post" enctype="multipart/form-data" >
+													@csrf
+														<input type="text" class="id_d" value="{{$datoD2->id_documentos}}" name="id_docs">
+														<span class="btn  fileinput-button">
+															<i class="zmdi zmdi-file"></i>
+															<input type="file" class="archivo" name="reporte_mensual">
+														</span>
+														<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+												</form>
+												
+											@empty
+												Error
+											@endforelse	
+										@endforelse	
+								@empty
+								<!-- enviar cedula registro vacio-->
+									<form action="{{ route('subir_doc.index',[auth()->user()->name,$proceso[0],16]) }}" method="post" enctype="multipart/form-data" >
+										@csrf
+										<span class="btn  fileinput-button">
+											<i class="zmdi zmdi-file"></i>
+											<input type="file" class="archivo" name="reporte_mensual">
+										</span>
+										<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+									</form>
+								@endforelse			
+							</div>	
+							<!--error f05-->			
+							@error('reporte_mensual')
+								<p class="border border-danger rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+							@enderror													
+										
+						</div>
+					</li>
+
+					<!-- Reporte mensual 8-->
+					<li class="list-group-item d-flex justify-content-between align-items-start" style="border: 1px solid rgb(210, 210, 210);">
+						<div class="row lista">
+							<div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+								<div class="ms-2 me-auto">
+									10.-Reporte mensual 8
+								</div>
+							</div>
+							<!--Descargar-->
+							<div class="col-6 col-sm-12 col-md-3 col-lg-2 col-xl-2 p-1 colDescargar text-left">
+								<a href="{{ route('descargar_reporte_mensual.index') }}">
+									<button type="button" class="btn btn-outline-info btnDescargar"><i class="zmdi zmdi-download"> Descargar</i></button>
+								</a>
+							</div>
+							<div class="col-6 col-sm-6 col-md-5 col-lg-3 col-xl-1 p-1 colLlenar  ">
+												
+							</div>
+							<!--enviar doc-->
+							<div class="col-12 col-sm-12 col-md-12 col-lg-7 p-1 colArchivo">
+								@forelse ($documentos['documentos'] as $datoD2)
+										@forelse ($reporte_mensual8['reporte_mensual8'] as $datoRP2)
+														<div class="row">
+															<div class="col-12 col-sm-12 py-1">
+																@switch($datoRP2->estado_r_m)
+																	@case(0)
+																		<!--Observaciones-->
+																		<div class="row">
+																			<div class="col-12 col-sm-9">
+																				<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,17]) }}" method="POST" enctype="multipart/form-data">
+																					@csrf
+																					<div class="row">
+																						<div class="col-12 col-sm-9 id_d" >
+																							<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
+																						</div>
+																						<div class="col-12 col-sm-9 py-1" >
+																							<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																						</div>
+																						<div class="col-12 col-sm-3 py-1">
+																							<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
+																						</div>
+																					</div>
+																					
+																				</form>
+																			</div>
+																			<div class="col-12 col-sm-3">
+																				<a href="{{ route('observaciones_doc.index',[$proceso[0],17,$datoRP2->id]) }}">
+																					<button type="submit" class="btn btn-outline-danger divObservacionf02" ><i class="zmdi zmdi-folder-person">  Observaciones</i> </button>
+																				</a>	
+																			</div>
+																							
+																		</div>																																					
+																	@break
+																
+																	@case(1)
+																	<!--pendiente-->
+																	<div class="row">
+																		<div class="col-12 col-sm-9">
+																			<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,17]) }}" method="POST" enctype="multipart/form-data">
+																				@csrf
+																				<div class="row">
+																					<div class="col-12 col-sm-9 px-3 py-1 id_d" >
+																						<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
+																					</div>
+																					<div class="col-12 col-sm-9 px-3 py-1" >
+																						<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																					</div>
+																					<div class="col-12 col-sm-3 px-3 py-1">
+																						<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
+																					</div>
+																				</div>																			
+																			</form>
+																		</div>
+																		<div class="col-12 col-sm-3">
+																			<div class="divPendientef02"><i class="zmdi zmdi-folder-person">  Pendiente</i>  </div>
+																	@break
+																	@case(2)
+																	<!--aceptado-->
+																			<div class="row">
+																				<div class="col-12 col-sm-9 px-3 py-1" >
+																					<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																				</div>
+																				<div class="col-12 col-sm-3 px-3 py-1" >
+																					<div class="divAceptadof02"><i class="zmdi zmdi-check-circle-u">  Aceptado</i> </div>
+																				</div>
+																			</div>																			
+																	@break
+																	@default
+																			<p>Error</p>
+																@endswitch
+															</div>
+														</div>
+										@empty
+										<!-- enviar cedula registro con datos-->
+											@forelse ($documentos['documentos'] as $dato)														
+												<form action="{{ route('actualizar_docs.index',[auth()->user()->name,$proceso[0],17]) }}" method="post" enctype="multipart/form-data" >
+													@csrf
+														<input type="text" class="id_d" value="{{$datoD2->id_documentos}}" name="id_docs">
+														<span class="btn  fileinput-button">
+															<i class="zmdi zmdi-file"></i>
+															<input type="file" class="archivo" name="reporte_mensual">
+														</span>
+														<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+												</form>
+												
+											@empty
+												Error
+											@endforelse	
+										@endforelse	
+								@empty
+								<!-- enviar cedula registro vacio-->
+									<form action="{{ route('subir_doc.index',[auth()->user()->name,$proceso[0],17]) }}" method="post" enctype="multipart/form-data" >
+										@csrf
+										<span class="btn  fileinput-button">
+											<i class="zmdi zmdi-file"></i>
+											<input type="file" class="archivo" name="reporte_mensual">
+										</span>
+										<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+									</form>
+								@endforelse			
+							</div>	
+							<!--error f05-->			
+							@error('reporte_mensual')
+								<p class="border border-danger rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+							@enderror													
+										
+						</div>
+					</li>
+
+					<!-- Reporte mensual 9-->
+					<li class="list-group-item d-flex justify-content-between align-items-start" style="border: 1px solid rgb(210, 210, 210);">
+						<div class="row lista">
+							<div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+								<div class="ms-2 me-auto">
+									10.-Reporte mensual 9
+								</div>
+							</div>
+							<!--Descargar-->
+							<div class="col-6 col-sm-12 col-md-3 col-lg-2 col-xl-2 p-1 colDescargar text-left">
+								<a href="{{ route('descargar_reporte_mensual.index') }}">
+									<button type="button" class="btn btn-outline-info btnDescargar"><i class="zmdi zmdi-download"> Descargar</i></button>
+								</a>
+							</div>
+							<div class="col-6 col-sm-6 col-md-5 col-lg-3 col-xl-1 p-1 colLlenar  ">
+												
+							</div>
+							<!--enviar doc-->
+							<div class="col-12 col-sm-12 col-md-12 col-lg-7 p-1 colArchivo">
+								@forelse ($documentos['documentos'] as $datoD2)
+										@forelse ($reporte_mensual9['reporte_mensual9'] as $datoRP2)
+														<div class="row">
+															<div class="col-12 col-sm-12 py-1">
+																@switch($datoRP2->estado_r_m)
+																	@case(0)
+																		<!--Observaciones-->
+																		<div class="row">
+																			<div class="col-12 col-sm-9">
+																				<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,18]) }}" method="POST" enctype="multipart/form-data">
+																					@csrf
+																					<div class="row">
+																						<div class="col-12 col-sm-9 id_d" >
+																							<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
+																						</div>
+																						<div class="col-12 col-sm-9 py-1" >
+																							<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																						</div>
+																						<div class="col-12 col-sm-3 py-1">
+																							<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
+																						</div>
+																					</div>
+																					
+																				</form>
+																			</div>
+																			<div class="col-12 col-sm-3">
+																				<a href="{{ route('observaciones_doc.index',[$proceso[0],18,$datoRP2->id]) }}">
+																					<button type="submit" class="btn btn-outline-danger divObservacionf02" ><i class="zmdi zmdi-folder-person">  Observaciones</i> </button>
+																				</a>	
+																			</div>
+																							
+																		</div>																																					
+																	@break
+																
+																	@case(1)
+																	<!--pendiente-->
+																	<div class="row">
+																		<div class="col-12 col-sm-9">
+																			<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,18]) }}" method="POST" enctype="multipart/form-data">
+																				@csrf
+																				<div class="row">
+																					<div class="col-12 col-sm-9 px-3 py-1 id_d" >
+																						<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
+																					</div>
+																					<div class="col-12 col-sm-9 px-3 py-1" >
+																						<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																					</div>
+																					<div class="col-12 col-sm-3 px-3 py-1">
+																						<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
+																					</div>
+																				</div>																			
+																			</form>
+																		</div>
+																		<div class="col-12 col-sm-3">
+																			<div class="divPendientef02"><i class="zmdi zmdi-folder-person">  Pendiente</i>  </div>
+																	@break
+																	@case(2)
+																	<!--aceptado-->
+																			<div class="row">
+																				<div class="col-12 col-sm-9 px-3 py-1" >
+																					<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																				</div>
+																				<div class="col-12 col-sm-3 px-3 py-1" >
+																					<div class="divAceptadof02"><i class="zmdi zmdi-check-circle-u">  Aceptado</i> </div>
+																				</div>
+																			</div>																			
+																	@break
+																	@default
+																			<p>Error</p>
+																@endswitch
+															</div>
+														</div>
+										@empty
+										<!-- enviar cedula registro con datos-->
+											@forelse ($documentos['documentos'] as $dato)														
+												<form action="{{ route('actualizar_docs.index',[auth()->user()->name,$proceso[0],18]) }}" method="post" enctype="multipart/form-data" >
+													@csrf
+														<input type="text" class="id_d" value="{{$datoD2->id_documentos}}" name="id_docs">
+														<span class="btn  fileinput-button">
+															<i class="zmdi zmdi-file"></i>
+															<input type="file" class="archivo" name="reporte_mensual">
+														</span>
+														<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+												</form>
+												
+											@empty
+												Error
+											@endforelse	
+										@endforelse	
+								@empty
+								<!-- enviar cedula registro vacio-->
+									<form action="{{ route('subir_doc.index',[auth()->user()->name,$proceso[0],18]) }}" method="post" enctype="multipart/form-data" >
+										@csrf
+										<span class="btn  fileinput-button">
+											<i class="zmdi zmdi-file"></i>
+											<input type="file" class="archivo" name="reporte_mensual">
+										</span>
+										<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+									</form>
+								@endforelse			
+							</div>	
+							<!--error f05-->			
+							@error('reporte_mensual')
+								<p class="border border-danger rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+							@enderror													
+										
+						</div>
+					</li>
+
+					<!-- Reporte mensual 10-->
+					<li class="list-group-item d-flex justify-content-between align-items-start" style="border: 1px solid rgb(210, 210, 210);">
+						<div class="row lista">
+							<div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+								<div class="ms-2 me-auto">
+									10.-Reporte mensual 10
+								</div>
+							</div>
+							<!--Descargar-->
+							<div class="col-6 col-sm-12 col-md-3 col-lg-2 col-xl-2 p-1 colDescargar text-left">
+								<a href="{{ route('descargar_reporte_mensual.index') }}">
+									<button type="button" class="btn btn-outline-info btnDescargar"><i class="zmdi zmdi-download"> Descargar</i></button>
+								</a>
+							</div>
+							<div class="col-6 col-sm-6 col-md-5 col-lg-3 col-xl-1 p-1 colLlenar  ">
+												
+							</div>
+							<!--enviar doc-->
+							<div class="col-12 col-sm-12 col-md-12 col-lg-7 p-1 colArchivo">
+								@forelse ($documentos['documentos'] as $datoD2)
+										@forelse ($reporte_mensual10['reporte_mensual10'] as $datoRP2)
+														<div class="row">
+															<div class="col-12 col-sm-12 py-1">
+																@switch($datoRP2->estado_r_m)
+																	@case(0)
+																		<!--Observaciones-->
+																		<div class="row">
+																			<div class="col-12 col-sm-9">
+																				<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,19]) }}" method="POST" enctype="multipart/form-data">
+																					@csrf
+																					<div class="row">
+																						<div class="col-12 col-sm-9 id_d" >
+																							<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
+																						</div>
+																						<div class="col-12 col-sm-9 py-1" >
+																							<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																						</div>
+																						<div class="col-12 col-sm-3 py-1">
+																							<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
+																						</div>
+																					</div>
+																					
+																				</form>
+																			</div>
+																			<div class="col-12 col-sm-3">
+																				<a href="{{ route('observaciones_doc.index',[$proceso[0],19,$datoRP2->id]) }}">
+																					<button type="submit" class="btn btn-outline-danger divObservacionf02" ><i class="zmdi zmdi-folder-person">  Observaciones</i> </button>
+																				</a>	
+																			</div>
+																							
+																		</div>																																					
+																	@break
+																
+																	@case(1)
+																	<!--pendiente-->
+																	<div class="row">
+																		<div class="col-12 col-sm-9">
+																			<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,19]) }}" method="POST" enctype="multipart/form-data">
+																				@csrf
+																				<div class="row">
+																					<div class="col-12 col-sm-9 px-3 py-1 id_d" >
+																						<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
+																					</div>
+																					<div class="col-12 col-sm-9 px-3 py-1" >
+																						<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																					</div>
+																					<div class="col-12 col-sm-3 px-3 py-1">
+																						<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
+																					</div>
+																				</div>																			
+																			</form>
+																		</div>
+																		<div class="col-12 col-sm-3">
+																			<div class="divPendientef02"><i class="zmdi zmdi-folder-person">  Pendiente</i>  </div>
+																	@break
+																	@case(2)
+																	<!--aceptado-->
+																			<div class="row">
+																				<div class="col-12 col-sm-9 px-3 py-1" >
+																					<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																				</div>
+																				<div class="col-12 col-sm-3 px-3 py-1" >
+																					<div class="divAceptadof02"><i class="zmdi zmdi-check-circle-u">  Aceptado</i> </div>
+																				</div>
+																			</div>																			
+																	@break
+																	@default
+																			<p>Error</p>
+																@endswitch
+															</div>
+														</div>
+										@empty
+										<!-- enviar cedula registro con datos-->
+											@forelse ($documentos['documentos'] as $dato)														
+												<form action="{{ route('actualizar_docs.index',[auth()->user()->name,$proceso[0],19]) }}" method="post" enctype="multipart/form-data" >
+													@csrf
+														<input type="text" class="id_d" value="{{$datoD2->id_documentos}}" name="id_docs">
+														<span class="btn  fileinput-button">
+															<i class="zmdi zmdi-file"></i>
+															<input type="file" class="archivo" name="reporte_mensual">
+														</span>
+														<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+												</form>
+												
+											@empty
+												Error
+											@endforelse	
+										@endforelse	
+								@empty
+								<!-- enviar cedula registro vacio-->
+									<form action="{{ route('subir_doc.index',[auth()->user()->name,$proceso[0],19]) }}" method="post" enctype="multipart/form-data" >
+										@csrf
+										<span class="btn  fileinput-button">
+											<i class="zmdi zmdi-file"></i>
+											<input type="file" class="archivo" name="reporte_mensual">
+										</span>
+										<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+									</form>
+								@endforelse			
+							</div>	
+							<!--error f05-->			
+							@error('reporte_mensual')
+								<p class="border border-danger rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+							@enderror													
+										
+						</div>
+					</li>
+
+					<!-- Reporte mensual 11-->
+					<li class="list-group-item d-flex justify-content-between align-items-start" style="border: 1px solid rgb(210, 210, 210);">
+						<div class="row lista">
+							<div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+								<div class="ms-2 me-auto">
+									10.-Reporte mensual 11
+								</div>
+							</div>
+							<!--Descargar-->
+							<div class="col-6 col-sm-12 col-md-3 col-lg-2 col-xl-2 p-1 colDescargar text-left">
+								<a href="{{ route('descargar_reporte_mensual.index') }}">
+									<button type="button" class="btn btn-outline-info btnDescargar"><i class="zmdi zmdi-download"> Descargar</i></button>
+								</a>
+							</div>
+							<div class="col-6 col-sm-6 col-md-5 col-lg-3 col-xl-1 p-1 colLlenar  ">
+												
+							</div>
+							<!--enviar doc-->
+							<div class="col-12 col-sm-12 col-md-12 col-lg-7 p-1 colArchivo">
+								@forelse ($documentos['documentos'] as $datoD2)
+										@forelse ($reporte_mensual11['reporte_mensual11'] as $datoRP2)
+														<div class="row">
+															<div class="col-12 col-sm-12 py-1">
+																@switch($datoRP2->estado_r_m)
+																	@case(0)
+																		<!--Observaciones-->
+																		<div class="row">
+																			<div class="col-12 col-sm-9">
+																				<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,20]) }}" method="POST" enctype="multipart/form-data">
+																					@csrf
+																					<div class="row">
+																						<div class="col-12 col-sm-9 id_d" >
+																							<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
+																						</div>
+																						<div class="col-12 col-sm-9 py-1" >
+																							<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																						</div>
+																						<div class="col-12 col-sm-3 py-1">
+																							<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
+																						</div>
+																					</div>
+																					
+																				</form>
+																			</div>
+																			<div class="col-12 col-sm-3">
+																				<a href="{{ route('observaciones_doc.index',[$proceso[0],20,$datoRP2->id]) }}">
+																					<button type="submit" class="btn btn-outline-danger divObservacionf02" ><i class="zmdi zmdi-folder-person">  Observaciones</i> </button>
+																				</a>	
+																			</div>
+																							
+																		</div>																																					
+																	@break
+																
+																	@case(1)
+																	<!--pendiente-->
+																	<div class="row">
+																		<div class="col-12 col-sm-9">
+																			<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,20]) }}" method="POST" enctype="multipart/form-data">
+																				@csrf
+																				<div class="row">
+																					<div class="col-12 col-sm-9 px-3 py-1 id_d" >
+																						<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
+																					</div>
+																					<div class="col-12 col-sm-9 px-3 py-1" >
+																						<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																					</div>
+																					<div class="col-12 col-sm-3 px-3 py-1">
+																						<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
+																					</div>
+																				</div>																			
+																			</form>
+																		</div>
+																		<div class="col-12 col-sm-3">
+																			<div class="divPendientef02"><i class="zmdi zmdi-folder-person">  Pendiente</i>  </div>
+																	@break
+																	@case(2)
+																	<!--aceptado-->
+																			<div class="row">
+																				<div class="col-12 col-sm-9 px-3 py-1" >
+																					<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																				</div>
+																				<div class="col-12 col-sm-3 px-3 py-1" >
+																					<div class="divAceptadof02"><i class="zmdi zmdi-check-circle-u">  Aceptado</i> </div>
+																				</div>
+																			</div>																			
+																	@break
+																	@default
+																			<p>Error</p>
+																@endswitch
+															</div>
+														</div>
+										@empty
+										<!-- enviar cedula registro con datos-->
+											@forelse ($documentos['documentos'] as $dato)														
+												<form action="{{ route('actualizar_docs.index',[auth()->user()->name,$proceso[0],20]) }}" method="post" enctype="multipart/form-data" >
+													@csrf
+														<input type="text" class="id_d" value="{{$datoD2->id_documentos}}" name="id_docs">
+														<span class="btn  fileinput-button">
+															<i class="zmdi zmdi-file"></i>
+															<input type="file" class="archivo" name="reporte_mensual">
+														</span>
+														<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+												</form>
+												
+											@empty
+												Error
+											@endforelse	
+										@endforelse	
+								@empty
+								<!-- enviar cedula registro vacio-->
+									<form action="{{ route('subir_doc.index',[auth()->user()->name,$proceso[0],20]) }}" method="post" enctype="multipart/form-data" >
+										@csrf
+										<span class="btn  fileinput-button">
+											<i class="zmdi zmdi-file"></i>
+											<input type="file" class="archivo" name="reporte_mensual">
+										</span>
+										<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+									</form>
+								@endforelse			
+							</div>	
+							<!--error f05-->			
+							@error('reporte_mensual')
+								<p class="border border-danger rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+							@enderror													
+										
+						</div>
+					</li>
+
+					<!-- Reporte mensual 12-->
+					<li class="list-group-item d-flex justify-content-between align-items-start" style="border: 1px solid rgb(210, 210, 210);">
+						<div class="row lista">
+							<div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+								<div class="ms-2 me-auto">
+									10.-Reporte mensual 12
+								</div>
+							</div>
+							<!--Descargar-->
+							<div class="col-6 col-sm-12 col-md-3 col-lg-2 col-xl-2 p-1 colDescargar text-left">
+								<a href="{{ route('descargar_reporte_mensual.index') }}">
+									<button type="button" class="btn btn-outline-info btnDescargar"><i class="zmdi zmdi-download"> Descargar</i></button>
+								</a>
+							</div>
+							<div class="col-6 col-sm-6 col-md-5 col-lg-3 col-xl-1 p-1 colLlenar  ">
+												
+							</div>
+							<!--enviar doc-->
+							<div class="col-12 col-sm-12 col-md-12 col-lg-7 p-1 colArchivo">
+								@forelse ($documentos['documentos'] as $datoD2)
+										@forelse ($reporte_mensual12['reporte_mensual12'] as $datoRP2)
+														<div class="row">
+															<div class="col-12 col-sm-12 py-1">
+																@switch($datoRP2->estado_r_m)
+																	@case(0)
+																		<!--Observaciones-->
+																		<div class="row">
+																			<div class="col-12 col-sm-9">
+																				<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,21]) }}" method="POST" enctype="multipart/form-data">
+																					@csrf
+																					<div class="row">
+																						<div class="col-12 col-sm-9 id_d" >
+																							<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
+																						</div>
+																						<div class="col-12 col-sm-9 py-1" >
+																							<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																						</div>
+																						<div class="col-12 col-sm-3 py-1">
+																							<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
+																						</div>
+																					</div>
+																					
+																				</form>
+																			</div>
+																			<div class="col-12 col-sm-3">
+																				<a href="{{ route('observaciones_doc.index',[$proceso[0],21,$datoRP2->id]) }}">
+																					<button type="submit" class="btn btn-outline-danger divObservacionf02" ><i class="zmdi zmdi-folder-person">  Observaciones</i> </button>
+																				</a>	
+																			</div>
+																							
+																		</div>																																					
+																	@break
+																
+																	@case(1)
+																	<!--pendiente-->
+																	<div class="row">
+																		<div class="col-12 col-sm-9">
+																			<form class="btn-cancelarF5-system" action="{{ route('cancelar_doc.index',[$proceso[0],$datoRP2->id_documentos,$datoRP2->id,21]) }}" method="POST" enctype="multipart/form-data">
+																				@csrf
+																				<div class="row">
+																					<div class="col-12 col-sm-9 px-3 py-1 id_d" >
+																						<input type="text" name="ubiD" id="" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc"style=''>
+																					</div>
+																					<div class="col-12 col-sm-9 px-3 py-1" >
+																						<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																					</div>
+																					<div class="col-12 col-sm-3 px-3 py-1">
+																						<button type="submit" class="btn btn-outline-danger btnCancelar" >Cancelar</button>
+																					</div>
+																				</div>																			
+																			</form>
+																		</div>
+																		<div class="col-12 col-sm-3">
+																			<div class="divPendientef02"><i class="zmdi zmdi-folder-person">  Pendiente</i>  </div>
+																	@break
+																	@case(2)
+																	<!--aceptado-->
+																			<div class="row">
+																				<div class="col-12 col-sm-9 px-3 py-1" >
+																					<input type="text" value="{{$datoRP2->nombre_r_m}}" class="nombreDoc" disabled>
+																				</div>
+																				<div class="col-12 col-sm-3 px-3 py-1" >
+																					<div class="divAceptadof02"><i class="zmdi zmdi-check-circle-u">  Aceptado</i> </div>
+																				</div>
+																			</div>																			
+																	@break
+																	@default
+																			<p>Error</p>
+																@endswitch
+															</div>
+														</div>
+										@empty
+										<!-- enviar cedula registro con datos-->
+											@forelse ($documentos['documentos'] as $dato)														
+												<form action="{{ route('actualizar_docs.index',[auth()->user()->name,$proceso[0],21]) }}" method="post" enctype="multipart/form-data" >
+													@csrf
+														<input type="text" class="id_d" value="{{$datoD2->id_documentos}}" name="id_docs">
+														<span class="btn  fileinput-button">
+															<i class="zmdi zmdi-file"></i>
+															<input type="file" class="archivo" name="reporte_mensual">
+														</span>
+														<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+												</form>
+												
+											@empty
+												Error
+											@endforelse	
+										@endforelse	
+								@empty
+								<!-- enviar cedula registro vacio-->
+									<form action="{{ route('subir_doc.index',[auth()->user()->name,$proceso[0],21]) }}" method="post" enctype="multipart/form-data" >
+										@csrf
+										<span class="btn  fileinput-button">
+											<i class="zmdi zmdi-file"></i>
+											<input type="file" class="archivo" name="reporte_mensual">
+										</span>
+										<button type="submit" class="btn btn-outline-info btnSubir">Enviar</button>
+									</form>
+								@endforelse			
+							</div>	
+							<!--error f05-->			
+							@error('reporte_mensual')
+								<p class="border border-danger rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+							@enderror													
+										
+						</div>
+					</li>
+
 
 					@endif
 					<!--Formato reporte de evaluacion-->
