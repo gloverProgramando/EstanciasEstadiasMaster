@@ -29,7 +29,7 @@
 		@include('plantilla/admin/navBar')
         <div class="container p-3">
 			<div class="page-header">
-			  <h2 class="text-titles">Observaciones <small></small></h2>
+			    <h2 class="text-titles">Observaciones <small></small></h2>
 			</div>
 		</div>
         <div class="container">

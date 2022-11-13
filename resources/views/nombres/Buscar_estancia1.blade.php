@@ -36,8 +36,8 @@
 			  <h2 class="text-titles">Busqueda<small>({{$proceso[1]}})</small></h2>
 			</div>
 		</div>
-        @include('notificaciones/notificaciones')  
         <div class="container">
+
                 <div class="row">
                     <div class=" col-12 col-sm-12 col-md-5">
                         <form action="{{ route('Buscar_estancia1.index',[$proceso[0],$proceso[1]]) }}" method="GET">
@@ -657,14 +657,14 @@
                                                         <!--pendiente-->
                                                         @case(1)
                                                             <div class="col-6 p-1">
-                                                                <form method="post" action="{{ route('aceptar_documento.index',[$respuestaC->id_usuario,$respuestaC->id_c_aceptacion,$proceso[0],5]) }}" >
+                                                                <form method="post" action="{{ route('aceptar_documento.index',[$respuestaC->id_usuario,$respuestaC->id_c_aceptacion,$proceso[0],5]) }}">
                                                                     @csrf
                                                                     <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar</button>
                                                                     <input type="hidden" class="form-control" name="texto1" value="{{$texto}}">
                                                                 </form>	
                                                             </div>
                                                             <div class="col-12 p-1">
-                                                                <form method="post" action="{{ route('observaciones_documento.index',[$respuestaC->id_usuario,$proceso[0],5]) }}" >
+                                                                <form method="post" action="{{ route('observaciones_documento.index',[$respuestaC->id_usuario,$proceso[0],5]) }}">
                                                                     @csrf
                                                                     <input type="text" name="id_c" id="id_c" value="{{$respuestaC->id_c_aceptacion}}" class="id_d">
                                                                     <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Obsevaciones</button>
@@ -1163,119 +1163,1385 @@
                                     @endforelse    
                                 @endif
                                 <!--Reporte Mensual-->
-                                @if ($respuestaD->id_r_mensual)
-                                    @forelse ($documentos6['reporte_mensual'] as $respuestaA)
-                                        @if ($respuestaA->name==$respuestaD->name)
-                                            <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc" >
-                                                    <div class="row text-center divNombreCard">
-                                                        <div class="col-12">
-                                                            Reporte mensual
-                                                        </div>
-                                                    </div>
-                                                
-                                                    <div class="row text-center">
-                                                        <div class="col-12 nombreDoc">
-                                                            {{$respuestaA->nombre_r_m}}
-                                                        </div>
-                                                        @switch($respuestaA->estado_r_m)
-                                                            @case(0)
-                                                                <div class="col-12">
-                                                                    <div class="text-center p-1"><span class="badge bg-danger text-white">Con Observaciones</span></div>
-                                                                </div>
-                                                            @break
-                                                            @case(1)
-                                                                <div class="col-12">
-                                                                    <div class="text-center p-1"><span class="badge bg-warning">Pendiente</span></div>
-                                                                </div>
-                                                            @break
-                                                            @case(2)
-                                                                <div class="col-12">
-                                                                    <div class="text-center p-1"><span class="badge bg-success">Aceptado</span></div>
-                                                                </div>
-                                                            @break
-                                                            @default
-                                                                
-                                                        @endswitch
-                                                        <div class="col-6 p-1">
-                                                            <form method="post" action="{{ route('ver_documento.index',[$respuestaA->nombre_r_m,$proceso[0]]) }}">
-                                                                @csrf
-                                                                <button type="submit" class="btn btnVer" > <i class="zmdi zmdi-eye zmdi-hc-lg"></i> Ver</button>
-                                                            </form>	
-                                                        </div>
-                                                        
-                                                        @switch($respuestaA->estado_r_m)
-                                                            @case(0)
-                                                            <!--con observaciones-->
-                                                                <div class="col-6 p-1">
-                                                                    <form method="post" action="{{ route('aceptar_documento.index',[$respuestaA->id_usuario,$respuestaA->id_r_mensual,$proceso[0],10]) }}">
-                                                                        @csrf
-                                                                        <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar</button>
-                                                                        <input type="hidden" class="form-control" name="texto1" value="{{$texto}}">
-                                                                    </form>	
-                                                                </div>
-                                                                <div class="col-12 p-1">
-                                                                    <form method="post" action="{{ route('pendiente_documento.index',[$respuestaA->id_usuario,$respuestaA->id_r_mensual,$proceso[0],10]) }}">
-                                                                        @csrf
-                                                                        <button type="submit" class="btn btn-warning btnPendiente" >Pendiente</button>
-                                                                    </form>	
-                                                                </div>
-                                                                <div class="col-12 p-1">
-                                                                    <form method="post" action="{{ route('conObservaciones_documento.index',[$proceso[0],10]) }}">
-                                                                        @csrf
-                                                                        <input type="text" name="id_c" id="id_c" value="{{$respuestaA->id_r_mensual}}" class="id_d">
-                
-                                                                        <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Ver Observaciones</button>
-                                                                    </form>	
-                                                                </div>
-                                                                
-                                                            @break    
-                                                            <!--pendiente-->
-                                                            @case(1)
-                                                                <div class="col-6 p-1">
-                                                                    <form method="post" action="{{ route('aceptar_documento.index',[$respuestaA->id_usuario,$respuestaA->id_r_mensual,$proceso[0],10]) }}">
-                                                                        @csrf
-                                                                        <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar</button>
-                                                                        <input type="hidden" class="form-control" name="texto1" value="{{$texto}}">
-                                                                    </form>	
-                                                                </div>
-                                                                <div class="col-12 p-1">
-                                                                    <form method="post" action="{{ route('observaciones_documento.index',[$respuestaA->id_usuario,$proceso[0],10]) }}">
-                                                                        @csrf
-                                                                        <input type="text" name="id_c" id="id_c" value="{{$respuestaA->id_r_mensual}}" class="id_d">
-                                                                        <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
-                                                                    </form>	
-                                                                </div>
-                                                            @break
-                                                            <!--aceptado-->
-                                                            @case(2)
-                                                            
-                                                                <div class="col-6 p-1">
-                                                                    <form method="post" action="{{ route('pendiente_documento.index',[$respuestaA->id_usuario,$respuestaA->id_r_mensual,$proceso[0],10]) }}">
-                                                                        @csrf
-                                                                        <button type="submit" class="btn btn-warning btnAceptar" >Pendiente</button>
-                                                                        <input type="hidden" class="form-control" name="texto1" value="{{$texto}}">
-                                                                    </form>	
-                                                                </div>
-                                                                <div class="col-12 p-1">
-                                                                    <form method="post" action="{{ route('observaciones_documento.index',[$respuestaA->id_usuario,$proceso[0],10]) }}">
-                                                                        @csrf
-                                                                        <input type="text" name="id_c" id="id_c" value="{{$respuestaA->id_r_mensual}}" class="id_d">
-                                                                        <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
-                                                                    </form>	
-                                                                </div>
-                                                            @break
-                                                        
-                                                            @default
-                                                                
-                                                        @endswitch
-                                                        
-                                                    </div>
+                        @if ($respuestaD->id_r_mensual)
+                            @forelse ($documentos6['reporte_mensual'] as $respuestarm)
+                            @if ($respuestarm->name==$respuestaD->name)
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc" >
+                                        <div class="row text-center divNombreCard">
+                                            <div class="col-12">
+                                                 Reporte Mensual
                                             </div>
-                                        @endif
-                                    @empty
-                                        
-                                    @endforelse    
-                                @endif
+                                        </div>
+                                    
+                                        <div class="row text-center">
+                                            <div class="col-12 nombreDoc">
+                                                {{$respuestarm->nombre_r_m}}
+                                            </div>
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-danger text-white">Con Observaciones</span></div>
+                                                    </div>
+                                                @break
+                                                @case(1)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-warning">Pendiente</span></div>
+                                                    </div>
+                                                @break
+                                                @case(2)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-success">Aceptado</span></div>
+                                                    </div>
+                                                @break
+                                                @default
+                                                    
+                                            @endswitch
+                                            <div class="col-6 p-1">
+                                                <form method="post" action="{{ route('ver_documento.index',[$respuestarm->nombre_r_m,$proceso[0]]) }}">
+                                                    @csrf
+                                                    <button type="submit" class="btn btnVer" > <i class="zmdi zmdi-eye zmdi-hc-lg"></i> Ver</button>
+                                                </form>	
+                                            </div>
+                                            
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                <!--con observaciones-->
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual,$proceso[0],10]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual,$proceso[0],10]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnPendiente" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('conObservaciones_documento.index',[$proceso[0],10]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual}}" class="id_d">
+    
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Ver Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                    
+                                                @break    
+                                                <!--pendiente-->
+                                                @case(1)
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual, $proceso[0],10]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar {{ $respuestarm->id_r_mensual }}</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],10]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                                <!--aceptado-->
+                                                @case(2)
+                                                
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual,$proceso[0],10]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnAceptar" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],10]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                            
+                                                @default
+                                                    
+                                            @endswitch
+                                            
+                                        </div>
+                                </div>
+                            @endif
+                            @empty
+                            
+                            @endforelse    
+                        @endif
+                    <!--Reporte Mensual 2-->
+                    @if ($respuestaD->id_r_mensual2)
+                        @forelse ($reporte_mensual2['reporte_mensual2'] as $respuestarm)
+                            @if ($respuestarm->name==$respuestaD->name)
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc" >
+                                        <div class="row text-center divNombreCard">
+                                            <div class="col-12">
+                                                 Reporte Mensual 2
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="row text-center">
+                                            <div class="col-12 nombreDoc">
+                                                {{$respuestarm->nombre_r_m}}
+                                            </div>
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-danger text-white">Con Observaciones</span></div>
+                                                    </div>
+                                                @break
+                                                @case(1)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-warning">Pendiente</span></div>
+                                                    </div>
+                                                @break
+                                                @case(2)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-success">Aceptado</span></div>
+                                                    </div>
+                                                @break
+                                                @default
+                                                    
+                                            @endswitch
+                                            <div class="col-6 p-1">
+                                                <form method="post" action="{{ route('ver_documento.index',[$respuestarm->nombre_r_m,$proceso[0]]) }}">
+                                                    @csrf
+                                                    <button type="submit" class="btn btnVer" > <i class="zmdi zmdi-eye zmdi-hc-lg"></i> Ver</button>
+                                                </form>	
+                                            </div>
+                                            
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                <!--con observaciones-->
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual2,$proceso[0],11]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual2,$proceso[0],11]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnPendiente" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('conObservaciones_documento.index',[$proceso[0],11]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual2}}" class="id_d">
+    
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Ver Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                    
+                                                @break    
+                                                <!--pendiente-->
+                                                @case(1)
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual2, $proceso[0],11]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar {{$respuestarm->id_r_mensual2}} </button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],11]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual2}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                                <!--aceptado-->
+                                                @case(2)
+                                                
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual2,$proceso[0],11]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnAceptar" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],11]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual2}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                            
+                                                @default
+                                                    
+                                            @endswitch
+                                            
+                                        </div>
+                                </div>
+                            @endif
+                        @empty
+                            
+                        @endforelse    
+                    @endif
+                    <!--Reporte Mensual 3-->
+                    @if ($respuestaD->id_r_mensual3)
+                        @forelse ($reporte_mensual3['reporte_mensual3'] as $respuestarm)
+                            @if ($respuestarm->name==$respuestaD->name)
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc" >
+                                        <div class="row text-center divNombreCard">
+                                            <div class="col-12">
+                                                 Reporte Mensual 3
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="row text-center">
+                                            <div class="col-12 nombreDoc">
+                                                {{$respuestarm->nombre_r_m}}
+                                            </div>
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-danger text-white">Con Observaciones</span></div>
+                                                    </div>
+                                                @break
+                                                @case(1)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-warning">Pendiente</span></div>
+                                                    </div>
+                                                @break
+                                                @case(2)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-success">Aceptado</span></div>
+                                                    </div>
+                                                @break
+                                                @default
+                                                    
+                                            @endswitch
+                                            <div class="col-6 p-1">
+                                                <form method="post" action="{{ route('ver_documento.index',[$respuestarm->nombre_r_m,$proceso[0]]) }}">
+                                                    @csrf
+                                                    <button type="submit" class="btn btnVer" > <i class="zmdi zmdi-eye zmdi-hc-lg"></i> Ver</button>
+                                                </form>	
+                                            </div>
+                                            
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                <!--con observaciones-->
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual3,$proceso[0],12]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual3,$proceso[0],12]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnPendiente" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('conObservaciones_documento.index',[$proceso[0],12]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual3}}" class="id_d">
+    
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Ver Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                    
+                                                @break    
+                                                <!--pendiente-->
+                                                @case(1)
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual3, $proceso[0],12]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar {{$respuestarm->id_r_mensual3}} </button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],12]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual3}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                                <!--aceptado-->
+                                                @case(2)
+                                                
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual3,$proceso[0],12]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnAceptar" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],12]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual3}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                            
+                                                @default
+                                                    
+                                            @endswitch
+                                            
+                                        </div>
+                                </div>
+                            @endif
+                        @empty
+                            
+                        @endforelse    
+                    @endif
+                    <!--Reporte Mensual 4-->
+                    @if ($respuestaD->id_r_mensual4)
+                        @forelse ($reporte_mensual4['reporte_mensual4'] as $respuestarm)
+                            @if ($respuestarm->name==$respuestaD->name)
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc" >
+                                        <div class="row text-center divNombreCard">
+                                            <div class="col-12">
+                                                 Reporte Mensual 4
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="row text-center">
+                                            <div class="col-12 nombreDoc">
+                                                {{$respuestarm->nombre_r_m}}
+                                            </div>
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-danger text-white">Con Observaciones</span></div>
+                                                    </div>
+                                                @break
+                                                @case(1)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-warning">Pendiente</span></div>
+                                                    </div>
+                                                @break
+                                                @case(2)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-success">Aceptado</span></div>
+                                                    </div>
+                                                @break
+                                                @default
+                                                    
+                                            @endswitch
+                                            <div class="col-6 p-1">
+                                                <form method="post" action="{{ route('ver_documento.index',[$respuestarm->nombre_r_m,$proceso[0]]) }}">
+                                                    @csrf
+                                                    <button type="submit" class="btn btnVer" > <i class="zmdi zmdi-eye zmdi-hc-lg"></i> Ver</button>
+                                                </form>	
+                                            </div>
+                                            
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                <!--con observaciones-->
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual4,$proceso[0],13]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual4,$proceso[0],13]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnPendiente" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('conObservaciones_documento.index',[$proceso[0],13]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual4}}" class="id_d">
+    
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Ver Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                    
+                                                @break    
+                                                <!--pendiente-->
+                                                @case(1)
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual4, $proceso[0],13]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar {{$respuestarm->id_r_mensual4}} </button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],13]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual4}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                                <!--aceptado-->
+                                                @case(2)
+                                                
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual4,$proceso[0],13]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnAceptar" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],13]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual4}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                            
+                                                @default
+                                                    
+                                            @endswitch
+                                            
+                                        </div>
+                                </div>
+                            @endif
+                        @empty
+                            
+                        @endforelse    
+                    @endif
+                    <!--Reporte Mensual 5-->
+                    @if ($respuestaD->id_r_mensual5)
+                        @forelse ($reporte_mensual5['reporte_mensual5'] as $respuestarm)
+                            @if ($respuestarm->name==$respuestaD->name)
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc" >
+                                        <div class="row text-center divNombreCard">
+                                            <div class="col-12">
+                                                Reporte Mensual 5
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="row text-center">
+                                            <div class="col-12 nombreDoc">
+                                                {{$respuestarm->nombre_r_m}}
+                                            </div>
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-danger text-white">Con Observaciones</span></div>
+                                                    </div>
+                                                @break
+                                                @case(1)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-warning">Pendiente</span></div>
+                                                    </div>
+                                                @break
+                                                @case(2)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-success">Aceptado</span></div>
+                                                    </div>
+                                                @break
+                                                @default
+                                                    
+                                            @endswitch
+                                            <div class="col-6 p-1">
+                                                <form method="post" action="{{ route('ver_documento.index',[$respuestarm->nombre_r_m,$proceso[0]]) }}">
+                                                    @csrf
+                                                    <button type="submit" class="btn btnVer" > <i class="zmdi zmdi-eye zmdi-hc-lg"></i> Ver</button>
+                                                </form>	
+                                            </div>
+                                            
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                <!--con observaciones-->
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual5,$proceso[0],14]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual5,$proceso[0],14]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnPendiente" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('conObservaciones_documento.index',[$proceso[0],14]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual5}}" class="id_d">
+    
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Ver Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                    
+                                                @break    
+                                                <!--pendiente-->
+                                                @case(1)
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual5, $proceso[0],14]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar {{$respuestarm->id_r_mensual5}} </button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],14]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual5}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                                <!--aceptado-->
+                                                @case(2)
+                                                
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual5,$proceso[0],14]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnAceptar" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],14]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual5}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                            
+                                                @default
+                                                    
+                                            @endswitch
+                                            
+                                        </div>
+                                </div>
+                            @endif
+                        @empty
+                            
+                        @endforelse    
+                    @endif
+                    <!--Reporte Mensual 6-->
+                    @if ($respuestaD->id_r_mensual6)
+                        @forelse ($reporte_mensual6['reporte_mensual6'] as $respuestarm)
+                            @if ($respuestarm->name==$respuestaD->name)
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc" >
+                                        <div class="row text-center divNombreCard">
+                                            <div class="col-12">
+                                                 Reporte Mensual 6
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="row text-center">
+                                            <div class="col-12 nombreDoc">
+                                                {{$respuestarm->nombre_r_m}}
+                                            </div>
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-danger text-white">Con Observaciones</span></div>
+                                                    </div>
+                                                @break
+                                                @case(1)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-warning">Pendiente</span></div>
+                                                    </div>
+                                                @break
+                                                @case(2)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-success">Aceptado</span></div>
+                                                    </div>
+                                                @break
+                                                @default
+                                                    
+                                            @endswitch
+                                            <div class="col-6 p-1">
+                                                <form method="post" action="{{ route('ver_documento.index',[$respuestarm->nombre_r_m,$proceso[0]]) }}">
+                                                    @csrf
+                                                    <button type="submit" class="btn btnVer" > <i class="zmdi zmdi-eye zmdi-hc-lg"></i> Ver</button>
+                                                </form>	
+                                            </div>
+                                            
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                <!--con observaciones-->
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual6,$proceso[0],15]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual6,$proceso[0],15]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnPendiente" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('conObservaciones_documento.index',[$proceso[0],15]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual6}}" class="id_d">
+    
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Ver Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                    
+                                                @break    
+                                                <!--pendiente-->
+                                                @case(1)
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual6, $proceso[0],15]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar {{$respuestarm->id_r_mensual6}} </button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],15]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual6}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                                <!--aceptado-->
+                                                @case(2)
+                                                
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual6,$proceso[0],15]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnAceptar" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],15]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual6}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                            
+                                                @default
+                                                    
+                                            @endswitch
+                                            
+                                        </div>
+                                </div>
+                            @endif
+                        @empty
+                            
+                        @endforelse    
+                    @endif
+                    <!--Reporte Mensual 7-->
+                    @if ($respuestaD->id_r_mensual7)
+                        @forelse ($reporte_mensual7['reporte_mensual7'] as $respuestarm)
+                            @if ($respuestarm->name==$respuestaD->name)
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc" >
+                                        <div class="row text-center divNombreCard">
+                                            <div class="col-12">
+                                                 Reporte Mensual 7
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="row text-center">
+                                            <div class="col-12 nombreDoc">
+                                                {{$respuestarm->nombre_r_m}}
+                                            </div>
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-danger text-white">Con Observaciones</span></div>
+                                                    </div>
+                                                @break
+                                                @case(1)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-warning">Pendiente</span></div>
+                                                    </div>
+                                                @break
+                                                @case(2)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-success">Aceptado</span></div>
+                                                    </div>
+                                                @break
+                                                @default
+                                                    
+                                            @endswitch
+                                            <div class="col-6 p-1">
+                                                <form method="post" action="{{ route('ver_documento.index',[$respuestarm->nombre_r_m,$proceso[0]]) }}">
+                                                    @csrf
+                                                    <button type="submit" class="btn btnVer" > <i class="zmdi zmdi-eye zmdi-hc-lg"></i> Ver</button>
+                                                </form>	
+                                            </div>
+                                            
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                <!--con observaciones-->
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual7,$proceso[0],16]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual7,$proceso[0],16]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnPendiente" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('conObservaciones_documento.index',[$proceso[0],16]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual7}}" class="id_d">
+    
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Ver Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                    
+                                                @break    
+                                                <!--pendiente-->
+                                                @case(1)
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual7, $proceso[0],16]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar {{$respuestarm->id_r_mensual7}} </button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],16]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual7}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                                <!--aceptado-->
+                                                @case(2)
+                                                
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual7,$proceso[0],16]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnAceptar" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],16]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual7}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                            
+                                                @default
+                                                    
+                                            @endswitch
+                                            
+                                        </div>
+                                </div>
+                            @endif
+                        @empty
+                            
+                        @endforelse    
+                    @endif
+                    <!--Reporte Mensual 8-->
+                    @if ($respuestaD->id_r_mensual8)
+                        @forelse ($reporte_mensual8['reporte_mensual8'] as $respuestarm)
+                            @if ($respuestarm->name==$respuestaD->name)
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc" >
+                                        <div class="row text-center divNombreCard">
+                                            <div class="col-12">
+                                                 Reporte Mensual 8
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="row text-center">
+                                            <div class="col-12 nombreDoc">
+                                                {{$respuestarm->nombre_r_m}}
+                                            </div>
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-danger text-white">Con Observaciones</span></div>
+                                                    </div>
+                                                @break
+                                                @case(1)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-warning">Pendiente</span></div>
+                                                    </div>
+                                                @break
+                                                @case(2)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-success">Aceptado</span></div>
+                                                    </div>
+                                                @break
+                                                @default
+                                                    
+                                            @endswitch
+                                            <div class="col-6 p-1">
+                                                <form method="post" action="{{ route('ver_documento.index',[$respuestarm->nombre_r_m,$proceso[0]]) }}">
+                                                    @csrf
+                                                    <button type="submit" class="btn btnVer" > <i class="zmdi zmdi-eye zmdi-hc-lg"></i> Ver</button>
+                                                </form>	
+                                            </div>
+                                            
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                <!--con observaciones-->
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual8,$proceso[0],17]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual8,$proceso[0],17]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnPendiente" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('conObservaciones_documento.index',[$proceso[0],17]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual8}}" class="id_d">
+    
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Ver Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                    
+                                                @break    
+                                                <!--pendiente-->
+                                                @case(1)
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual8, $proceso[0],17]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar {{$respuestarm->id_r_mensual8}} </button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],17]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual8}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                                <!--aceptado-->
+                                                @case(2)
+                                                
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual8,$proceso[0],17]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnAceptar" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],17]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual8}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                            
+                                                @default
+                                                    
+                                            @endswitch
+                                            
+                                        </div>
+                                </div>
+                            @endif
+                        @empty
+                            
+                        @endforelse    
+                    @endif
+                    <!--Reporte Mensual 9-->
+                    @if ($respuestaD->id_r_mensual9)
+                        @forelse ($reporte_mensual9['reporte_mensual9'] as $respuestarm)
+                            @if ($respuestarm->name==$respuestaD->name)
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc" >
+                                        <div class="row text-center divNombreCard">
+                                            <div class="col-12">
+                                                 Reporte Mensual 9
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="row text-center">
+                                            <div class="col-12 nombreDoc">
+                                                {{$respuestarm->nombre_r_m}}
+                                            </div>
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-danger text-white">Con Observaciones</span></div>
+                                                    </div>
+                                                @break
+                                                @case(1)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-warning">Pendiente</span></div>
+                                                    </div>
+                                                @break
+                                                @case(2)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-success">Aceptado</span></div>
+                                                    </div>
+                                                @break
+                                                @default
+                                                    
+                                            @endswitch
+                                            <div class="col-6 p-1">
+                                                <form method="post" action="{{ route('ver_documento.index',[$respuestarm->nombre_r_m,$proceso[0]]) }}">
+                                                    @csrf
+                                                    <button type="submit" class="btn btnVer" > <i class="zmdi zmdi-eye zmdi-hc-lg"></i> Ver</button>
+                                                </form>	
+                                            </div>
+                                            
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                <!--con observaciones-->
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual9,$proceso[0],18]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual9,$proceso[0],18]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnPendiente" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('conObservaciones_documento.index',[$proceso[0],18]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual9}}" class="id_d">
+    
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Ver Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                    
+                                                @break    
+                                                <!--pendiente-->
+                                                @case(1)
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual9, $proceso[0],18]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar {{$respuestarm->id_r_mensual9}} </button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],18]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual9}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                                <!--aceptado-->
+                                                @case(2)
+                                                
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual9,$proceso[0],18]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnAceptar" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],18]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual9}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                            
+                                                @default
+                                                    
+                                            @endswitch
+                                            
+                                        </div>
+                                </div>
+                            @endif
+                        @empty
+                            
+                        @endforelse    
+                    @endif
+                    <!--Reporte Mensual 10-->
+                    @if ($respuestaD->id_r_mensual10)
+                        @forelse ($reporte_mensual10['reporte_mensual10'] as $respuestarm)
+                            @if ($respuestarm->name==$respuestaD->name)
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc" >
+                                        <div class="row text-center divNombreCard">
+                                            <div class="col-12">
+                                                 Reporte Mensual 10
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="row text-center">
+                                            <div class="col-12 nombreDoc">
+                                                {{$respuestarm->nombre_r_m}}
+                                            </div>
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-danger text-white">Con Observaciones</span></div>
+                                                    </div>
+                                                @break
+                                                @case(1)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-warning">Pendiente</span></div>
+                                                    </div>
+                                                @break
+                                                @case(2)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-success">Aceptado</span></div>
+                                                    </div>
+                                                @break
+                                                @default
+                                                    
+                                            @endswitch
+                                            <div class="col-6 p-1">
+                                                <form method="post" action="{{ route('ver_documento.index',[$respuestarm->nombre_r_m,$proceso[0]]) }}">
+                                                    @csrf
+                                                    <button type="submit" class="btn btnVer" > <i class="zmdi zmdi-eye zmdi-hc-lg"></i> Ver</button>
+                                                </form>	
+                                            </div>
+                                            
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                <!--con observaciones-->
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual10,$proceso[0],19]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual10,$proceso[0],19]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnPendiente" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('conObservaciones_documento.index',[$proceso[0],19]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual10}}" class="id_d">
+    
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Ver Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                    
+                                                @break    
+                                                <!--pendiente-->
+                                                @case(1)
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual10, $proceso[0],19]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar {{$respuestarm->id_r_mensual10}} </button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],19]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual10}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                                <!--aceptado-->
+                                                @case(2)
+                                                
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual10,$proceso[0],19]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnAceptar" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],19]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual10}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                            
+                                                @default
+                                                    
+                                            @endswitch
+                                            
+                                        </div>
+                                </div>
+                            @endif
+                        @empty
+                            
+                        @endforelse    
+                    @endif
+                    <!--Reporte Mensual 11-->
+                    @if ($respuestaD->id_r_mensual11)
+                        @forelse ($reporte_mensual11['reporte_mensual11'] as $respuestarm)
+                            @if ($respuestarm->name==$respuestaD->name)
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc" >
+                                        <div class="row text-center divNombreCard">
+                                            <div class="col-12">
+                                                 Reporte Mensual 11
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="row text-center">
+                                            <div class="col-12 nombreDoc">
+                                                {{$respuestarm->nombre_r_m}}
+                                            </div>
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-danger text-white">Con Observaciones</span></div>
+                                                    </div>
+                                                @break
+                                                @case(1)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-warning">Pendiente</span></div>
+                                                    </div>
+                                                @break
+                                                @case(2)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-success">Aceptado</span></div>
+                                                    </div>
+                                                @break
+                                                @default
+                                                    
+                                            @endswitch
+                                            <div class="col-6 p-1">
+                                                <form method="post" action="{{ route('ver_documento.index',[$respuestarm->nombre_r_m,$proceso[0]]) }}">
+                                                    @csrf
+                                                    <button type="submit" class="btn btnVer" > <i class="zmdi zmdi-eye zmdi-hc-lg"></i> Ver</button>
+                                                </form>	
+                                            </div>
+                                            
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                <!--con observaciones-->
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual11,$proceso[0],20]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual11,$proceso[0],20]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnPendiente" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('conObservaciones_documento.index',[$proceso[0],20]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual11}}" class="id_d">
+    
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Ver Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                    
+                                                @break    
+                                                <!--pendiente-->
+                                                @case(1)
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual11, $proceso[0],20]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar {{$respuestarm->id_r_mensual11}} </button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],20]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual11}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                                <!--aceptado-->
+                                                @case(2)
+                                                
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual11,$proceso[0],20]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnAceptar" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],20]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual11}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                            
+                                                @default
+                                                    
+                                            @endswitch
+                                            
+                                        </div>
+                                </div>
+                            @endif
+                        @empty
+                            
+                        @endforelse    
+                    @endif
+                    <!--Reporte Mensual 12-->
+                    @if ($respuestaD->id_r_mensual12)
+                        @forelse ($reporte_mensual12['reporte_mensual12'] as $respuestarm)
+                            @if ($respuestarm->name==$respuestaD->name)
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc" >
+                                        <div class="row text-center divNombreCard">
+                                            <div class="col-12">
+                                                 Reporte Mensual 12
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="row text-center">
+                                            <div class="col-12 nombreDoc">
+                                                {{$respuestarm->nombre_r_m}}
+                                            </div>
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-danger text-white">Con Observaciones</span></div>
+                                                    </div>
+                                                @break
+                                                @case(1)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-warning">Pendiente</span></div>
+                                                    </div>
+                                                @break
+                                                @case(2)
+                                                    <div class="col-12">
+                                                        <div class="text-center p-1"><span class="badge bg-success">Aceptado</span></div>
+                                                    </div>
+                                                @break
+                                                @default
+                                                    
+                                            @endswitch
+                                            <div class="col-6 p-1">
+                                                <form method="post" action="{{ route('ver_documento.index',[$respuestarm->nombre_r_m,$proceso[0]]) }}">
+                                                    @csrf
+                                                    <button type="submit" class="btn btnVer" > <i class="zmdi zmdi-eye zmdi-hc-lg"></i> Ver</button>
+                                                </form>	
+                                            </div>
+                                            
+                                            @switch($respuestarm->estado_r_m)
+                                                @case(0)
+                                                <!--con observaciones-->
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual12,$proceso[0],21]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual12,$proceso[0],21]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnPendiente" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('conObservaciones_documento.index',[$proceso[0],21]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual12}}" class="id_d">
+    
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Ver Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                    
+                                                @break    
+                                                <!--pendiente-->
+                                                @case(1)
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('aceptar_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual12, $proceso[0],21]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success btnAceptar" > <i class="zmdi zmdi-check zmdi-hc-lg"></i> Aceptar {{$respuestarm->id_r_mensual12}} </button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],21]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual12}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                                <!--aceptado-->
+                                                @case(2)
+                                                
+                                                    <div class="col-6 p-1">
+                                                        <form method="post" action="{{ route('pendiente_documento.index',[$respuestarm->id_usuario,$respuestarm->id_r_mensual12,$proceso[0],21]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-warning btnAceptar" >Pendiente</button>
+                                                            <input type="hidden" class="form-control" name="texto1" value="">
+                                                        </form>	
+                                                    </div>
+                                                    <div class="col-12 p-1">
+                                                        <form method="post" action="{{ route('observaciones_documento.index',[$respuestarm->id_usuario,$proceso[0],21]) }}">
+                                                            @csrf
+                                                            <input type="text" name="id_c" id="id_c" value="{{$respuestarm->id_r_mensual12}}" class="id_d">
+                                                            <button type="submit" class="btn btn-danger btnObservaciones" > <i class="zmdi zmdi-alert-circle zmdi-hc-lg"></i> Observaciones</button>
+                                                        </form>	
+                                                    </div>
+                                                @break
+                                            
+                                                @default
+                                                    
+                                            @endswitch
+                                            
+                                        </div>
+                                </div>
+                            @endif
+                        @empty
+                            
+                        @endforelse    
+                    @endif
                              @endif
                             </div>  
                         </div>

@@ -62,6 +62,28 @@
 									@break
 									@case(10)<input type="text" name="observaciones" value="{{$dato->observaciones_r_m}}" class="observaciones" >
 									@break
+									@case(11)<input type="text" name="observaciones" value="{{$dato->observaciones_r_m}}" class="observaciones" >
+									@break
+									@case(12)<input type="text" name="observaciones" value="{{$dato->observaciones_r_m}}" class="observaciones" >
+									@break
+									@case(13)<input type="text" name="observaciones" value="{{$dato->observaciones_r_m}}" class="observaciones" >
+									@break
+									@case(14)<input type="text" name="observaciones" value="{{$dato->observaciones_r_m}}" class="observaciones" >
+									@break
+									@case(15)<input type="text" name="observaciones" value="{{$dato->observaciones_r_m}}" class="observaciones" >
+									@break
+									@case(16)<input type="text" name="observaciones" value="{{$dato->observaciones_r_m}}" class="observaciones" >
+									@break
+									@case(17)<input type="text" name="observaciones" value="{{$dato->observaciones_r_m}}" class="observaciones" >
+									@break
+									@case(18)<input type="text" name="observaciones" value="{{$dato->observaciones_r_m}}" class="observaciones" >
+									@break
+									@case(19)<input type="text" name="observaciones" value="{{$dato->observaciones_r_m}}" class="observaciones" >
+									@break
+									@case(20)<input type="text" name="observaciones" value="{{$dato->observaciones_r_m}}" class="observaciones" >
+									@break
+									@case(21)<input type="text" name="observaciones" value="{{$dato->observaciones_r_m}}" class="observaciones" >
+									@break
 									@default
 								@endswitch
 							</div>

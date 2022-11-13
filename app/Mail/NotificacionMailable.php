@@ -13,15 +13,17 @@ class NotificacionMailable extends Mailable
     public $subject = "Estatus de Documentacion";
     Public $nameDoc;
     public $status;
+    public $coment;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($doc, $status)
+    public function __construct($doc, $status,$coment)
     {
         $this->nameDoc= $doc;
         $this->status=$status;
+        $this->coment=$coment;
     }
 
     /**

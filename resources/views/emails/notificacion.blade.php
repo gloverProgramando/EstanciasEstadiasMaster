@@ -15,6 +15,8 @@
         @case(2)<!--Obervaciones-->
         <p>Favor de verificar que el documento "{{$nameDoc}}" que no corresponde al documento solicitado.</p>
         <br>
+        <p>"{{$coment}}"</p>
+        <br>
         <p>Entra a la página: <a href="ceduladeregistro.upqroo.edu.mx/">Estancias y Estadías</a></p>
             @break
         @default

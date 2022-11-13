@@ -26,6 +26,7 @@ use App\Http\Controllers\PdfController;
 use App\Http\Controllers\ScrollController;
 use App\Http\Controllers\ServicioSocialesController;
 use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\BotonesController;
 use App\Models\documentos;
 use App\Models\Formulario;
 use App\Models\universidad;
@@ -83,6 +84,10 @@ Route::get('/logout', [LoginController::class, 'destroy'])
     ->name('admin.index');
 
 //Ver usuarios
+    // Route::get('/usuarios/table', [UsuariosController::class, 'armar'])
+    // ->name('usuarios/table.index') //Para usar con data tables
+    // ->middleware('auth.admin');
+
      Route::get('/usuarios', [UsuariosController::class, 'create'])
     ->name('usuarios.index')
     ->middleware('auth.admin');
@@ -143,6 +148,16 @@ Route::get('/logout', [LoginController::class, 'destroy'])
         Route::match(['post','get','put'],'/imagen/{filename}', [datosController::class, 'imagen'])
         ->name('imagen.index');      
 //*proceso
+
+    Route::get('/activar_botones', [BotonesController::class, 'ver'])
+    ->name('activar_botones.index')// Para los botones
+    ->middleware('auth.admin');
+
+    Route::put('/actualizar_botones', [BotonesController::class, 'updateBoton'])
+    ->name('actualizar_botones.index');// Para los botones
+
+
+
     Route::match(['post','get'],'/estancia1_Documentos/{proces}', [documentosEstancia1AdminController::class, 'ver'])
     ->name('documentoEstancia1Admin.index')//!ver alumnos por proceso 1,2,3..etc.
     ->middleware('auth.admin');

@@ -11,14 +11,24 @@ class CorreoController extends Controller
 {
     static function store($idU, $doc, $status){
         $direc=User::find($idU)->email;
-        $correo=new NotificacionMailable($doc, $status);
+        $observacion="";
+            $correo=new NotificacionMailable($doc, $status,$observacion);
+            try {
+                Mail::to($direc)->send($correo);
+                return "Correo enviado";
+            } catch (\Throwable $th) {
+                return "Correo no enviado";
+            }
+    }
+    static function storeob($idU, $doc, $status,$observacion){
+        $direc=User::find($idU)->email;
+        $correo=new NotificacionMailable($doc, $status,$observacion);
         try {
             Mail::to($direc)->send($correo);
             return "Correo enviado";
         } catch (\Throwable $th) {
             return "Correo no enviado";
         }
-        
     }
     /*static function observacion($idU, $doc){
         $direc=User::find($idU)->email;

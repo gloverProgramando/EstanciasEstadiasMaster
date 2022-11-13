@@ -96,7 +96,7 @@ class CedulaController extends Controller
             $tel_lada_ae        = $request->input('tel_lada_ae');
             $tel_num_ae         = $request->input('tel_num_ae');
             $email_ae           = $request->input('email_ae');
-            $cargo_ae              = json_decode( $request->input('id_cargo_ae') );
+            $cargo_ae           = json_decode( $request->input('id_cargo_ae') );
 
             $ape_paterno_aa     = $request->input('ape_paterno_aa');
             $ape_materno_aa     = $request->input('ape_materno_aa');
@@ -104,7 +104,7 @@ class CedulaController extends Controller
             $tel_lada_aa        = $request->input('tel_lada_aa');
             $tel_num_aa         = $request->input('tel_num_aa');
             $email_aa           = $request->input('email_aa');
-            $cargo_aa              = json_decode( $request->input('id_cargo_aa') );
+            $cargo_aa           = json_decode( $request->input('id_cargo_aa') );
 
             $nombre_pro         = $request->input('nombre_proyecto');
 
@@ -199,7 +199,7 @@ class CedulaController extends Controller
                         'tel_lada_aa'   => $tel_lada_aa,
                         'tel_num_aa'    => $tel_num_aa,
                         'email_aa'      => $email_aa,
-                        'id_cargo_aa'      => $cargo_aa,
+                        'id_cargo_aa'   => $cargo_aa,
                         //'ID_Alumno'     => $response_alumno['id']
                     );
 

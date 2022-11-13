@@ -302,6 +302,7 @@
                         <option value="7">C.P.T</option>
                         <option value="8">Profr.</option>
                         <option value="9">Profra.</option>
+                        <option value="10">C. </option>
                     </select>
                 </div>
                 <div class="form-group col-md-1">
@@ -367,6 +368,7 @@
                         <option value="7">C.P.T</option>
                         <option value="8">Profr.</option>
                         <option value="9">Profra.</option>
+                        <option value="10">C. </option>
                     </select>
                 </div>
                 <div class="form-group col-md-1">

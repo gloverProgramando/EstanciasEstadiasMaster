@@ -54,6 +54,9 @@
                     <li>
                         <a href="{{ route('documentoEstancia1Admin.index',[5]) }}"></i> Documentos Servicio social</a>
                     </li>
+                    <li>
+                        <a href="{{ route('activar_botones.index') }}"></i> Activar Subida De Archivos</a>
+                    </li>
                 </ul>
                 <li>
                     <a href="{{ route('datos.index') }}">

@@ -224,20 +224,9 @@ class Estancia2Controller extends Controller
                     ),
                 );
             }
-
-                        //controlador de estatus
-             if ($date='01' | $date='02' | $date='03' | $date='04' ){
-                            $estatus3 = 'enero-abril';
-            } elseif ( $date='05' | $date='06' | $date='07' | $date='08' ) {
-                            $estatus3 = 'mayo-abril';
-            } elseif ($date='09' | $date='10' | $date='11' | $date='12'){
-                            $estatus3 = 'septiembre-diciembre';
-            }
-
             $data6 = array(
                 'id_c_horaria'     =>  $response_c_horaria['id'],
                 'id_proceso'             =>  2,
-                'estatus'          =>  $estatus3
             );
             $response_documentos = documentos::requestInsertDoc($data6);
         

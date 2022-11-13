@@ -23,15 +23,11 @@ use App\Models\reporte_mensual9;
 use App\Models\reporte_mensual10;
 use App\Models\reporte_mensual11;
 use App\Models\reporte_mensual12;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Arr;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Support\Facades\Auth;
-use Redirect;
 
 class documentosEstancia1AdminController extends Controller
 {
@@ -150,7 +146,8 @@ class documentosEstancia1AdminController extends Controller
         ->join('reporte_mensual','documentos.id_r_mensual','=','reporte_mensual.id')
         ->where('documentos.id_proceso',$proces)
         ->get();
-       //datos reporte mensual mes 2
+
+        //datos reporte mensual mes 2
         $doc_reporte_mensual2=DB::table('users')
         ->join('respuesta_doc','users.id','=','respuesta_doc.id_usuario')
         ->join('documentos','documentos.id','=','respuesta_doc.id_documentos')
@@ -241,7 +238,6 @@ class documentosEstancia1AdminController extends Controller
         $reporte_mensual10 = ['reporte_mensual10' => $doc_reporte_mensual10];
         $reporte_mensual11 = ['reporte_mensual11' => $doc_reporte_mensual11];
         $reporte_mensual12 = ['reporte_mensual12' => $doc_reporte_mensual12];
-        
         //array 5
         $r_m   = ['reporte_mensual' => $doc_reporte_mensual];
         $c_com   = ['carta_compromiso' => $doc_carta_compromiso];
@@ -326,7 +322,7 @@ class documentosEstancia1AdminController extends Controller
             $carta->estado_c_l=2;
                 break;
             case 9:$carta=carta_compromiso::find($id);
-            $carta->estado_c_c=2;
+            $carta->estado_r_m=2;
                 break;
             case 10:$carta=reporte_mensual::find($id);
             $carta->estado_r_m=2;
@@ -370,7 +366,7 @@ class documentosEstancia1AdminController extends Controller
         }
         $carta->save();
         $resp=$name[$doc-1].' Aceptada y '.CorreoController::store($idU, $name[$doc-1],1);
-        return back()->withInput()->with('aceptado',$resp);
+         return redirect('Buscar/'.$proces.'/'.$texto)->with('aceptado',$resp);
     }
     //documento pendiente->no manda correo
     public function pendiente_documento(request $request,$idU,$id,$proces,$doc) {//*funcion optimizada
@@ -452,14 +448,11 @@ class documentosEstancia1AdminController extends Controller
                 break;
         }
         $carta->save();
-        return back()->withInput()->with('pendiente',$name[$doc-1].' Pendiente');
+         return redirect('Buscar/'.$proces.'/'.$texto)->with('pendiente',$name[$doc-1].' Pendiente');
     }
     //vista observaciones carga horaria
     public function observaciones_documento(Request $request, $idU,$proces,$doc) {//*funcion optimizada
-        $texto   =trim($request->get('texto1'));
-        $estatus =trim($request->get('estatus'));
-        $año     =trim($request->get('año'));
-        $id_c   = ['id_c'=>$request->input('id_c'), 'idU'=>$idU,'#proces'=>$proces,'#doc'=>$doc,'#texto'=>$texto];//manda datos a la vista para despues pasarlo a correo
+        $id_c   = ['id_c'=>$request->input('id_c'), 'idU'=>$idU,'#proces'=>$proces,'#doc'=>$doc];//manda datos a la vista para despues pasarlo a correo
         $datos = Arr::collapse([$id_c]);
         return view('admin.observaciones_estancia_carga_horaria',['datos'=>$datos]);
     }
@@ -519,6 +512,9 @@ class documentosEstancia1AdminController extends Controller
     }
     //guardar carga horaria->manda correo
     public function  guardarObservaciones_documento_admin(Request $request,$id, $idU,$proces,$doc){//*funcion optimizada
+        $texto   =trim($request->get('texto1'));
+        $estatus =trim($request->get('estatus'));
+        $año     =trim($request->get('año'));
         $observacion= $request->input('observaciones');
         $name=['Carga Horaria','Constancia de Derecho',
         'Carta Responsiva','Carta de Presentación',
@@ -616,15 +612,11 @@ class documentosEstancia1AdminController extends Controller
                 break;
         }
         $carta->save();
-        $resp=$name[$doc-1].' con Observación y '.CorreoController::storeob($idU, $name[$doc-1],2,$observacion);
-        if(Session("url_return")){
-            return redirect(Session("url_return"))->with('Con Observacion',$resp);
-            $request->session()->put('url_return', null);
-        }
+        $resp=$name[$doc-1].' con Observación y '.CorreoController::store($idU, $name[$doc-1],2);
+         return redirect('estancia1_Documentos/'.$proces)->with('aceptado',$resp);
     }
     //buscar datos de usuario
     public function buscador_estancia1(Request $request,$proces,$name){//*optimizado
-        $request->session()->put('url_return', $request->fullUrl());
         $var=[$proces,$name];  
         $texto   =trim($request->get('texto'));
         $estatus =trim($request->get('estatus'));
@@ -741,7 +733,7 @@ class documentosEstancia1AdminController extends Controller
         ->join('reporte_mensual','documentos.id_r_mensual','=','reporte_mensual.id')
         ->where('documentos.id_proceso',$proces)
         ->get(); 
-        
+
         $doc_reporte_mensual2=DB::table('users')
         ->join('respuesta_doc','users.id','=','respuesta_doc.id_usuario')
         ->join('documentos','documentos.id','=','respuesta_doc.id_documentos')
