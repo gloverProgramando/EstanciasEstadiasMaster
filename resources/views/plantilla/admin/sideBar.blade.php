@@ -57,6 +57,9 @@
                     <li>
                         <a href="{{ route('activar_botones.index') }}"></i> Activar Subida De Archivos</a>
                     </li>
+                    <li>
+                        <a href="{{ route('datatable.index') }}"></i> datatable user</a>
+                    </li>
                 </ul>
                 <li>
                     <a href="{{ route('datos.index') }}">

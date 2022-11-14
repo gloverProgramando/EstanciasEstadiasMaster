@@ -27,6 +27,7 @@ use App\Http\Controllers\ScrollController;
 use App\Http\Controllers\ServicioSocialesController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\BotonesController;
+use App\Http\Controllers\datatableController;
 use App\Models\documentos;
 use App\Models\Formulario;
 use App\Models\universidad;
@@ -88,31 +89,31 @@ Route::get('/logout', [LoginController::class, 'destroy'])
     // ->name('usuarios/table.index') //Para usar con data tables
     // ->middleware('auth.admin');
 
-     Route::get('/usuarios', [UsuariosController::class, 'create'])
+    Route::get('/usuarios', [UsuariosController::class, 'create'])
     ->name('usuarios.index')
     ->middleware('auth.admin');
-       
+    
          //buscardor
-         Route::get('/buscar_usuario', [UsuariosController::class, 'buscarUsuario'])
-         ->name('buscar_usuario.index')
-         ->middleware('auth.admin');
+        Route::get('/buscar_usuario', [UsuariosController::class, 'buscarUsuario'])
+        ->name('buscar_usuario.index')
+        ->middleware('auth.admin');
 
           //buscardor datos
-          Route::get('/buscar_datos', [UsuariosController::class, 'buscarUsuarioDatos'])
-          ->name('buscar_usuario_datos.index')
-          ->middleware('auth.admin');
+        Route::get('/buscar_datos', [UsuariosController::class, 'buscarUsuarioDatos'])
+        ->name('buscar_usuario_datos.index')
+        ->middleware('auth.admin');
 
           //agregar usuario
-          Route::get('/agregar_usuario', [UsuariosController::class, 'ver'])
-          ->name('agregar_usuario.index')
-          ->middleware('auth.admin');
+        Route::get('/agregar_usuario', [UsuariosController::class, 'ver'])
+        ->name('agregar_usuario.index')
+        ->middleware('auth.admin');
 
           //registrar usuario
-          Route::post('/registrar', [RegisterController::class, 'registrar'])
-         ->name('registrar_usuario.index');
+        Route::post('/registrar', [RegisterController::class, 'registrar'])
+        ->name('registrar_usuario.index');
 
          //cambiar datos usuario
-         Route::match(['post','get','delete'],'/ver_datos_usuario_{id}', [UsuariosController::class, 'ver_datos_usuario'])
+        Route::match(['post','get','delete'],'/ver_datos_usuario_{id}', [UsuariosController::class, 'ver_datos_usuario'])
         ->name('ver_datos_usuario.index');
         
         //editar datos usuario
@@ -120,16 +121,16 @@ Route::get('/logout', [LoginController::class, 'destroy'])
         ->name('editar_datos_usuario.index');
         
          //eliminarusuarios
-         Route::match(['post','get','delete'],'/eliminar_usuario_{id}', [UsuariosController::class, 'eliminarUsuario'])
-         ->name('eliminarUsuario.index');
+        Route::match(['post','get','delete'],'/eliminar_usuario_{id}', [UsuariosController::class, 'eliminarUsuario'])
+        ->name('eliminarUsuario.index');
 
           //eliminarusuarios
-         Route::match(['post','get','delete'],'/eliminar_usuarioC_{id}', [UsuariosController::class, 'eliminarUsuarioC'])
-         ->name('eliminarUsuarioCompleto.index');
+        Route::match(['post','get','delete'],'/eliminar_usuarioC_{id}', [UsuariosController::class, 'eliminarUsuarioC'])
+        ->name('eliminarUsuarioCompleto.index');
 
          //restaurar usuarios
-         Route::match(['post','get','delete'],'/restaurar_usuario_{id}', [UsuariosController::class, 'restaurarUsuario'])
-         ->name('restaurarUsuario.index');
+        Route::match(['post','get','delete'],'/restaurar_usuario_{id}', [UsuariosController::class, 'restaurarUsuario'])
+        ->name('restaurarUsuario.index');
 
 //cambiar datos director
     Route::get('/datos', [datosController::class, 'ver'])
@@ -137,8 +138,8 @@ Route::get('/logout', [LoginController::class, 'destroy'])
     ->middleware('auth.admin');
 
         //guardar datos vinculacion
-           Route::match(['post','get','put'],'/guardar_datos_vinculacion', [datosController::class, 'guardar'])
-           ->name('guardar_vinculacion.index');
+        Route::match(['post','get','put'],'/guardar_datos_vinculacion', [datosController::class, 'guardar'])
+        ->name('guardar_vinculacion.index');
 
         //actualizar datos vinculacion
         Route::match(['post','get','put'],'/actualizar_datos_vinculacion', [datosController::class, 'actualizar'])
@@ -153,10 +154,12 @@ Route::get('/logout', [LoginController::class, 'destroy'])
     ->name('activar_botones.index')// Para los botones
     ->middleware('auth.admin');
 
+    Route::get('/datatable_user',[datatableController::class, 'ver']) //datatable de prueba
+    ->name('datatable.index')
+    ->middleware('auth.admin');
+
     Route::put('/actualizar_botones', [BotonesController::class, 'updateBoton'])
     ->name('actualizar_botones.index');// Para los botones
-
-
 
     Route::match(['post','get'],'/estancia1_Documentos/{proces}', [documentosEstancia1AdminController::class, 'ver'])
     ->name('documentoEstancia1Admin.index')//!ver alumnos por proceso 1,2,3..etc.
@@ -212,8 +215,6 @@ Route::get('/logout', [LoginController::class, 'destroy'])
 
 
 //alumno
-   
-
     //inicio
     Route::get('/inicio', [InicioController::class, 'ver'])
     ->name('inicio.index')
@@ -236,7 +237,7 @@ Route::get('/logout', [LoginController::class, 'destroy'])
 
 
 //formatos
- Route::match(['post','get'],'/estancia1/{Proces}', [Estancia1Controller::class, 'ver'])
+Route::match(['post','get'],'/estancia1/{Proces}', [Estancia1Controller::class, 'ver'])
     ->name('estancia1.index')//*funcion optimizada
     ->middleware('auth');
 
@@ -259,7 +260,7 @@ Route::get('/logout', [LoginController::class, 'destroy'])
     Route::get('/descarga_cd_estancia_f01/{proces}', [DescargaController::class, 'descarga_carta_presentacion'])
     ->name('descarga_cd_estancia_f01.index');//*optimizado
 
-     
+    
     //descargar con datos f02
     Route::get('/descarga_cd_estancia_f02/{proces}', [PdfController::class, 'descarga_cd_f02_estancia'])
     ->name('descarga_cd_estancia_f02.index');//*optimizado
