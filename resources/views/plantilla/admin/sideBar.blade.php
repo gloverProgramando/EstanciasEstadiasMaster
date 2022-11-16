@@ -37,7 +37,7 @@
                 </a>
                 <ul class="list-unstyled full-box">
                     <li>
-                        <a href="{{ route('usuarios.index') }}"></i> Alumnos</a>
+                        <a href="{{ route('datatable.index') }}"></i> Alumnos</a>
                     </li>
                     <li>
                         <a href="{{ route('documentoEstancia1Admin.index',[1]) }}"></i> Documentos Estancias I</a>
@@ -58,7 +58,7 @@
                         <a href="{{ route('activar_botones.index') }}"></i> Activar Subida De Archivos</a>
                     </li>
                     <li>
-                        <a href="{{ route('datatable.index') }}"></i> datatable user</a>
+                        <a href="{{ route('usuarios.index') }}"></i> datatable user</a>
                     </li>
                 </ul>
                 <li>
