@@ -8,10 +8,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
 
+    <!--  css botones datatable  -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.3.3/css/buttons.dataTables.min.css"/>
+
     <!---- script ---->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- script buttons datatable-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.3/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.3/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.3/js/buttons.print.min.js"></script>
 
     <title>Usuarios tabla prueba</title>
 </head>
@@ -36,7 +48,7 @@
                     
                 </div>
                 <div class="col-sm-12 col-md-3">
-                    <button onclick="armarExcel();" class="btn btn btn-success btn-sm mt-2"> Generar excel</button>
+                    {{-- <button onclick="armarExcel();" class="btn btn btn-success btn-sm mt-2"> Generar excel</button> --}}
                     {{-- <a href="{{ route('usuarios/table.index') }}" class="btn btn-secondary btn-sm mt-2"> Prueba DataTable</a> --}}
                 </div>
             </div>
@@ -76,19 +88,39 @@
         </table>
     </section>
 </body>
-<script>
+
+
+{{-- <script>
     $('#usuarios').DataTable({
         responsive:true
     });
-</script>
+</script> --}}
 
 <script>
-    function armarExcel(){
-        $('#usuarios').DataTable( {
-    buttons: [
-        'excel'
-    ]
-} );
-    }
+
+
+
+        $(document).ready(function(){
+            $('#usuarios').DataTable({
+                dom: "Bfrtip",
+                buttons: {
+                    dom: {
+                        button:{
+                            className: 'btn'
+                        }
+                    },
+                    buttons: [
+                        {
+                            extend:"excel",
+                            text:'Exportar a Excel',
+                            className:'btn btn-outline-success',
+                            excelStyles:{
+                                template:'header-blue'
+                            }
+                        }
+                    ]
+                }
+            });
+        });
 </script>
 </html> 
