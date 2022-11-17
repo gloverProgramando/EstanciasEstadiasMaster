@@ -98,7 +98,44 @@
 
 <script>
 
-
+// $(document).ready(function() {
+//     var buttonCommon = {
+//         exportOptions: {
+//     columns: function(column, data, node) {
+//         if (column > 3) {
+//             return false;
+//         }
+//         return true;
+//     }
+// }
+//     };
+ 
+//     $('#usuarios').DataTable( {
+//         columns: [
+//             { data: 'id' },
+//             { data: 'matricula' },
+//             { data: 'rol' },
+//             { data: 'correo' },
+//             { data: 'Editar' },
+//             { data: 'Eliminar' }
+//         ],
+//         dom: 'Bfrtip',
+        
+//         buttons: [
+//             $.extend( true, {}, buttonCommon, {
+//                 extend: 'excel',
+//                 text:'Exportar a Excel',
+//                 className:'btn btn-outline-success',
+//                 excelStyles:{
+//                 template:'header-blue'
+//                }
+//             } ),
+//             $.extend( true, {}, buttonCommon, {
+//                 extend: 'pdfHtml5'
+//             } )
+//         ]
+//     } );
+// } );
 
         $(document).ready(function(){
             $('#usuarios').DataTable({
@@ -116,7 +153,31 @@
                             className:'btn btn-outline-success',
                             excelStyles:{
                                 template:'header-blue'
+                            },
+                            exportOptions: {
+                                columns: function(column, data, node) {
+                                if (column > 3) {
+                                return false;
                             }
+                                return true;
+                            }
+}
+                        },
+                        {
+                            extend:"pdf",
+                            text:'Exportar a PDF',
+                            className:'btn btn-outline-danger',
+                            excelStyles:{
+                                template:'header-blue'
+                            },
+                            exportOptions: {
+                                columns: function(column, data, node) {
+                                if (column > 3) {
+                                return false;
+                            }
+                                return true;
+                            }
+}
                         }
                     ]
                 }
