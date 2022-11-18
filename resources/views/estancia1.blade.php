@@ -1248,6 +1248,46 @@
 										
 						</div>
 					</li>
+
+					<!-- Encuesta -->
+					@forelse ($documentos['documentos'] as $datoD)
+					@forelse ($carta_aceptacion['carta_liberacion'] as $datoCL)
+					@switch($datoCL->estado_c_l)
+					@case(2)
+					<li class="list-group-item d-flex justify-content-between align-items-start" style="border: 1px solid rgb(210, 210, 210);">
+						<div class="row lista">
+							<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 ">
+								<div class="ms-2 me-auto">
+
+									Encuesta final de tus estancias/estadias
+								</div>
+							</div>
+
+							<!--enviar doc f05-->
+							<div class="col-3 col-sm-3 col-md-3 col-lg-3 p-1 colArchivo">
+														<div class="row">
+															<div class="col-12 col-sm-12 py-1">
+																	<!--aceptado-->
+																			<div class="row">
+																				
+																				<button href="www.youtube.com" type="submit" class="btn btn-outline-info btnSubir">Ir a la encuesta</button>
+																			</div>																			
+															</div>
+														</div>		
+							</div>														
+										
+						</div>
+					</li>
+					@break
+					@endswitch
+					@empty
+					@endforelse	
+			@empty
+
+			@endforelse	
+					<!-- Fin de la encuesta -->
+
+
 					@if ($proceso[0]==5)<!--documentos exclusivos de servicio social-->
 					<!--carta compromiso-->
 					<li class="list-group-item d-flex justify-content-between align-items-start" style="border: 1px solid rgb(210, 210, 210);">
@@ -2914,7 +2954,7 @@
 
 					@endif
 					<!--Formato reporte de evaluacion-->
-					<li class="list-group-item d-flex justify-content-between align-items-start" style="border: 1px solid rgb(210, 210, 210);">
+					{{-- <li class="list-group-item d-flex justify-content-between align-items-start" style="border: 1px solid rgb(210, 210, 210);">
 						<div class="row lista">
 							<div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2">
 								<div class="ms-2 me-auto">
@@ -2935,7 +2975,7 @@
 												
 							</div>	
 						</div>
-					</li>
+					</li> --}}
 				</ol>
 				
 		</div>
