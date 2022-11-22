@@ -32,35 +32,8 @@
                 </a>
             </li>
             <li>
-                <a href="#!" class="btn-sideBar-SubMenu">
-                    <i class="zmdi zmdi-case zmdi-hc-fw"></i> Registros <i class="zmdi zmdi-caret-down pull-right"></i>
-                </a>
-                <ul class="list-unstyled full-box">
-                    <li>
-                        <a href="{{ route('usuarios.index') }}"></i> Alumnos</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('documentoEstancia1Admin.index',[1]) }}"></i> Documentos Estancias I</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('documentoEstancia1Admin.index',[2]) }}"></i> Documentos Estancias II</a> <!---separador de estancia 1 y 2 ------>
-                    </li>
-                    <li>
-                        <a href="{{ route('documentoEstancia1Admin.index',[3]) }}"></i> Documentos Estadías</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('documentoEstancia1Admin.index',[4]) }}"></i> Documentos Estadías nacional</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('documentoEstancia1Admin.index',[5]) }}"></i> Documentos Servicio social</a>
-                    </li>
-<<<<<<< Updated upstream
-=======
-                    <li>
-                        <a href="{{ route('activar_botones.index') }}"></i> Activar Subida De Archivos</a>
-                    </li>
->>>>>>> Stashed changes
-                </ul>
+              
+              
                 <li>
                     <a href="{{ route('datos.index') }}">
                         <i class="zmdi zmdi-file-text zmdi-hc-fw"></i> Datos Vinculación

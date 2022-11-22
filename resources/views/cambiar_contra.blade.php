@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+<<<<<<< Updated upstream
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,12 +21,13 @@
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
+=======
+@include('plantilla/alumno/head')	
+>>>>>>> Stashed changes
 <body>
-    <!-- SideBar -->
-	@include('plantilla/alumno/sideBar')
 
 	<!-- Content page-->
-	<section class="full-box dashboard-contentPage">
+	<section class=" dashboard-contentPage">
 		<!-- NavBar -->
 		@include('plantilla/alumno/navBar')
 
@@ -105,8 +107,6 @@
 	<script src="./js/ripples.min.js"></script>
 	<script src="./js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="./js/main.js"></script>
-	<script>
-		$.material.init();
-	</script>
+
 </body>
 </html>

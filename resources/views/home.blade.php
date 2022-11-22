@@ -28,19 +28,6 @@
    }
  </script>
 
-    <style>
-        .row-color {
-            background-color: #16355a;   
-        }
-        h2 {
-            color: #fff;
-        }
-        /*.margin-bottom {
-            margin-bottom: 8px;
-        }*/
-    </style>
-</head>
-
 <body>
     <nav class="navbar navbar-dark primary-color">
         <div class="container">
