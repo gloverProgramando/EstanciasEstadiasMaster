@@ -7,7 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>Estimado estudiante:</h3>
+    <img src="{{ asset("firma/arriba.png")}}" alt="" style="width: 100%">
+    <h3 style="align-content: center">Estimado estudiante:</h3>
     @switch($status)
         @case(1)<!--Aceptado-->
         <p>Este documento "{{$nameDoc}}" fue aceptado</p>
@@ -22,6 +23,8 @@
         @default
             
     @endswitch
-    
 </body>
+<footer>
+    <img src="{{ asset("firma/abajo.png")}}" alt="" style="width: 100%"/>
+</footer>
 </html>

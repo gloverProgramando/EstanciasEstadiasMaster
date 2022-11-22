@@ -33,9 +33,11 @@
 		<!-- Content page -->
 		<div class="container p-3">
 			<div class="page-header">
-			  <h2 class="text-titles">Busqueda<small>({{$proceso[1]}})</small></h2>
+			    <h2 class="text-titles">Busqueda<small>({{$proceso[1]}})</small></h2>
 			</div>
 		</div>
+        <!-- notificaciones -->
+        @include('notificaciones/notificaciones')  
         <div class="container">
 
                 <div class="row">

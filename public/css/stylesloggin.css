@@ -37,8 +37,7 @@ body{
     font-size: 20px;
 }
 .setimagen{
-   
-   background: url(logosinfondo.png) no-repeat left top ; 
+   background: url(logosinfondo.png) no-repeat left center; 
    background-size:400px;
 
     

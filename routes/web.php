@@ -157,6 +157,10 @@ Route::get('/logout', [LoginController::class, 'destroy'])
     Route::get('/datatable_user',[datatableController::class, 'ver']) //datatable de prueba
     ->name('datatable.index')
     ->middleware('auth.admin');
+    //datatable detallada
+    Route::get('/datatable_user_detallados_datos',[datatableController::class ,'verdetalles'])
+    ->name('datatabledetallada.index')
+    ->middleware('auth.admin');
 
     Route::put('/actualizar_botones', [BotonesController::class, 'updateBoton'])
     ->name('actualizar_botones.index');// Para los botones

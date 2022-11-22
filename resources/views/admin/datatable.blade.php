@@ -25,7 +25,7 @@
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.3/js/buttons.html5.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.3/js/buttons.print.min.js"></script>
 
-    <title>Usuarios tabla prueba</title>
+    <title>Usuarios tabla registrados</title>
 </head>
 <body>
     <section class="full-box dashboard-contentPage">
