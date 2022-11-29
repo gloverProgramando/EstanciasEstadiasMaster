@@ -22,11 +22,10 @@
 
 </head>
 <body>
-    @include('plantilla/admin/sideBar')
+    <!-- NavBar -->
+		@include('plantilla/admin/navBar')
 	<!-- Content page-->
 	<section class="full-box dashboard-contentPage">
-		<!-- NavBar -->
-		@include('plantilla/admin/navBar')
         <div class="container p-3">
 			<div class="page-header">
 			    <h2 class="text-titles">Observaciones <small></small></h2>

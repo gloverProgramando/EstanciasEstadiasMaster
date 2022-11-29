@@ -10,7 +10,7 @@
 		<!-- Content page -->
 		<div class="container p-3">
 			<div class="page-header">
-			  <h2 class="text-titles">Usuarios <small>(Registrados)</small></h2>
+				<h2 class="text-titles">Usuarios <small>(Registrados)</small></h2>
 			</div>
 		</div>
 		@include('notificaciones/notificaciones')
