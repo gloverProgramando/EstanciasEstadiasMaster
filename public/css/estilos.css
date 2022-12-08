@@ -1,0 +1,274 @@
+.text-center{
+    color: #080705;
+}
+
+.caja_p{
+	position: relative;
+	background-color: #A8A99E;
+	height: 289px;
+	width: 1180px;
+	border-radius: 15px;
+	top: 10px;
+	left: 90px;
+}
+
+.caja{
+	background-color: #FFFFFF;
+	height: 248px;
+	width: 480px;
+	border-radius: 15px;
+	position: absolute;
+	left: 50px;
+	top: 38px;
+}
+
+.caja1{
+	background-color: #FFFFFF;
+	height: 248px;
+	width: 540px;
+	border-radius: 15px;
+	position: absolute;
+	left: 595px;
+	top: 38px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.leg{
+	color: white;
+	width: 100%;
+	background-color: #080705;
+	text-align: center;
+
+}
+
+.datos{
+	position: relative;
+	text-align: center;
+	color: #FFFFFF;
+	background-color: #5B3427;
+	width: 100%;
+	height: 22px;
+	top: 80px;
+}
+
+.datos1{
+	position: relative;
+	text-align: center;
+	color: #FFFFFF;
+	background-color: #5B3427;
+	width: 100%;
+	height: 22px;
+    top: 0px;
+
+}
+
+.datos2{
+	position: relative;
+	text-align: center;
+	color: #FFFFFF;
+	background-color: #5B3427;
+	width: 100%;
+	height: 22px;
+	top: 40px;
+
+}
+
+.datos3{
+	position: relative;
+	text-align: center;
+	color: #FFFFFF;
+	background-color: #5B3427;
+	width: 100%;
+	height: 22px;
+	top: 120px;
+}
+
+.cargh{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #fdfdfd;
+}
+
+.nom{
+    background-color: #d4d4d4;
+}
+
+.imss{
+
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #fdfdfd;
+}
+.nom{
+    background-color: #d4d4d4;
+}
+.cartr{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #fdfdfd;
+}
+.nom{
+    background-color: #d4d4d4;
+}
+.cartp{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #fdfdfd;
+}
+
+.cartA{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #fdfdfd;
+}
+
+.cedlr{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #fdfdfd;
+}
+
+.df{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #fdfdfd;
+}
+
+.cartl{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #fdfdfd;
+}
+
+.cartc{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #fdfdfd;
+}
+
+.rm{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #fdfdfd;
+}
+
+.rm2{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #fdfdfd;
+}
+
+.rm3{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #fdfdfd;
+}
+
+.rm4{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #fdfdfd;
+}
+
+.rm5{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #fdfdfd;
+}
+
+.rm6{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #fdfdfd;
+}
+
+.rm7{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.rm8{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.rm9{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #fdfdfd;
+}
+
+.rm10{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #fdfdfd;
+}
+
+.rm11{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #fdfdfd;
+}
+
+.rm12{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #fdfdfd;
+}
+
+.btnVer{
+    width: 100px;
+}
+
+.btnAceptar{
+    width: 100px;
+}
+
+.btnObservaciones{
+    width: 200px;
+}
