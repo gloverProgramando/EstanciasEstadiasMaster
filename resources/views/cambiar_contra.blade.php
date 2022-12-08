@@ -17,10 +17,12 @@
                     </div>
                     <div class="col-2">
                         @forelse ($datos as $dato)
+                        <br>
                             <form action="{{ route('reiniciarU.index', $dato->id_documentos) }}" method="POST"
                                 class="btn-reiniciarP-system">
                                 @csrf
                                 <button type="submit" class="btn btn-dark">Reiniciar mi Perfil</button>
+                                
                             </form>
                         @empty
                         @endforelse

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	@include('plantilla/alumno/head')
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<link rel="stylesheet" href='{{ asset("/css/main.css") }}'>
 <body>
 	<!-- Content page-->
