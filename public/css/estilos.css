@@ -1,0 +1,272 @@
+
+
+.text-center{
+    color: #080705;
+}
+
+.caja_p{
+	position: relative;
+	background-color: #A8A99E;
+	height: 289px;
+	width: 1000px;
+	border-radius: 15px;
+	top: 200px;
+	left: 240px;
+}
+
+.caja{
+	background-color: #FFFFFF;
+	height: 248px;
+	width: 350px;
+	border-radius: 15px;
+	position: absolute;
+	left: 13px;
+	top: 38px;
+}
+
+.caja1{
+	background-color: #FFFFFF;
+	height: 248px;
+	width: 480px;
+	border-radius: 15px;
+	position: absolute;
+	left: 500px;
+	top: 38px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.leg{
+	color: white;
+	width: 100%;
+	background-color: #080705;
+	text-align: center;
+
+}
+
+.datos{
+	position: relative;
+	text-align: center;
+	color: #FFFFFF;
+	background-color: #5B3427;
+	width: 100%;
+	height: 20px;
+	top: 87px;
+}
+
+.datos1{
+	position: relative;
+	text-align: center;
+	color: #FFFFFF;
+	background-color: #5B3427;
+	width: 100%;
+	height: 20px;
+    top: -1px;
+
+}
+
+.datos2{
+	position: relative;
+	text-align: center;
+	color: #FFFFFF;
+	background-color: #5B3427;
+	width: 100%;
+	height: 20px;
+	top: 47px;
+
+}
+
+.datos3{
+	position: relative;
+	text-align: center;
+	color: #FFFFFF;
+	background-color: #5B3427;
+	width: 100%;
+	height: 20px;
+	top: 107px;
+}
+
+.cargh{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.nom{
+    background-color: #1f68a2;
+}
+
+.imss{
+
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.cartr{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.cartp{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.cartA{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.cedlr{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.df{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.cartl{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.cartc{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.rm{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.rm2{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.rm3{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.rm4{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.rm5{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.rm6{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.rm7{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.rm8{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.rm9{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.rm10{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.rm11{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.rm12{
+    text-align: center;
+    position: absolute;
+    height: 180px;
+    width: 100%;
+    background-color: #A8A99E;
+}
+
+.btnVer{
+    width: 100px;
+}
+
+.btnAceptar{
+    width: 100px;
+}
+
+.btnObservaciones{
+    width: 200px;
+}
