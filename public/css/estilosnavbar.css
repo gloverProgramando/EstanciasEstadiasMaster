@@ -45,7 +45,7 @@ a{
 
 .contenedor{
     
-    height: 430px;
+    height: 830px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -100,6 +100,7 @@ a{
    .imgtam{
     width: 1000px;
     height: 300px;
+    border-radius: 8px;
    }
    .coloractarchivos{
     background-color: #fffffb;
