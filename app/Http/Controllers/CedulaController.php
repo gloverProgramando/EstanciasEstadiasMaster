@@ -49,14 +49,14 @@ class CedulaController extends Controller
             'ape_materno_ae' => 'required|max:40',
             'nombres_ae' => 'required|max:100',
             'tel_lada_ae' => 'nullable|digits:3',
-            'tel_num_ae' => 'required|digits:7',
+            'tel_num_ae' => 'required|digits:10',
             'email_ae' => 'required|max:40',
 
             'ape_paterno_aa' => 'required|max:40',
             'ape_materno_aa' => 'required|max:40',
             'nombres_aa' => 'required|max:100',
             'tel_lada_aa' => 'nullable|digits:3',
-            'tel_num_aa' => 'required|digits:7',
+            'tel_num_aa' => 'required|digits:10',
             'email_aa' => 'required|max:40',
 
             'nombre_proyecto' => 'required|max:255'

@@ -17,11 +17,11 @@
 			<div class="row">
 				<div class="col-12 col-sm-12 col-md-6 col lg-6 px-5 py-2">
 					<div class="row listaAdmin">
-						<div class="col-12 tituloDash">
-							<div>Administradores</div>		 
+						<div class="col-12 tituloDash" style="background: rgb(255, 255, 255)">
+							<div style="color: rgb(0, 0, 0)">Administradores</div>		 
 						</div>
-						<div class="col-6" style="font-size: 30px; color:rgb(0, 0, 0);">
-							<a href="#!"><i class="zmdi zmdi-account  zmdi-hc-5x"></i></a>
+						<div class="col-6" style="font-size: 30px; color:rgb(255, 255, 255);">
+							<a href="#!"><i class="zmdi zmdi-account  zmdi-hc-5x" style="color: rgb(255,103,32)"></i></a>
 						</div>
 						<div class="col-6 registro">
 							<p class="registroCount">{{  $datos['adminsCount']  }}</p>
@@ -32,11 +32,11 @@
 				</div>
 				<div class="col-12 col-sm-12 col-md-6 col lg-6 px-5 py-2">
 					<div class="row listaAdmin">
-						<div class="col-12 tituloDash">
-							<div>Usuarios</div>		 
+						<div class="col-12 tituloDash" style="background: rgb(255, 255, 255)">
+							<div style="color: rgb(0, 0, 0)">Usuarios</div>		 
 						</div>
 						<div class="col-6" style="font-size: 30px; color:rgb(0, 0, 0);">
-							<a href="{{ route('usuarios.index') }}"><i class="zmdi zmdi-male-alt  zmdi-hc-5x"></i></a>
+							<a href="{{ route('usuarios.index') }}"><i class="zmdi zmdi-male-alt  zmdi-hc-5x" style="color: rgb(255,103,32)"></i></a>
 						</div>
 						<div class="col-6 registro">
 							<p class="registroCount">{{  $datos['usersCount'] }}</p>
@@ -47,11 +47,11 @@
 				</div>
 				<div class="col-12 col-sm-12 col-md-6 col lg-6 px-5 py-2">
 					<div class="row listaAdmin">
-						<div class="col-12 tituloDash">
-							<div>Estancia I</div>		 
+						<div class="col-12 tituloDash" style="background: rgb(255, 255, 255)">
+							<div style="color: rgb(0, 0, 0)">Estancia I</div>		 
 						</div>
 						<div class="col-6" style="font-size: 30px; color:rgb(0, 0, 0);">
-							<a href="{{ route('documentoEstancia1Admin.index',[1]) }}"><i class="zmdi zmdi-male-alt  zmdi-hc-5x"></i></a>
+							<a href="{{ route('documentoEstancia1Admin.index',[1]) }}"><i class="zmdi zmdi-male-alt  zmdi-hc-5x" style="color: rgb(255,103,32)"></i></a>
 						</div>
 						<div class="col-6 registro">
 							<p class="registroCount">{{ $estancia['estancia1']  }}</p>
@@ -62,11 +62,11 @@
 				</div>
 				<div class="col-12 col-sm-12 col-md-6 col lg-6 px-5 py-2">
 					<div class="row listaAdmin">
-						<div class="col-12 tituloDash">
-							<div>Estancia II</div>		 
+						<div class="col-12 tituloDash" style="background: rgb(255, 255, 255)">
+							<div style="color: rgb(0, 0, 0)" >Estancia II</div>		 
 						</div>
 						<div class="col-6" style="font-size: 30px; color:rgb(0, 0, 0);">
-							<a href="{{ route('documentoEstancia1Admin.index',[2]) }}"><i class="zmdi zmdi-male-alt  zmdi-hc-5x"></i></a>
+							<a href="{{ route('documentoEstancia1Admin.index',[2]) }}"><i class="zmdi zmdi-male-alt  zmdi-hc-5x" style="color: rgb(255,103,32)"></i></a>
 						</div>
 						<div class="col-6 registro">
 							<p class="registroCount">{{ $estancia['estancia2']  }}</p>
@@ -77,11 +77,11 @@
 
 				<div class="col-12 col-sm-12 col-md-6 col lg-6 px-5 py-2">
 					<div class="row listaAdmin">
-						<div class="col-12 tituloDash">
-							<div>Estadía</div>		 
+						<div class="col-12 tituloDash" style="background: rgb(255, 255, 255)">
+							<div style="color: rgb(0, 0, 0)">Estadía</div>		 
 						</div>
 						<div class="col-6" style="font-size: 30px; color:rgb(0, 0, 0);">
-							<a href="{{ route('documentoEstancia1Admin.index',[3]) }}"><i class="zmdi zmdi-male-alt  zmdi-hc-5x"></i></a>
+							<a href="{{ route('documentoEstancia1Admin.index',[3]) }}"><i class="zmdi zmdi-male-alt  zmdi-hc-5x" style="color: rgb(255,103,32)"></i></a>
 						</div>
 						<div class="col-6 registro">
 							<p class="registroCount">{{ $estadia['estadia']  }}</p>
@@ -91,11 +91,11 @@
 				</div>
 				<div class="col-12 col-sm-12 col-md-6 col lg-6 px-5 py-2">
 					<div class="row listaAdmin">
-						<div class="col-12 tituloDash">
-							<div>Estadía nacionales</div>		 
+						<div class="col-12 tituloDash" style="background: rgb(255, 255, 255)">
+							<div style="color: rgb(0, 0, 0)">Estadía nacionales</div>		 
 						</div>
 						<div class="col-6" style="font-size: 30px; color:rgb(0, 0, 0);">
-							<a href="{{ route('documentoEstancia1Admin.index',[4]) }}"><i class="zmdi zmdi-male-alt  zmdi-hc-5x"></i></a>
+							<a href="{{ route('documentoEstancia1Admin.index',[4]) }}"><i class="zmdi zmdi-male-alt  zmdi-hc-5x" style="color: rgb(255,103,32)"></i></a>
 						</div>
 						<div class="col-6 registro">
 							<p class="registroCount">{{ $estadia['estadia_nacional']  }}</p>
@@ -106,11 +106,11 @@
 
 				<div class="col-12 col-sm-12 col-md-12 col lg-12 px-5 py-2">
 					<div class="row listaAdmin">
-						<div class="col-12 tituloDash">
-							<div>Servicio social</div>		 
+						<div class="col-12 tituloDash" style="background: rgb(255, 255, 255)">
+							<div style="color: rgb(0, 0, 0)">Servicio social</div>		 
 						</div>
 						<div class="col-6" style="font-size: 30px; color:rgb(0, 0, 0);">
-							<a href="{{ route('documentoEstancia1Admin.index',[5]) }}"><i class="zmdi zmdi-male-alt  zmdi-hc-5x"></i></a>
+							<a href="{{ route('documentoEstancia1Admin.index',[5]) }}"><i class="zmdi zmdi-male-alt  zmdi-hc-5x" style="color: rgb(255,103,32)"></i></a>
 						</div>
 						<div class="col-6 registro">
 							<p class="registroCount">{{ $servicio_social }}</p>

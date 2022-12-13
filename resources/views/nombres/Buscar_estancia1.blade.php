@@ -31,8 +31,8 @@
                                     placeholder="Buscar" value="{{ $texto }}">
                             </div>
                             <div class="col-4 col-sm-4 col-md-2">
-                                <button type="submit" style="background: #5B3427" class="btn btn-primary buscar" ><i
-                                        class="zmdi zmdi-search" ></i></button>
+                                <button type="submit" style="background:rgb(255,103,32) " class="btn btn-primary buscar"><i
+                                        class="zmdi zmdi-search"></i></button>
                             </div>
                             <div class=" col-8 col-sm-8 col-md-6">
                                 <select class="form-control" id="estatus" name="estatus" value="{{ $estatus }}">
@@ -70,7 +70,8 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-2">
                     <a href="{{ route('documentoEstancia1Admin.index', [$proceso[0]]) }}">
-                        <input type="submit" value="Ver todos" style="background: #5B3427" class="btn btn-success buscar">
+                        <input type="submit" value="Ver todos" style="background: #5B3427"
+                            class="btn btn-success buscar">
                     </a>
                 </div>
             </div>
@@ -106,8 +107,8 @@
                                         </div>
                                         <div class="col-12 col-sm-6 p-0">
                                             <div>
-                                                <div class="text-center"
-                                                    style="background: #5B3427; color:white;">Nombre/Apellidos
+                                                <div class="text-center" style="background: #5B3427; color:white;">
+                                                    Nombre/Apellidos
                                                 </div>
                                                 <div class="text-center">{{ $respuestaU->nombres }}
                                                     {{ $respuestaU->ape_paterno }} {{ $respuestaU->ape_materno }}
@@ -116,24 +117,24 @@
                                         </div>
                                         <div class="col-12 col-sm-6 p-0">
                                             <div>
-                                                <div class="text-center"
-                                                    style="background: #5B3427; color:white;">Correo</div>
+                                                <div class="text-center" style="background: #5B3427; color:white;">
+                                                    Correo</div>
                                                 <div class="text-center">{{ $respuestaU->email }}</div>
                                             </div>
                                         </div>
 
                                         <div class="col-6 col-sm-6 p-0">
                                             <div>
-                                                <div class="text-center"
-                                                    style="background: #5B3427; color:white;">Matricula</div>
+                                                <div class="text-center" style="background: #5B3427; color:white;">
+                                                    Matricula</div>
                                                 <div class="text-center">{{ $respuestaU->matricula }}</div>
                                             </div>
                                         </div>
 
                                         <div class="col-6 col-sm-6 p-0">
                                             <div>
-                                                <div class="text-center"
-                                                    style="background: #5B3427; color:white;">Carrera</div>
+                                                <div class="text-center" style="background: #5B3427; color:white;">
+                                                    Carrera</div>
                                                 <div class="text-center">{{ $respuestaU->nombre_carrera }}</div>
                                             </div>
                                         </div>
@@ -150,7 +151,8 @@
                                     @forelse ($documentos4['carga_horaria'] as $respuestaH)
                                         @if ($respuestaH->name == $respuestaD->name)
                                             <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc">
-                                                <div class="row text-center divNombreCard" style="background: #5B3427">
+                                                <div class="row text-center divNombreCard"
+                                                    style="background: #5B3427">
                                                     <div class="col-12">
                                                         Carga horaria
                                                     </div>
@@ -189,7 +191,8 @@
                                                         <form method="post"
                                                             action="{{ route('ver_documento.index', [$respuestaH->nombre_c_h, $proceso[0]]) }}">
                                                             @csrf
-                                                            <button type="submit" style="background: #5B3427"S class="btn btnVer"> <i
+                                                            <button type="submit" style="background: #5B3427"S
+                                                                class="btn btnVer"> <i
                                                                     class="zmdi zmdi-eye zmdi-hc-lg"></i> Ver</button>
                                                         </form>
                                                     </div>
@@ -301,7 +304,8 @@
                                         @forelse ($documentos5['constancia_derecho'] as $respuestaCD)
                                             @if ($respuestaCD->name == $respuestaD->name)
                                                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc">
-                                                    <div class="row text-center divNombreCard" style="background: #5B3427">
+                                                    <div class="row text-center divNombreCard"
+                                                        style="background: #5B3427">
                                                         <div class="col-12">
                                                             Constancia de derecho IMSS
                                                         </div>
@@ -452,7 +456,8 @@
                                             @forelse ($documentos5['carta_responsiva'] as $respuestaCR)
                                                 @if ($respuestaCR->name == $respuestaD->name)
                                                     <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc">
-                                                        <div class="row text-center divNombreCard" style="background: #5B3427">
+                                                        <div class="row text-center divNombreCard"
+                                                            style="background: #5B3427">
                                                             <div class="col-12">
                                                                 Carta Responsiva
                                                             </div>
@@ -603,7 +608,8 @@
                                                 @forelse ($documentos4['carta_presentacion'] as $respuestaCP)
                                                     @if ($respuestaCP->name == $respuestaD->name)
                                                         <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc">
-                                                            <div class="row text-center divNombreCard" style="background: #5B3427">
+                                                            <div class="row text-center divNombreCard"
+                                                                style="background: #5B3427">
                                                                 <div class="col-12">
                                                                     F-01 Carta Presentación
                                                                 </div>
@@ -754,7 +760,8 @@
                                                     @forelse ($documentos2['carta_aceptacion'] as $respuestaC)
                                                         @if ($respuestaC->name == $respuestaD->name)
                                                             <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc">
-                                                                <div class="row text-center divNombreCard" style="background: #5B3427">
+                                                                <div class="row text-center divNombreCard"
+                                                                    style="background: #5B3427">
                                                                     <div class="col-12">
                                                                         F-02 Carta Aceptación
                                                                     </div>
@@ -906,7 +913,8 @@
                                                             @if ($respuestaCR->name == $respuestaD->name)
                                                                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc">
 
-                                                                    <div class="row text-center divNombreCard" style="background: #5B3427">
+                                                                    <div class="row text-center divNombreCard"
+                                                                        style="background: #5B3427">
                                                                         <div class="col-12">
                                                                             F-03 Cedula registro
                                                                         </div>
@@ -1060,7 +1068,8 @@
                                                             @forelse ($documentos2['definicion_proyecto'] as $respuestaDP)
                                                                 @if ($respuestaDP->name == $respuestaD->name)
                                                                     <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc">
-                                                                        <div class="row text-center divNombreCard" style="background: #5B3427">
+                                                                        <div class="row text-center divNombreCard"
+                                                                            style="background: #5B3427">
                                                                             <div class="col-12">
                                                                                 F-04 Definicíon Proyecto
                                                                             </div>
@@ -1211,7 +1220,8 @@
                                                                 @forelse ($documentos3['carta_liberacion'] as $respuestaCL)
                                                                     @if ($respuestaCL->name == $respuestaD->name)
                                                                         <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc">
-                                                                            <div class="row text-center divNombreCard" style="background: #5B3427">
+                                                                            <div class="row text-center divNombreCard"
+                                                                                style="background: #5B3427">
                                                                                 <div class="col-12">
                                                                                     F-05 Carta Liberacíon
                                                                                 </div>
@@ -1516,7 +1526,8 @@
                                                                             @forelse ($documentos6['reporte_mensual'] as $respuestarm)
                                                                                 @if ($respuestarm->name == $respuestaD->name)
                                                                                     <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc">
-                                                                                        <div class="row text-center divNombreCard" style="background: #5B3427">
+                                                                                        <div class="row text-center divNombreCard"
+                                                                                            style="background: #5B3427">
                                                                                             <div class="col-12">
                                                                                                 Reporte Mensual
                                                                                             </div>
@@ -1672,7 +1683,8 @@
                                                                                 @forelse ($reporte_mensual2['reporte_mensual2'] as $respuestarm)
                                                                                     @if ($respuestarm->name == $respuestaD->name)
                                                                                         <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc">
-                                                                                            <div class="row text-center divNombreCard" style="background: #5B3427">
+                                                                                            <div class="row text-center divNombreCard"
+                                                                                                style="background: #5B3427">
                                                                                                 <div class="col-12">
                                                                                                     Reporte Mensual 2
                                                                                                 </div>
@@ -1832,7 +1844,8 @@
                                                                                     @forelse ($reporte_mensual3['reporte_mensual3'] as $respuestarm)
                                                                                         @if ($respuestarm->name == $respuestaD->name)
                                                                                             <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc">
-                                                                                                <div class="row text-center divNombreCard" style="background: #5B3427">
+                                                                                                <div class="row text-center divNombreCard"
+                                                                                                    style="background: #5B3427">
                                                                                                     <div class="col-12">
                                                                                                         Reporte Mensual 3
                                                                                                     </div>
@@ -1992,7 +2005,8 @@
                                                                                         @forelse ($reporte_mensual4['reporte_mensual4'] as $respuestarm)
                                                                                             @if ($respuestarm->name == $respuestaD->name)
                                                                                                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc">
-                                                                                                    <div class="row text-center divNombreCard" style="background: #5B3427">
+                                                                                                    <div class="row text-center divNombreCard"
+                                                                                                        style="background: #5B3427">
                                                                                                         <div class="col-12">
                                                                                                             Reporte Mensual 4
                                                                                                         </div>
@@ -2152,7 +2166,8 @@
                                                                                             @forelse ($reporte_mensual5['reporte_mensual5'] as $respuestarm)
                                                                                                 @if ($respuestarm->name == $respuestaD->name)
                                                                                                     <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc">
-                                                                                                        <div class="row text-center divNombreCard" style="background: #5B3427">
+                                                                                                        <div class="row text-center divNombreCard"
+                                                                                                            style="background: #5B3427">
                                                                                                             <div class="col-12">
                                                                                                                 Reporte Mensual 5
                                                                                                             </div>
@@ -2312,7 +2327,8 @@
                                                                                                 @forelse ($reporte_mensual6['reporte_mensual6'] as $respuestarm)
                                                                                                     @if ($respuestarm->name == $respuestaD->name)
                                                                                                         <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc">
-                                                                                                            <div class="row text-center divNombreCard" style="background: #5B3427">
+                                                                                                            <div class="row text-center divNombreCard"
+                                                                                                                style="background: #5B3427">
                                                                                                                 <div class="col-12">
                                                                                                                     Reporte Mensual 6
                                                                                                                 </div>
@@ -2472,7 +2488,8 @@
                                                                                                     @forelse ($reporte_mensual7['reporte_mensual7'] as $respuestarm)
                                                                                                         @if ($respuestarm->name == $respuestaD->name)
                                                                                                             <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc">
-                                                                                                                <div class="row text-center divNombreCard" style="background: #5B3427">
+                                                                                                                <div class="row text-center divNombreCard"
+                                                                                                                    style="background: #5B3427">
                                                                                                                     <div class="col-12">
                                                                                                                         Reporte Mensual 7
                                                                                                                     </div>
@@ -2632,7 +2649,8 @@
                                                                                                         @forelse ($reporte_mensual8['reporte_mensual8'] as $respuestarm)
                                                                                                             @if ($respuestarm->name == $respuestaD->name)
                                                                                                                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc">
-                                                                                                                    <div class="row text-center divNombreCard" style="background: #5B3427">
+                                                                                                                    <div class="row text-center divNombreCard"
+                                                                                                                        style="background: #5B3427">
                                                                                                                         <div class="col-12">
                                                                                                                             Reporte Mensual 8
                                                                                                                         </div>
@@ -2792,7 +2810,8 @@
                                                                                                             @forelse ($reporte_mensual9['reporte_mensual9'] as $respuestarm)
                                                                                                                 @if ($respuestarm->name == $respuestaD->name)
                                                                                                                     <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc">
-                                                                                                                        <div class="row text-center divNombreCard" style="background: #5B3427">
+                                                                                                                        <div class="row text-center divNombreCard"
+                                                                                                                            style="background: #5B3427">
                                                                                                                             <div class="col-12">
                                                                                                                                 Reporte Mensual 9
                                                                                                                             </div>
@@ -2952,7 +2971,8 @@
                                                                                                                 @forelse ($reporte_mensual10['reporte_mensual10'] as $respuestarm)
                                                                                                                     @if ($respuestarm->name == $respuestaD->name)
                                                                                                                         <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc">
-                                                                                                                            <div class="row text-center divNombreCard" style="background: #5B3427">
+                                                                                                                            <div class="row text-center divNombreCard"
+                                                                                                                                style="background: #5B3427">
                                                                                                                                 <div class="col-12">
                                                                                                                                     Reporte Mensual 10
                                                                                                                                 </div>
@@ -3112,7 +3132,8 @@
                                                                                                                     @forelse ($reporte_mensual11['reporte_mensual11'] as $respuestarm)
                                                                                                                         @if ($respuestarm->name == $respuestaD->name)
                                                                                                                             <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc">
-                                                                                                                                <div class="row text-center divNombreCard" style="background: #5B3427">
+                                                                                                                                <div class="row text-center divNombreCard"
+                                                                                                                                    style="background: #5B3427">
                                                                                                                                     <div class="col-12">
                                                                                                                                         Reporte Mensual 11
                                                                                                                                     </div>
@@ -3272,7 +3293,7 @@
                                                                                                                         @forelse ($reporte_mensual12['reporte_mensual12'] as $respuestarm)
                                                                                                                             @if ($respuestarm->name == $respuestaD->name)
                                                                                                                                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 doc">
-                                                                                                                                    <div class="row text-center divNombreCard" >
+                                                                                                                                    <div class="row text-center divNombreCard">
                                                                                                                                         <div class="col-12">
                                                                                                                                             Reporte Mensual 12
                                                                                                                                         </div>

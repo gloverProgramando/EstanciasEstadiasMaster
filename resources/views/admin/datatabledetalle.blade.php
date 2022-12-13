@@ -46,6 +46,7 @@
                 <tr style="background: rgb(217, 214, 214)">
                     <th>Matricula</th>
                     <th>proceso</th>
+                    <th>fecha</th>
                     <th>periodo</th>
                     <th>empresa</th>
                     <th>giro</th>
@@ -60,7 +61,26 @@
                 @foreach ($users as $user)
                     <tr>
                         <td>{{ $user->name }}</td>
-                        <td>{{ $user->id_proceso }}</td>
+                        <td>@switch($user->id_proceso)
+                            @case(1)
+                                estancia 1
+                                @break
+                            @case(2)
+                                estancia 2
+                                @break
+                            @case(3)
+                                estadia
+                                @break
+                            @case(4)
+                                estadia nacional
+                                @break
+                            @case(5)
+                                servicio social
+                                @break
+                            @default
+                                
+                        @endswitch</td>
+                        <td>{{ $user->updated_at }}</td>
                         <td>{{ $user->estatus }}</td>
                         <td>{{ $user->nombre_emp }}</td>
                         <td>{{ $user->giro }}</td>
@@ -150,6 +170,9 @@
                 },
                 {
                     data: 'o'
+                },
+                {
+                    data: 'm'
                 }
             ],
             dom: 'Bfrtip',
@@ -170,6 +193,7 @@
                     {
                         extend: 'pdf',
                         text: 'Exportar a PDF',
+                        orientation: 'landscape',
                         className: 'btn btn-outline-danger',
                         exportOptions: {
                             orthogonal: 'export'
