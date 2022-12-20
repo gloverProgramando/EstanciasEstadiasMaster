@@ -45,13 +45,14 @@
             <thead>
                 <tr style="background: rgb(217, 214, 214)">
                     <th>Matricula</th>
+                    <th>Nombre</th>
                     <th>proceso</th>
                     <th>fecha</th>
                     <th>periodo</th>
                     <th>empresa</th>
-                    <th>giro</th>
-                    <th>direccion empresa</th>
-                    <th>telefono empresa RH</th>
+                    <th style="display:none">giro</th>
+                    <th style="display: none">direccion empresa</th>
+                    <th style="display: none">telefono empresa RH</th>
                     <th>asesor empresarial</th>
                     <th>asesor academico</th>
                 </tr>
@@ -61,6 +62,7 @@
                 @foreach ($users as $user)
                     <tr>
                         <td>{{ $user->name }}</td>
+                        <td>{{ $user->ape_paterno}} {{$user->ape_materno}} {{ $user->nombres}}</td>
                         <td>@switch($user->id_proceso)
                             @case(1)
                                 estancia 1
@@ -83,9 +85,9 @@
                         <td>{{ $user->updated_at }}</td>
                         <td>{{ $user->estatus }}</td>
                         <td>{{ $user->nombre_emp }}</td>
-                        <td>{{ $user->giro }}</td>
-                        <td>{{ $user->direccion_emp }}</td>
-                        <td>{{ $user->tel_num }}</td>
+                        <td style="display:none">{{ $user->giro }}</td>
+                        <td style="display:none">{{ $user->direccion_emp }}</td>
+                        <td style="display:none">{{ $user->tel_num }}</td>
                         <td>{{ $user->ape_paterno_ae }} {{ $user->ape_materno_ae }}</td>
                         <td>{{ $user->ape_paterno_aa }} {{ $user->ape_materno_aa }}</td>
                     </tr>
@@ -173,6 +175,9 @@
                 },
                 {
                     data: 'm'
+                },
+                {
+                    data: 'p'
                 }
             ],
             dom: 'Bfrtip',
