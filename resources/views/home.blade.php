@@ -28,19 +28,6 @@
    }
  </script>
 
-    <style>
-        .row-color {
-            background-color: #16355a;   
-        }
-        h2 {
-            color: #fff;
-        }
-        /*.margin-bottom {
-            margin-bottom: 8px;
-        }*/
-    </style>
-</head>
-
 <body>
     <nav class="navbar navbar-dark primary-color">
         <div class="container">
@@ -302,7 +289,6 @@
                         <option value="7">C.P.T</option>
                         <option value="8">Profr.</option>
                         <option value="9">Profra.</option>
-                        <option value="10">C. </option>
                     </select>
                 </div>
                 <div class="form-group col-md-1">
@@ -368,7 +354,6 @@
                         <option value="7">C.P.T</option>
                         <option value="8">Profr.</option>
                         <option value="9">Profra.</option>
-                        <option value="10">C. </option>
                     </select>
                 </div>
                 <div class="form-group col-md-1">

@@ -160,16 +160,4 @@ class UsuariosController extends Controller
         $user->save();
         return redirect()->to('/usuarios')->with('success','Datos cambiados');
     }
-
-    public function armar(){
-        $alm_prueba = DB::table('alumno')
-            ->join('formulario', 'alumno.id', '=', 'formulario.id_alumno')
-            ->join('asesor_academico','formulario.id_asesor_aca', '=', 'asesor_academico.id')
-            ->join('asesor_empresarial','formulario.id_asesor_emp', '=', 'asesor_empresarial.id')
-            ->join('empresa','formulario.id_empresa', '=', 'empresa.id')
-            ->select('alumno.*','asesor_academico.nombres_aa','asesor_academico.ape_paterno_aa','asesor_academico.ape_materno_aa','asesor_empresarial.nombres_ae','asesor_empresarial.ape_paterno_ae','asesor_empresarial.ape_materno_ae','empresa.nombre_emp')
-            ->get();
-
-        return view('admin.datatable', ['alm_prueba'=>$alm_prueba]);
-    }
 }

@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
-    @include('plantilla/admin/head')
+@include('plantilla/admin/head')
 <body>
-    <!-- SideBar -->
-	@include('plantilla/admin/navBar')
-
-	<!-- Content page-->
-	<section class="full-box dashboard-contentPage">
 		<!-- NavBar -->
+		@include('plantilla/admin/navBar')
 
-
-		<!-- Content page -->
-		<div class="container p-3">
+        <div class="container-md coloractarchivos">
+        <div class="container p-3">
 			<div class="page-header">
                 <h2 class="text-titles">Activar Subida De Archivos<small></small></h2>
 			</div>
@@ -118,8 +113,10 @@
                 <hr>
             </form>
             </div>
+        </div>
+		<!-- Content page -->
+	
 
-	</section>
 	<!--====== Scripts -->
 	<script src="../js/jquery-3.1.1.min.js"></script>
 	<script src="../js/sweetalert2.min.js"></script>
@@ -141,8 +138,3 @@
 </body>
 </html>
 </html>
-<style>
-    .doc{
-        box-shadow: 0 1px 7px rgb(0 0 0 / 20%);
-    }
-</style>

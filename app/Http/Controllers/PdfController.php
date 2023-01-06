@@ -316,9 +316,7 @@ class PdfController extends Controller
     //cancelar documentos
     public function cancelar_carga_horaria_Estancia(Request $req,$proces,$id_docs,$id_d,$idDoc){//*funcional
       $Ntab=['carga_horaria','constancia_derecho','carta_responsiva','carta_presentacion','carta_aceptacion',
-      'cedula_registro','definicion_proyecto','carta_liberacion','carta_compromiso','reporte_mensual','reporte_mensual2',
-      'reporte_mensual3','reporte_mensual4','reporte_mensual5','reporte_mensual6','reporte_mensual7','reporte_mensual8',
-      'reporte_mensual9','reporte_mensual10','reporte_mensual11','reporte_mensual12'];
+        'cedula_registro','definicion_proyecto','carta_liberacion'];
       $nombreA=$req->get('ubiD');
       $carta=documentos::find($id_docs);//*quita el id del doc para no eliminar todos (no se porque ocurra eso)
       switch ($idDoc) {//*define la columna que modificara
@@ -339,31 +337,6 @@ class PdfController extends Controller
         case 8:$carta->id_c_liberacion=NULL;
           break;
         case 9:$carta->id_c_compromiso=Null;
-          break;
-        case 10:$carta->id_r_mensual=NULL;
-          break;
-        case 11:$carta->id_r_mensual2=NULL;
-          break;
-        case 12:$carta->id_r_mensual3=NULL;
-          break;
-        case 13:$carta->id_r_mensual4=NULL;
-          break;
-        case 14:$carta->id_r_mensual5=NULL;
-          break;
-        case 15:$carta->id_r_mensual6=NULL;
-          break;
-        case 16:$carta->id_r_mensual7=NULL;
-          break;
-        case 17:$carta->id_r_mensual8=NULL;
-          break;
-        case 18:$carta->id_r_mensual9=NULL;
-          break;
-        case 19:$carta->id_r_mensual10=NULL;
-          break;
-        case 20:$carta->id_r_mensual11=NULL;
-          break;
-        case 21:$carta->id_r_mensual12=NULL;
-          break;
         default:
           break;
       }

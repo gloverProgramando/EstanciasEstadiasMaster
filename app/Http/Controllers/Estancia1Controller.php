@@ -12,33 +12,21 @@ use App\Models\constancia_derecho;
 use App\Models\definicion_proyecto;
 use App\Models\carta_compromiso;
 use App\Models\reporte_mensual;
-use App\Models\reporte_mensual2;
-use App\Models\reporte_mensual3;
-use App\Models\reporte_mensual4;
-use App\Models\reporte_mensual5;
-use App\Models\reporte_mensual6;
-use App\Models\reporte_mensual7;
-use App\Models\reporte_mensual8;
-use App\Models\reporte_mensual9;
-use App\Models\reporte_mensual10;
-use App\Models\reporte_mensual11;
-use App\Models\reporte_mensual12;
 use App\Models\documentos;
 use App\Models\respuesta_doc;
-use App\Models\Activar_botones;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Exception;
 use Illuminate\Support\Arr;
-use Carbon\Carbon;
 use phpDocumentor\Reflection\Location;
+use Carbon\Carbon;
+
 class Estancia1Controller extends Controller
 {
     //
     public function ver($proces){//*funcional
         $userID=Auth::user()->id; 
-        $noActivar = $proces;
         $name=['Estancia I','Estancias II','Estadía','Estadías Nacionales','Servicio Social'];
         //!cambiar este numero si se quiere agregar un nuevo proceso y tambien agregar el nombre en $name
         if($proces>0 && $proces<=5){//comprueba si el numero es de algun proceso del 1...5
@@ -220,135 +208,18 @@ class Estancia1Controller extends Controller
         ->where('id_proceso',$proces) //cambio 1 para arreglar error de duplicacion de datos en estancia y estadia
         ->get();
 
-        $reporte_mensual2 =DB::table('users')
-        ->join('respuesta_doc','users.id','=','respuesta_doc.id_usuario')
-        ->join('documentos','documentos.id','=','respuesta_doc.id_documentos')
-        ->join('reporte_mensual2','reporte_mensual2.id','=','documentos.id_r_mensual2')
-        ->select('documentos.id_r_mensual2 as id','reporte_mensual2.nombre_r_m','reporte_mensual2.estado_r_m','reporte_mensual2.observaciones_r_m','respuesta_doc.id_documentos','users.name')
-        ->where('users.id',$userID)
-        ->where('id_proceso',$proces) //cambio 1 para arreglar error de duplicacion de datos en estancia y estadia
-        ->get();
-
-        $reporte_mensual3 =DB::table('users')
-        ->join('respuesta_doc','users.id','=','respuesta_doc.id_usuario')
-        ->join('documentos','documentos.id','=','respuesta_doc.id_documentos')
-        ->join('reporte_mensual3','reporte_mensual3.id','=','documentos.id_r_mensual3')
-        ->select('documentos.id_r_mensual3 as id','reporte_mensual3.nombre_r_m','reporte_mensual3.estado_r_m','reporte_mensual3.observaciones_r_m','respuesta_doc.id_documentos','users.name')
-        ->where('users.id',$userID)
-        ->where('id_proceso',$proces) //cambio 1 para arreglar error de duplicacion de datos en estancia y estadia
-        ->get();
-
-        $reporte_mensual4 =DB::table('users')
-        ->join('respuesta_doc','users.id','=','respuesta_doc.id_usuario')
-        ->join('documentos','documentos.id','=','respuesta_doc.id_documentos')
-        ->join('reporte_mensual4','reporte_mensual4.id','=','documentos.id_r_mensual4')
-        ->select('documentos.id_r_mensual4 as id','reporte_mensual4.nombre_r_m','reporte_mensual4.estado_r_m','reporte_mensual4.observaciones_r_m','respuesta_doc.id_documentos','users.name')
-        ->where('users.id',$userID)
-        ->where('id_proceso',$proces) //cambio 1 para arreglar error de duplicacion de datos en estancia y estadia
-        ->get();
-
-        $reporte_mensual5 =DB::table('users')
-        ->join('respuesta_doc','users.id','=','respuesta_doc.id_usuario')
-        ->join('documentos','documentos.id','=','respuesta_doc.id_documentos')
-        ->join('reporte_mensual5','reporte_mensual5.id','=','documentos.id_r_mensual5')
-        ->select('documentos.id_r_mensual5 as id','reporte_mensual5.nombre_r_m','reporte_mensual5.estado_r_m','reporte_mensual5.observaciones_r_m','respuesta_doc.id_documentos','users.name')
-        ->where('users.id',$userID)
-        ->where('id_proceso',$proces) //cambio 1 para arreglar error de duplicacion de datos en estancia y estadia
-        ->get();
-
-        $reporte_mensual6 =DB::table('users')
-        ->join('respuesta_doc','users.id','=','respuesta_doc.id_usuario')
-        ->join('documentos','documentos.id','=','respuesta_doc.id_documentos')
-        ->join('reporte_mensual6','reporte_mensual6.id','=','documentos.id_r_mensual6')
-        ->select('documentos.id_r_mensual6 as id','reporte_mensual6.nombre_r_m','reporte_mensual6.estado_r_m','reporte_mensual6.observaciones_r_m','respuesta_doc.id_documentos','users.name')
-        ->where('users.id',$userID)
-        ->where('id_proceso',$proces) //cambio 1 para arreglar error de duplicacion de datos en estancia y estadia
-        ->get();
-
-        $reporte_mensual7 =DB::table('users')
-        ->join('respuesta_doc','users.id','=','respuesta_doc.id_usuario')
-        ->join('documentos','documentos.id','=','respuesta_doc.id_documentos')
-        ->join('reporte_mensual7','reporte_mensual7.id','=','documentos.id_r_mensual7')
-        ->select('documentos.id_r_mensual7 as id','reporte_mensual7.nombre_r_m','reporte_mensual7.estado_r_m','reporte_mensual7.observaciones_r_m','respuesta_doc.id_documentos','users.name')
-        ->where('users.id',$userID)
-        ->where('id_proceso',$proces) //cambio 1 para arreglar error de duplicacion de datos en estancia y estadia
-        ->get();
-
-        $reporte_mensual8 =DB::table('users')
-        ->join('respuesta_doc','users.id','=','respuesta_doc.id_usuario')
-        ->join('documentos','documentos.id','=','respuesta_doc.id_documentos')
-        ->join('reporte_mensual8','reporte_mensual8.id','=','documentos.id_r_mensual8')
-        ->select('documentos.id_r_mensual8 as id','reporte_mensual8.nombre_r_m','reporte_mensual8.estado_r_m','reporte_mensual8.observaciones_r_m','respuesta_doc.id_documentos','users.name')
-        ->where('users.id',$userID)
-        ->where('id_proceso',$proces) //cambio 1 para arreglar error de duplicacion de datos en estancia y estadia
-        ->get();
-
-        $reporte_mensual9 =DB::table('users')
-        ->join('respuesta_doc','users.id','=','respuesta_doc.id_usuario')
-        ->join('documentos','documentos.id','=','respuesta_doc.id_documentos')
-        ->join('reporte_mensual9','reporte_mensual9.id','=','documentos.id_r_mensual9')
-        ->select('documentos.id_r_mensual9 as id','reporte_mensual9.nombre_r_m','reporte_mensual9.estado_r_m','reporte_mensual9.observaciones_r_m','respuesta_doc.id_documentos','users.name')
-        ->where('users.id',$userID)
-        ->where('id_proceso',$proces) //cambio 1 para arreglar error de duplicacion de datos en estancia y estadia
-        ->get();
-
-        $reporte_mensual10 =DB::table('users')
-        ->join('respuesta_doc','users.id','=','respuesta_doc.id_usuario')
-        ->join('documentos','documentos.id','=','respuesta_doc.id_documentos')
-        ->join('reporte_mensual10','reporte_mensual10.id','=','documentos.id_r_mensual10')
-        ->select('documentos.id_r_mensual10 as id','reporte_mensual10.nombre_r_m','reporte_mensual10.estado_r_m','reporte_mensual10.observaciones_r_m','respuesta_doc.id_documentos','users.name')
-        ->where('users.id',$userID)
-        ->where('id_proceso',$proces) //cambio 1 para arreglar error de duplicacion de datos en estancia y estadia
-        ->get();
-
-        $reporte_mensual11 =DB::table('users')
-        ->join('respuesta_doc','users.id','=','respuesta_doc.id_usuario')
-        ->join('documentos','documentos.id','=','respuesta_doc.id_documentos')
-        ->join('reporte_mensual11','reporte_mensual11.id','=','documentos.id_r_mensual11')
-        ->select('documentos.id_r_mensual11 as id','reporte_mensual11.nombre_r_m','reporte_mensual11.estado_r_m','reporte_mensual11.observaciones_r_m','respuesta_doc.id_documentos','users.name')
-        ->where('users.id',$userID)
-        ->where('id_proceso',$proces) //cambio 1 para arreglar error de duplicacion de datos en estancia y estadia
-        ->get();
-
-        $reporte_mensual12 =DB::table('users')
-        ->join('respuesta_doc','users.id','=','respuesta_doc.id_usuario')
-        ->join('documentos','documentos.id','=','respuesta_doc.id_documentos')
-        ->join('reporte_mensual12','reporte_mensual12.id','=','documentos.id_r_mensual12')
-        ->select('documentos.id_r_mensual12 as id','reporte_mensual12.nombre_r_m','reporte_mensual12.estado_r_m','reporte_mensual12.observaciones_r_m','respuesta_doc.id_documentos','users.name')
-        ->where('users.id',$userID)
-        ->where('id_proceso',$proces) //cambio 1 para arreglar error de duplicacion de datos en estancia y estadia
-        ->get();
-
-        $botones = DB::table('activar_botones')
-        ->get();
-        
-
         $carta_co =['carta_compromiso'=> $carta_compromiso];
         $reporte_m =['reporte_mensual'=> $reporte_mensual];
-        $reporte_m2 =['reporte_mensual2'=> $reporte_mensual2];
-        $reporte_m3 =['reporte_mensual3'=> $reporte_mensual3];
-        $reporte_m4 =['reporte_mensual4'=> $reporte_mensual4];
-        $reporte_m5 =['reporte_mensual5'=> $reporte_mensual5];
-        $reporte_m6 =['reporte_mensual6'=> $reporte_mensual6];
-        $reporte_m7 =['reporte_mensual7'=> $reporte_mensual7];
-        $reporte_m8 =['reporte_mensual8'=> $reporte_mensual8];
-        $reporte_m9 =['reporte_mensual9'=> $reporte_mensual9];
-        $reporte_m10 =['reporte_mensual10'=> $reporte_mensual10];
-        $reporte_m11 =['reporte_mensual11'=> $reporte_mensual11];
-        $reporte_m12 =['reporte_mensual12'=> $reporte_mensual12];
         $datos14 = Arr::collapse([$carta_co,$reporte_m]);
-        
+
         return view('estancia1',['datos'=>$datos,'definicionP'=>$datos1,
         'documentos'=>$datos2,'etapas'=>$datos3,'carta_aceptacion'=>$datos4,
-        'carta'=>$datos5,'carta1'=>$datos6,'proceso'=>$var,'noActivar'=>$noActivar,'documentos2'=>$datos14,'botones'=>$botones,'reporte_mensual2'=>$reporte_m2,
-        'reporte_mensual3'=>$reporte_m3,'reporte_mensual4'=>$reporte_m4,'reporte_mensual5'=>$reporte_m5,'reporte_mensual6'=>$reporte_m6,'reporte_mensual7'=>$reporte_m7,
-        'reporte_mensual8'=>$reporte_m8,'reporte_mensual9'=>$reporte_m9,'reporte_mensual10'=>$reporte_m10,'reporte_mensual11'=>$reporte_m11,'reporte_mensual12'=>$reporte_m12]);
+        'carta'=>$datos5,'carta1'=>$datos6,'proceso'=>$var,'documentos2'=>$datos14]);
     }
     //subir documento sin datos carga horaria
     public function subir_carga_horaria_estancia1(Request $request, $name,$proces,$idDoc){//*funcional
     //!al subir el primer documento se crea el registro de la tabla documeentos
-        $Ndoc=['carga_horaria','constancia_derecho','carta_responsiva','f01','f02','f03','f04','f05','carta_compromiso','reporte_mensual','reporte_mensual','reporte_mensual','reporte_mensual','reporte_mensual','reporte_mensual',
-        'reporte_mensual','reporte_mensual','reporte_mensual','reporte_mensual','reporte_mensual','reporte_mensual'];
+        $Ndoc=['carga_horaria','constancia_derecho','carta_responsiva','f01','f02','f03','f04','f05','carta_compromiso','reporte_mensual'];
         $request->validate([
             $Ndoc[$idDoc-1]=> "required|mimetypes:application/pdf|max:30000"
         ]);
@@ -401,53 +272,9 @@ class Estancia1Controller extends Controller
                     $response = carta_compromiso::requestInsertcargaC($data5);
                     break;
                 case '10':
-                    $data5 = array('nombre_r_m' => $nombreAF,'estado_r_m'=> 1);
+                    $data5 = array('nombre_r_m' => $nombreAF,'estado_r_p'=> 1);
                     $response = reporte_mensual::requestInsertcartarp($data5);
-                    break; 
-                case '11':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual2::requestInsertcargarp($data5);
-                    break;
-                case '12':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual3::requestInsertcargarp($data5);
-                    break;
-                case '13':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual4::requestInsertcargarp($data5);
-                    break;
-                case '14':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual5::requestInsertcargarp($data5);
-                    break;
-                case '15':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual6::requestInsertcargarp($data5);
-                    break;
-                case '16':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual7::requestInsertcargarp($data5);
-                    break;
-                case '17':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual8::requestInsertcargarp($data5);
-                    break;
-                case '18':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual9::requestInsertcargarp($data5);
-                    break;
-                case '19':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual10::requestInsertcargarp($data5);
-                    break;
-                case '20':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual11::requestInsertcargarp($data5);
-                    break;
-                case '21':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual12::requestInsertcargarp($data5);
-                    break;
+                    break;    
                 default:
                     # code...
                 break;
@@ -475,13 +302,14 @@ class Estancia1Controller extends Controller
             'id_c_aceptacion','id_c_registro','id_d_proyecto','id_c_liberacion','id_c_compromiso','id_r_mensual'];
         
             //controlador de estatus
-            $date = Carbon::now()->format('m');
+            $date = Carbon::now();
+            $date = $date ->format('m');
             if ($date=1 || $date=2 || $date=3 || $date=4 ){
-                    $estatus3 = 'enero-abril';
-            } if ( $date=5 || $date=6 || $date=7 || $date=8 ) {
-                    $estatus3 = 'mayo-agosto';
-            } if ($date=9 || $date=10 || $date=11 || $date=12){
-                    $estatus3 = 'septiembre-diciembre';
+                    $estatus3 = 1;
+            } elseif ( $date=5 || $date=6 || $date=7 || $date=8 ) {
+                    $estatus3 = 2;
+            } elseif ($date=9 || $date=10 || $date=11 || $date=12){
+                    $estatus3 = 3;
             }
             $data6 = array(
                 $NcolBD[$idDoc-1]     =>  $response['id'],
@@ -544,17 +372,16 @@ class Estancia1Controller extends Controller
     //actualizar documento carga horaria
     public function actualizar_carga_horaria_estancia1(Request $request, $name,$proces,$idDoc){//*funcional
         //!Al subir un documento se actualiza el registro de la tabla documentos
-        $Ndoc=['carga_horaria','constancia_derecho','carta_responsiva','f01','f02','f03','f04','f05','carta_compromiso',
-        'reporte_mensual','reporte_mensual','reporte_mensual','reporte_mensual','reporte_mensual','reporte_mensual',
-        'reporte_mensual','reporte_mensual','reporte_mensual','reporte_mensual','reporte_mensual','reporte_mensual'];
+        $Ndoc=['carga_horaria','constancia_derecho','carta_responsiva','f01','f02','f03','f04','f05','carta_compromiso','reporte_mensual'];
         $request->validate([
             $Ndoc[$idDoc-1]=> "required|mimetypes:application/pdf|max:30000"
         ]);
         $arrayResult = array();
+
         try{
             if($request->hasFile($Ndoc[$idDoc-1])){
                 $archivo=$request->file($Ndoc[$idDoc-1]);
-                $nombreAF=$name.$Ndoc[$idDoc-1].$proces.$idDoc.'.pdf';//!ej. 202000052Carga_horaria1
+                $nombreAF=$name.$Ndoc[$idDoc-1].$proces.'.pdf';//!ej. 202000052Carga_horaria1
                 $archivo->move(public_path().'/documentos/',$nombreAF);
                 
             }
@@ -599,50 +426,6 @@ class Estancia1Controller extends Controller
                     $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
                     $response = reporte_mensual::requestInsertcargarp($data5);
                     break;   
-                case '11':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual2::requestInsertcargarp($data5);
-                    break; 
-                case '12':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual3::requestInsertcargarp($data5);
-                    break;
-                case '13':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual4::requestInsertcargarp($data5);
-                    break;
-                case '14':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual5::requestInsertcargarp($data5);
-                    break;
-                case '15':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual6::requestInsertcargarp($data5);
-                    break;
-                case '16':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual7::requestInsertcargarp($data5);
-                    break;
-                case '17':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual8::requestInsertcargarp($data5);
-                    break;
-                case '18':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual9::requestInsertcargarp($data5);
-                    break;
-                case '19':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual10::requestInsertcargarp($data5);
-                    break;
-                case '20':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual11::requestInsertcargarp($data5);
-                    break;
-                case '21':
-                    $data5 = array('nombre_r_m'   =>$nombreAF,'estado_r_m' =>1);
-                    $response = reporte_mensual12::requestInsertcargarp($data5);
-                    break;
                 default:
                     # code...
                 break;
@@ -690,28 +473,6 @@ class Estancia1Controller extends Controller
                     break;
                 case 10:$carta->id_r_mensual=$response['id'];
                     break;
-                case 11:$carta->id_r_mensual2=$response['id'];
-                    break;
-                case 12:$carta->id_r_mensual3=$response['id'];
-                    break;
-                case 13:$carta->id_r_mensual4=$response['id'];
-                    break;
-                case 14:$carta->id_r_mensual5=$response['id'];
-                    break;
-                case 15:$carta->id_r_mensual6=$response['id'];
-                    break;
-                case 16:$carta->id_r_mensual7=$response['id'];
-                    break;
-                case 17:$carta->id_r_mensual8=$response['id'];
-                    break;
-                case 18:$carta->id_r_mensual9=$response['id'];
-                    break;
-                case 19:$carta->id_r_mensual10=$response['id'];
-                    break;
-                case 20:$carta->id_r_mensual11=$response['id'];
-                    break;
-                case 21:$carta->id_r_mensual12=$response['id'];
-                    break;
                 default:
                     # code...
                     break;
@@ -746,9 +507,9 @@ class Estancia1Controller extends Controller
     //ver observaciones del documento
     public function verObservaciones1_carga_horaria($proces,$idDoc,$id){//*funcional
         $Ntab=['carga_horaria','constancia_derecho','carta_responsiva','carta_presentacion','carta_aceptacion',
-        'cedula_registro','definicion_proyecto','carta_liberacion','carta_compromiso','reporte_mensual','reporte_mensual2'];
+        'cedula_registro','definicion_proyecto','carta_liberacion','carta_compromiso','reporte_mensual'];
         $Ncol=['observaciones_c_h','observaciones_c_d','observaciones_c_r','observaciones_c_p','observaciones',
-        'observaciones_c_r','observaciones_d_p','observaciones_c_l','observaciones_c_c','observaciones_r_m','observaciones_r_m'];
+        'observaciones_c_r','observaciones_d_p','observaciones_c_l','observaciones_c_c','observaciones_r_m'];
         $observ=DB::table($Ntab[$idDoc-1])
         ->select($Ncol[$idDoc-1].' as observacion')
         ->where('id',$id)

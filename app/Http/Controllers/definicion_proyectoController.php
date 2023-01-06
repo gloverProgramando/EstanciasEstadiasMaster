@@ -31,7 +31,7 @@ class definicion_proyectoController extends Controller
             'grupo' => 'required|max:45',
             'id_proceso' => 'required',
             'puesto' => 'required|max:200',
-            'objetivosP' => 'required|max:255',
+            'objetivosP' => 'required|max:100',
 
             'actividades' => 'required|max:250',
             'resultados' => 'required|max:250',

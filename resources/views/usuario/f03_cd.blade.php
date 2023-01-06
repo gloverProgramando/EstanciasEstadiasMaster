@@ -121,9 +121,6 @@
                                     @case(9)
                                         <td class="p-1"><div><div class="datos "><small>Profa.</small></div><div class="subT text-center"><small>Cargo</small></div></div></td>
                                     @break
-                                    @case(10)
-                                        <td class="p-1"><div><div class="datos "><small>C.</small></div><div class="subT text-center"><small>Cargo</small></div></div></td>
-                                    @break
                                     @default
                                         Hay un fallo 
                                         <a href="{{ ('inicio.index') }}">
@@ -183,9 +180,6 @@
 
                                     @case(9)
                                         <td class="p-1"><div><div class="datos "><small>Profa.</small></div><div class="subT text-center"><small>Cargo</small></div></div></td>
-                                    @break
-                                    @case(10)
-                                        <td class="p-1"><div><div class="datos "><small>C.</small></div><div class="subT text-center"><small>Cargo</small></div></div></td>
                                     @break
                                     @default
                                         Hay un fallo 

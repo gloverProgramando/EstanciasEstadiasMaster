@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-	@include('plantilla/admin/head')
+@include('plantilla/admin/head')
 <body>
 	<!-- Content page-->
-	<section class="full-box dashboard-contentPage">
+	<section class=" dashboard-contentPage">
 		<!-- NavBar -->
 		@include('plantilla/admin/navBar')
         <!-- Content page -->
@@ -22,7 +22,6 @@
 									<button type="submit" value="Agregar usuario" class="btn btn-info" > <i class="zmdi zmdi-account-add"> Agregar usuario</i></button>
 								</form>
 								<button onclick="armarExcel();" class="btn btn-secondary btn-sm mt-2"> Generar excel</button>
-								{{-- <a href="{{ route('usuarios/table.index') }}" class="btn btn-secondary btn-sm mt-2"> Prueba DataTable</a> --}}
 							</div>
 							
 						</div>
@@ -164,6 +163,7 @@
 			</div>
 		</div>
 		
+		        
 		<script type="text/javascript">
 			
 		</script>
@@ -191,10 +191,6 @@
         XLSX.utils.book_append_sheet(wb, ws, "People");
         XLSX.writeFile(wb,filename);
 		}
-	</script>
-	<script>
-		var user = {!! json_encode($alumnos) !!};
-		console.log(user);
 	</script>
 </body>
 </html>
