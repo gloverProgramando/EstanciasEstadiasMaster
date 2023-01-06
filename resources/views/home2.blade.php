@@ -16,6 +16,11 @@
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 
+    <style>
+        .border-red-500 { border-color: #f56565; }
+        .text-red-600 { color: #e53e3e; }
+        .bg-red-200 { background-color: #fed7d7; }
+    </style>
 
     <script>
    function onSubmit(token) {

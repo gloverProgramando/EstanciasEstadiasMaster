@@ -1,5 +1,5 @@
 body, html{
-	background-color:#ffffff;
+	background-color:#ededed;
     background-size: cover;
 	width: 100%;
 	height: 100%;
@@ -8,10 +8,11 @@ body, html{
 	position: relative;
 }
 .navbar{
-    background-color:#fffffb;
+    background-color:#f2f2f2f7;
     color: black;
     font-size: 20px;
-    box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 6px 6px 6px 8px rgba(0, 0, 0, 0.03);
+    
 }
 a{
     text-decoration: none;
@@ -25,7 +26,7 @@ a{
     color:#fffffbe8;
     transform: translateY(-5px);
     font-size: 24px;
-    background-color: #ff6720a3;
+    background-color: #fe6118d4;
 }
 .navbar-brand{
     color: black;
@@ -45,14 +46,14 @@ a{
 
 .contenedor{
     
-    height: 830px;
+    height: 750px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: auto;
 }
 .contenedor .carta{
-    background-color: #fffffb81;
+    background-color: #fcfcfca1;
    width: 330px;
    height: 430px;
    border-radius: 8px;
@@ -67,15 +68,15 @@ a{
 }
 .contenedor .carta img{
     width: 250px;
-    height: 220px;
+    height: 300px;
 }
 
 .contenedor .carta  a{
  font-weight: 500;
  text-decoration: none;
  border-radius: 8px;
- margin: 10px;
- margin-top: 15px;
+ margin: 8px;
+ margin-top: 10px;
  color: black;
  font-size: 20px;
  transition: all 0.25s;  
@@ -99,14 +100,17 @@ a{
    }
    .imgtam{
     width: 1000px;
-    height: 300px;
+    height: 450px;
     border-radius: 8px;
    }
    .coloractarchivos{
-    background-color: #fffffb;
+    background-color: #83831bd7;
     padding-top: 100px;
     border-radius: 8px;
     margin-top: 25px;
+   }
+   .logoimg{
+    margin-left: 15px;
    }
 
 

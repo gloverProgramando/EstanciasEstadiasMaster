@@ -1,7 +1,7 @@
-
-@include('plantilla/admin/head')
+<!DOCTYPE html>
+<html lang="es">
+	@include('plantilla/admin/head')
 <body>
-
 	<!-- Content page-->
 	<section class="full-box dashboard-contentPage">
 		<!-- NavBar -->
