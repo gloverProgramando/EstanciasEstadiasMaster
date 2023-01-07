@@ -13,7 +13,15 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-10">
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
                         <h2 class="text-titles">Cambiar contraseña <small>(Alumno)</small></h2>
+=======
+                        <h2 class="text-titles">Cambio de contraseña <small>(Alumno)</small></h2>
+>>>>>>> Stashed changes
+=======
+                        <h2 class="text-titles">Cambio de contraseña <small>(Alumno)</small></h2>
+>>>>>>> Stashed changes
                     </div>
                 </div>
             </div>
@@ -31,7 +39,7 @@
                                     <input type="text" id="name"
                                         class="form-control form-control-lg text-center" name="name"
                                         value="{{ auth()->user()->name }}" disabled />
-                                    <label class="form-label" for="name">Nombre Usuario(Matricula)</label>
+                                    <label class="form-label" for="name">Matrícula (Nombre de usuario)</label>
                                 </div>
 
                             </div>
@@ -47,7 +55,7 @@
                                     <input type="email" id="email"
                                         class="form-control form-control-lg text-center" name="email"
                                         value="{{ auth()->user()->email }}" disabled />
-                                    <label class="form-label" for="email">Email(UPQROO)</label>
+                                    <label class="form-label" for="email">Correo Institucional</label>
                                 </div>
                             </div>
                             @error('password')

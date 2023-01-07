@@ -46,6 +46,8 @@
                 <tr style="background: rgb(217, 214, 214)">
                     <th>Matricula</th>
                     <th>Nombre</th>
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     <th>proceso</th>
                     <th>fecha</th>
                     <th>periodo</th>
@@ -55,6 +57,22 @@
                     <th style="display: none">telefono empresa RH</th>
                     <th>asesor empresarial</th>
                     <th>asesor academico</th>
+=======
+=======
+>>>>>>> Stashed changes
+                    <th>Proceso</th>
+                    <th>Fecha</th>
+                    <th>Periodo</th>
+                    <th>Empresa</th>
+                    <th style="display:none">Giro</th>
+                    <th style="display: none">Direccion empresa</th>
+                    <th style="display: none">Telefono empresa RH</th>
+                    <th>Asesor empresarial</th>
+                    <th>Asesor academico</th>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
                 </tr>
             </thead>
 
@@ -71,10 +89,23 @@
                                 estancia 2
                                 @break
                             @case(3)
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
                                 estadia
                                 @break
                             @case(4)
                                 estadia nacional
+=======
+=======
+>>>>>>> Stashed changes
+                                estadía
+                                @break
+                            @case(4)
+                                estadía nacional
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
                                 @break
                             @case(5)
                                 servicio social

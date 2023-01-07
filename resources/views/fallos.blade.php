@@ -10,14 +10,13 @@
         <!-- Content page -->
         <div class="container p-3">
             <div class="page-header">
-                <h2 class="text-titles">Errores <small> Si detecta alguna falla en esta plataforma comunicar al
-                        correo:</small></h2>
+                <h2 class="text-titles"><small> Si presenta algún error la plataforma, favor de enviar un correo electrónico con foto y descripción a: </small></h2>
             </div>
         </div>
         <div class="container p-2">
             <div>
                 <input type="text" name="" id="" class="btnFormato text-center fallo"
-                    value="soportestanciasyestadias@upqroo.edu.mx">
+                    value="estanciasestadias@upqroo.edu.mx">
             </div>
         </div>
     </section>

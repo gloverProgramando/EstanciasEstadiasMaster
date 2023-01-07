@@ -16,26 +16,24 @@
                         Registros
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('usuarios.index') }}">Alumnos</a></li>
-                        <li><a class="dropdown-item" href="{{ route('documentoEstancia1Admin.index', [1]) }}">Documentos
+                        <li><a class="dropdown-item" href="{{ route('datatable.index') }}">Alumnos</a></li>
+                        <li><a class="dropdown-item" href="{{ route('documentoEstancia1Admin.index', [1]) }}"> Registros
                                 Estancias I</a></li>
-                        <li><a class="dropdown-item" href="{{ route('documentoEstancia1Admin.index', [2]) }}">Documentos
+                        <li><a class="dropdown-item" href="{{ route('documentoEstancia1Admin.index', [2]) }}"> Registros
                                 Estancias II</a></li>
-                        <li><a class="dropdown-item" href="{{ route('documentoEstancia1Admin.index', [3]) }}">Documentos
+                        <li><a class="dropdown-item" href="{{ route('documentoEstancia1Admin.index', [3]) }}"> Registros
                                 Estadías</a></li>
-                        <li><a class="dropdown-item" href="{{ route('documentoEstancia1Admin.index', [4]) }}">Documentos
+                        <li><a class="dropdown-item" href="{{ route('documentoEstancia1Admin.index', [4]) }}"> Registros
                                 Estadías nacional</a></li>
-                        <li><a class="dropdown-item" href="{{ route('documentoEstancia1Admin.index', [5]) }}">Documentos
+                        <li><a class="dropdown-item" href="{{ route('documentoEstancia1Admin.index', [5]) }}"> Registros
                                 Servicio social</a></li>
                         <li><a class="dropdown-item" href="{{ route('activar_botones.index') }}">Activar Subida De
                                 Archivos</a></li>
-                        <li><a class="dropdown-item" href="{{ route('datatable.index') }}">datatable</a></li>
-                        <li><a class="dropdown-item" href="{{ route('datatabledetallada.index') }}">datatable
-                                detallada</a></li>
+                        <li><a class="dropdown-item" href="{{ route('datatabledetallada.index') }}">Registro alumno-empresas</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin_ver_editar.index') }}">Perfil</a>
+                    <a class="nav-link" href="{{ route('admin_ver_editar.index') }}">Usuario</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link datosvin" href="{{ route('datos.index') }}">Datos Vinculados</a>

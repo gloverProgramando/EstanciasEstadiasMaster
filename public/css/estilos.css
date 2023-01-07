@@ -1,45 +1,48 @@
-
-
 .text-center{
     color: #080705;
 }
 
 .caja_p{
 	position: relative;
-	background-color: #A8A99E;
-	height: 289px;
-	width: 1000px;
-	border-radius: 15px;
-	top: 200px;
-	left: 240px;
+	background-color: #ffffff;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.6);
+    cursor: default;
+	height: 340px;
+	width: 1180px;
+	border-radius: 5px;
+	top: 10px;
+	left: 90px;
 }
 
 .caja{
 	background-color: #FFFFFF;
-	height: 248px;
-	width: 350px;
-	border-radius: 15px;
+	height: 260px;
+	width: 480px;
+	border-radius: 5px;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.5);
 	position: absolute;
-	left: 13px;
-	top: 38px;
+	left: 55px;
+	top: 53px;
 }
 
 .caja1{
 	background-color: #FFFFFF;
-	height: 248px;
-	width: 480px;
-	border-radius: 15px;
+	height: 256px;
+	width: 540px;
+	border-radius: 5px;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.5);
 	position: absolute;
-	left: 500px;
-	top: 38px;
+	left: 595px;
+	top: 53px;
     overflow: hidden;
     overflow-y: scroll;
 }
 
 .leg{
 	color: white;
-	width: 100%;
-	background-color: #080705;
+	width: 100.1%;
+	background-color:#fc7c04;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
 	text-align: center;
 
 }
@@ -47,41 +50,102 @@
 .datos{
 	position: relative;
 	text-align: center;
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	color: #FFFFFF;
 	background-color: #5B3427;
 	width: 100%;
 	height: 22px;
 	top: -1px;
+=======
+=======
+>>>>>>> Stashed changes
+	color: #000000;
+    background-color: #FFFFFF;
+    cursor: default;
+	width: 100.5%;
+    right: 1.2px;
+	height: 22px;
+	top: 80px;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 }
 
-.datos1{
+.datos1{/*correo*/
 	position: relative;
 	text-align: center;
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	color: #FFFFFF;
 	background-color: #5B3427;
 	width: 100%;
 	height: 22px;
     top: 35px;
+=======
+=======
+>>>>>>> Stashed changes
+    color: #000000;
+    background-color: #FFFFFF;
+    cursor: default;
+	width: 100.5%;
+    right: 1.2px;
+	height: 22px;
+    top: -1px;
+>>>>>>> Stashed changes
 
 }
 
-.datos2{
+.datos2{/*matricula*/
 	position: relative;
 	text-align: center;
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	color: #FFFFFF;
 	background-color: #5B3427;
 	width: 100%;
 	height: 22px;
 	top: 75px;
+=======
+=======
+>>>>>>> Stashed changes
+    color: #000000;
+    background-color: #FFFFFF;
+    /*box-shadow: 0px 1px 10px rgba(0,0,0,0.2);*/
+    cursor: default;
+	width: 100.5%;
+    right: 1.2px;
+	height: 22px;
+	top: 40px;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
 }
 
-.datos3{
+.datos3{/*carrera*/
 	position: relative;
 	text-align: center;
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	color: #FFFFFF;
 	background-color: #5B3427;
 	width: 100%;
+=======
+=======
+>>>>>>> Stashed changes
+    color: #000000;
+    background-color: #FFFFFF;
+    /*box-shadow: 0px 1px 10px rgba(0,0,0,0.2);*/
+    cursor: default;
+	width: 100.5%;
+    right: 1.2px;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 	height: 22px;
 	top: 120px;
 }
@@ -91,11 +155,11 @@
     position: absolute;
     height: 180px;
     width: 100%;
-    background-color: #A8A99E;
 }
 
 .nom{
-    background-color: #1f68a2;
+    background-color: #fdfdfd;
+    border:1px solid black;
 }
 
 .imss{
@@ -104,7 +168,7 @@
     position: absolute;
     height: 180px;
     width: 100%;
-    background-color: #A8A99E;
+    background-color: #fdfdfd;
 }
 
 .cartr{
@@ -112,7 +176,7 @@
     position: absolute;
     height: 180px;
     width: 100%;
-    background-color: #A8A99E;
+    background-color: #fdfdfd;
 }
 
 .cartp{
@@ -120,7 +184,7 @@
     position: absolute;
     height: 180px;
     width: 100%;
-    background-color: #A8A99E;
+    background-color: #fdfdfd;
 }
 
 .cartA{
@@ -128,7 +192,7 @@
     position: absolute;
     height: 180px;
     width: 100%;
-    background-color: #A8A99E;
+    background-color: #fdfdfd;
 }
 
 .cedlr{
@@ -136,7 +200,7 @@
     position: absolute;
     height: 180px;
     width: 100%;
-    background-color: #A8A99E;
+    background-color: #fdfdfd;
 }
 
 .df{
@@ -144,7 +208,7 @@
     position: absolute;
     height: 180px;
     width: 100%;
-    background-color: #A8A99E;
+    background-color: #fdfdfd;
 }
 
 .cartl{
@@ -152,7 +216,7 @@
     position: absolute;
     height: 180px;
     width: 100%;
-    background-color: #A8A99E;
+    background-color: #fdfdfd;
 }
 
 .cartc{
@@ -160,7 +224,7 @@
     position: absolute;
     height: 180px;
     width: 100%;
-    background-color: #A8A99E;
+    background-color: #fdfdfd;
 }
 
 .rm{
@@ -168,7 +232,7 @@
     position: absolute;
     height: 180px;
     width: 100%;
-    background-color: #A8A99E;
+    background-color: #fdfdfd;
 }
 
 .rm2{
@@ -176,7 +240,7 @@
     position: absolute;
     height: 180px;
     width: 100%;
-    background-color: #A8A99E;
+    background-color: #fdfdfd;
 }
 
 .rm3{
@@ -184,7 +248,7 @@
     position: absolute;
     height: 180px;
     width: 100%;
-    background-color: #A8A99E;
+    background-color: #fdfdfd;
 }
 
 .rm4{
@@ -192,7 +256,7 @@
     position: absolute;
     height: 180px;
     width: 100%;
-    background-color: #A8A99E;
+    background-color: #fdfdfd;
 }
 
 .rm5{
@@ -200,7 +264,7 @@
     position: absolute;
     height: 180px;
     width: 100%;
-    background-color: #A8A99E;
+    background-color: #fdfdfd;
 }
 
 .rm6{
@@ -208,7 +272,7 @@
     position: absolute;
     height: 180px;
     width: 100%;
-    background-color: #A8A99E;
+    background-color: #fdfdfd;
 }
 
 .rm7{
@@ -232,7 +296,7 @@
     position: absolute;
     height: 180px;
     width: 100%;
-    background-color: #A8A99E;
+    background-color: #fdfdfd;
 }
 
 .rm10{
@@ -240,7 +304,7 @@
     position: absolute;
     height: 180px;
     width: 100%;
-    background-color: #A8A99E;
+    background-color: #fdfdfd;
 }
 
 .rm11{
@@ -248,7 +312,7 @@
     position: absolute;
     height: 180px;
     width: 100%;
-    background-color: #A8A99E;
+    background-color: #fdfdfd;
 }
 
 .rm12{
@@ -256,7 +320,7 @@
     position: absolute;
     height: 180px;
     width: 100%;
-    background-color: #A8A99E;
+    background-color: #fdfdfd;
 }
 
 .btnVer{
@@ -268,5 +332,5 @@
 }
 
 .btnObservaciones{
-    width: 200px;
+    width: 130px;
 }

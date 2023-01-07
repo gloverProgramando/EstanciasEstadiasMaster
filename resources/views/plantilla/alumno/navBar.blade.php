@@ -14,12 +14,12 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        Formatos
+                        Registros
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('estancia1.index', [1]) }}">Estancias 1</a></li>
-                        <li><a class="dropdown-item" href="{{ route('estancia1.index', [2]) }}">Estancias 2</a></li>
-                        <li><a class="dropdown-item" href="{{ route('estancia1.index', [3]) }}">Estadias</a></li>
+                        <li><a class="dropdown-item" href="{{ route('estancia1.index', [1]) }}">Estancias I</a></li>
+                        <li><a class="dropdown-item" href="{{ route('estancia1.index', [2]) }}">Estancias II</a></li>
+                        <li><a class="dropdown-item" href="{{ route('estancia1.index', [3]) }}">Estadías</a></li>
                         <li><a class="dropdown-item" href="{{ route('estancia1.index', [4]) }}">Estadias Nacionales</a>
                         </li>
                         <li><a class="dropdown-item" href="{{ route('estancia1.index', [5]) }}">Servicio Social (Terapia
@@ -27,10 +27,10 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('alumno_ver_editar.index') }}">Perfil</a>
+                    <a class="nav-link" href="{{ route('alumno_ver_editar.index') }}">Usuario</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('fallos.index') }}">Errores</a>
+                    <a class="nav-link" href="{{ route('fallos.index') }}">Soporte</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('login.destroy') }}">Cerrar Sesión</a>

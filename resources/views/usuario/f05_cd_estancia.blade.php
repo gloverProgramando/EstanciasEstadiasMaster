@@ -149,7 +149,7 @@
                     </p>
                     <div class="Parrafo">
                             Por medio de la presente, hacemos constar que el alumno <b>[ NOMBRE DEL ALUMNO ]</b>, del Programa Educativo [ NOMBRE DEL PROGRAMA EDUCATIVO ], 
-                            ha cumplido satisfactoriamente sus actividades de  Estadía, realizada en esta <b>[ EMPRESA/INSTITUCIÓN ]</b>; elaborando el proyecto: [ NOMBRE DEL PROYECTO ]
+                            ha cumplido satisfactoriamente sus actividades de  Estancia I, realizada en esta <b>[ EMPRESA/INSTITUCIÓN ]</b>; elaborando el proyecto: [ NOMBRE DEL PROYECTO ]
                             durante el periodo comprendido del <b>[ FECHA DE INICIO ]</b>  al <b>[ FECHA DE TERMINACIÓN ]</b>, el cual desarrolló en el departamento de <b>[ NOMBRE DEL DEPARTAMENTO ]</b>,
                             bajo la asesoría de <b>[ NOMBRE DEL ASESOR EXTERNO ]</b>, por parte de la empresa.     
                         </div>

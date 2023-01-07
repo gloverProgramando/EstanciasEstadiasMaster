@@ -14,7 +14,7 @@
 
 .dashboard-sideBar-Menu > li > a > i.zmdi-caret-down{
 	line-height: 50px;
-	transition: all .3s ease-in-out; 
+	transition: all .3s ease-in-out;
 }
 .dashboard-sideBar-Menu > li > a{
 	padding: 0 15px;
@@ -95,9 +95,9 @@
 }
 
 .nombreDoc{
-	width:280px; 
-	text-align:center; 
-	font-size:13px; 
+	width:280px;
+	text-align:center;
+	font-size:13px;
 	height:30px;
 }
 
@@ -154,7 +154,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-  
+
 	border-radius:5px ;
 }
 
@@ -166,7 +166,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-  
+
 	border-radius:5px ;
 }
 
@@ -193,8 +193,7 @@
 }
 .datos{
 	text-align: center;
-	background-color: #E1E1E1;
-	border-bottom: 1px solid black;
+
 }
 .datosF04{
 	font-size: 13px;
@@ -209,7 +208,7 @@
 }
 .tablaE{
 	border-left: 1px solid black;
-	
+
 }
 .sello{
 	justify-content: center;
@@ -271,18 +270,24 @@
 	width: 100%;
 	height: 30px;
 	font-size: 13px;
-	color: white;
-	background: rgb(31 104 162); 
+	background: white;
+	border:1px solid rgb(17, 17, 133);
+	color: rgb(17, 17, 133);
 }
 .btnAceptar{
 	width: 100%;
 	height: 30px;
 	font-size: 13px;
-	color: white;
+	background: white;
+	border:1px solid rgb(15, 92, 15);
+	color: rgb(15, 92, 15);
 }
 .btnObservaciones{
 	width: 100%;
 	height: 30px;
+	border:1px solid red;
+	background: white;
+	color: red;
 	font-size: 13px;
 }
 
@@ -292,8 +297,10 @@
 .btnPendiente{
 	width: 100%;
 	height: 30px;
+	background: white;
+	border:1px solid rgb(238, 196, 8);
 	font-size: 13px;
-	color: rgb(255, 255, 255);
+	color: rgb(238, 196, 8);
 }
 
 .id_d{
@@ -306,8 +313,10 @@
 	font-size: 14px;
 }
 .divNombreCard{
-	background: #1f68a2;
-	color: white;
+	border-radius: 15px;
+    border: 1px solid black;
+	background: white;
+	color: black;
 }
 .nombreDoc{
 	font-size: 12px;
@@ -315,7 +324,9 @@
 .buscar{
 	width: 100%;
 	height: 38px;
-	background: rgb(31 104 162); 
+	background: #fd7e14;
+	border:1px solid black;
+
 	color: white;
 }
 
@@ -548,7 +559,7 @@
 
 /*======= MEDIA QUERIES*/
 @media (min-width: 368px) and (max-width: 766px){
-	
+
 	.logoLogin{
 		width: 100%;
 	}
@@ -617,8 +628,8 @@
 	}
 
 	.nombreDoc{
-		text-align:center; 
-		font-size:11px; 
+		text-align:center;
+		font-size:11px;
 		height:30px;
 		width: 100%;
 	}
@@ -626,7 +637,7 @@
 		width: 100%;
 	}
 	/*admin*/
-	
+
 	.tablaDoc{
 		font-size: 12px;
 	}
@@ -700,14 +711,14 @@
 		justify-content: center;
 	}
 
-	
+
 	.nombreDoc{
-		text-align:center; 
-		font-size:12px; 
+		text-align:center;
+		font-size:12px;
 		height:30px;
 		width: 100%;
 	}
-	
+
 /*admin*/
 	.documentosUsuario{
 		font-size: 12px;
