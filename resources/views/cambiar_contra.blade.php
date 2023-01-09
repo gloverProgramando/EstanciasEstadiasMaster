@@ -13,15 +13,9 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-10">
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                        <h2 class="text-titles">Cambiar contraseña <small>(Alumno)</small></h2>
-=======
                         <h2 class="text-titles">Cambio de contraseña <small>(Alumno)</small></h2>
->>>>>>> Stashed changes
-=======
-                        <h2 class="text-titles">Cambio de contraseña <small>(Alumno)</small></h2>
->>>>>>> Stashed changes
+
+                        
                     </div>
                 </div>
             </div>

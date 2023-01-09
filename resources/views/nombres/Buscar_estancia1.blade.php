@@ -17,9 +17,6 @@
         <!-- notificaciones -->
         @include('notificaciones/notificaciones')
         <div class="container">
-
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
             <div class="row">
                 <div class=" col-12 col-sm-12 col-md-5">
                     <form action="{{ route('Buscar_estancia1.index', [$proceso[0], $proceso[1]]) }}" method="GET">
@@ -45,9 +42,6 @@
                             <div class=" col-8 col-sm-8 col-md-4">
                                 <input type="number" class="form-control" id="año" name="año"
                                     placeholder="ejem 2022" value="{{ $año }}" min="1999" max="2050">
-=======
-=======
->>>>>>> Stashed changes
                 <div class="row">
                     <div class=" col-12 col-sm-12 col-md-5">
                         <form action="{{ route('Buscar_estancia1.index',[$proceso[0],$proceso[1]]) }}" method="GET">

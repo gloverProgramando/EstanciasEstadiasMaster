@@ -9,7 +9,6 @@
 
 </head>
 <body>
-    @include('plantilla/admin/sideBar')
 	<!-- Content page-->
 	<section class="full-box dashboard-contentPage">
 		<!-- NavBar -->

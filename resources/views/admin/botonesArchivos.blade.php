@@ -3,7 +3,6 @@
     @include('plantilla/admin/head')
 <body>
     <!-- SideBar -->
-	@include('plantilla/admin/navBar')
 
 	<!-- Content page-->
 	<section class="full-box dashboard-contentPage">
